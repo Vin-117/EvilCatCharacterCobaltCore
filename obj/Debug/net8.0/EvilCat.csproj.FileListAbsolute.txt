@@ -1,0 +1,9 @@
+C:\Users\conce\Desktop\Cobalt Core Mods\Mine\EvilCat\bin\Debug\net8.0\EvilCat.dll.config
+C:\Users\conce\Desktop\Cobalt Core Mods\Mine\EvilCat\bin\Debug\net8.0\EvilCat.deps.json
+C:\Users\conce\Desktop\Cobalt Core Mods\Mine\EvilCat\bin\Debug\net8.0\EvilCat.dll
+C:\Users\conce\Desktop\Cobalt Core Mods\Mine\EvilCat\obj\Debug\net8.0\EvilCat.csproj.AssemblyReference.cache
+C:\Users\conce\Desktop\Cobalt Core Mods\Mine\EvilCat\obj\Debug\net8.0\EvilCat.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\conce\Desktop\Cobalt Core Mods\Mine\EvilCat\obj\Debug\net8.0\EvilCat.AssemblyInfoInputs.cache
+C:\Users\conce\Desktop\Cobalt Core Mods\Mine\EvilCat\obj\Debug\net8.0\EvilCat.AssemblyInfo.cs
+C:\Users\conce\Desktop\Cobalt Core Mods\Mine\EvilCat\obj\Debug\net8.0\EvilCat.csproj.CoreCompileInputs.cache
+C:\Users\conce\Desktop\Cobalt Core Mods\Mine\EvilCat\obj\Debug\net8.0\EvilCat.dll
