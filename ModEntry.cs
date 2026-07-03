@@ -1,5 +1,6 @@
-﻿using EvilCat.External;
-using EvilCat.Features;
+﻿using EvilCat.Actions;
+using EvilCat.Cards;
+using EvilCat.External;
 using EvilCat.Features;
 using HarmonyLib;
 using Microsoft.Extensions.Logging;
@@ -73,6 +74,7 @@ internal class ModEntry : SimpleMod
     ///
     private static List<Type> EvilCatCommonCardTypes = 
     [
+        typeof(EvilCatCorrupt)
     ];
     private static List<Type> EvilCatUncommonCardTypes = 
     [    
@@ -190,6 +192,7 @@ internal class ModEntry : SimpleMod
             {
                 cards = 
                 [
+                    new EvilCatCorrupt()
                 ],
             },
             SoloStarters = new StarterDeck
@@ -216,6 +219,11 @@ internal class ModEntry : SimpleMod
         /// Define status metadata and manager
         ///
         //(TODO)
+
+
+        ///Define tooltip sprites
+        AExhaustSelect.AExhaustSelectSpr = RegisterSprite(package, "assets/Actions/chooseExhaust.png").Sprite;
+        AOptionalExhaustSelect.AOptionalExhaustSelectSpr = RegisterSprite(package, "assets/Actions/optionalExhaust.png").Sprite;
 
 
 
@@ -310,6 +318,9 @@ internal class ModEntry : SimpleMod
     //
     private static void ResetDisplayName(ref string __result)
     {
+        //NOTE: This breaks if another mod has a name starting with "CAT?"
+        //OR if using different languages. If either of these edge cases 
+        //ever come up will need to change this.
         if (__result == "CAT?")
         {
             __result = "\\\\cat.msi";

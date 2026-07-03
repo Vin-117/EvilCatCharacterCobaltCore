@@ -1,59 +1,34 @@
 ﻿{
-    "character": {
+    "character": 
+    {
         "name": "CAT?",
         "desc": ["<c=FF48EB>CAT?</c>", "The ship's computer? Her cards <c=boldPink>exhaust</c> other cards, and provide lots of <c=boldPink>attacks</c> and <c=boldPink>debuffs</c>"]
     },
-    "status": {
-        "knowledge": {
-            "name": "Knowledge",
-            "desc": "Base limit of 3. When reaching the limit, spend the required <c=status>KNOWLEDGE</c> to gain 1 <c=status>POWERDRIVE</c> and 1 <c=status>LESSON</c>. Excess <c=status>KNOWLEDGE</c> is not lost."
-        },
-        "lesson": {
-            "name": "Lesson",
-            "desc": "Increase the limit of <c=status>KNOWLEDGE</c> by {0}."
-        }
+    "status": 
+    {
     },
-    "action": {
-        "AGainPonder": {
-            "title": "Gain Ponder",
-            "draw": "Add <c=boldPink>{{Count}}</c> <c=card>Ponder</c>s to your <c=white>draw pile</c>.",
-            "discard": "Add <c=boldPink>{{Count}}</c> <c=card>Ponder</c>s to your <c=white>discard pile</c>."
+    "action": 
+    {
+        "AExhaustSelect": 
+        {
+            "title": "Exhaust Choice",
+            "desc_single": "Choose <c=boldPink>1</c> card to exhaust from your hand.",
+            "desc" : "Choose <c=boldPink>{{cnt}}</c> cards to discard from your hand."
         },
-        "AOverthink": {
-            "title": "Overthink",
-            "desc": "Discard a <c=card>Ponder</c> in hand, or in the draw pile."
-        }
+        "AOptionalExhaustSelect": 
+        {
+            "title": "Optional Exhaust",
+            "desc_single": "Optionally exhaust <c=boldPink>1</c> card from your hand.",
+            "desc" : "Optionally exhaust up to <c=boldPink>{{cnt}}</c> cards from your hand."
+        },
     },
-    "card": {
-        "LessonPlan": {
-            "name": "Lesson Plan"
+    "card": 
+    {
+        "EvilCatCorrupt": 
+        {
+            "name": "Corrupt"
         },
-        "PatternBlock": {
-            "name": "Pattern Block"
-        },
-        
-        "DeepStudy": {
-            "name": "Deep Study"
-        },
-        
-        "ExtractKnowledge": {
-            "name": "Extract Knowledge",
-            "desc": "<c=attack>Attack {0}</c>. If it kills, gain a <c=cardtrait>non-temp</c> <c=card>Ponder</c>.",
-            "descB": "<c=attack>Attack {0}</c>. If it kills, gain a <c=cardtrait>non-temp</c> <c=card>Ponder B</c>."
-        },
-        
-        "Ponder": {
-            "name": "Ponder"
-        }
     },
     "artifact": {
-        "BuriedKnowledge": {
-            "name": "BURIED KNOWLEDGE",
-            "desc": "At the start of combat, add 3 <c=card>Ponder</c>s to the discard pile."
-        },
-        "Lexicon": {
-            "name": "LEXICON",
-            "desc": "Whenever you gain a <c=card>Ponder</c> during combat, it is given the A or B upgrade, alternating."
-        }
     }
 }
