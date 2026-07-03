@@ -1,12 +1,15 @@
-﻿using HarmonyLib;
+﻿using EvilCat.External;
+using EvilCat.Features;
+using EvilCat.Features;
+using HarmonyLib;
 using Microsoft.Extensions.Logging;
 using Nanoray.PluginManager;
 using Nickel;
+using OneOf.Types;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using EvilCat.External;
 
 namespace EvilCat;
 
@@ -30,16 +33,16 @@ internal class ModEntry : SimpleMod
 
 
     ///
-    /// This is for missing status registration
-    ///
-    internal static IPlayableCharacterEntryV2 EvilCatPlayableCharacter { get; private set; } = null!;
-
-
-
-    ///
     /// Construct deck
     ///
     internal IDeckEntry EvilCatDeck;
+
+
+
+    ///
+    /// Construct character
+    ///
+    internal static IPlayableCharacterEntryV2 EvilCatPlayableCharacter { get; private set; } = null!;
 
 
 
@@ -161,7 +164,7 @@ internal class ModEntry : SimpleMod
         ///
         /// Define deck metadata
         ///
-        EvilCatDeck = helper.Content.Decks.RegisterDeck("Demo", new DeckConfiguration
+        EvilCatDeck = helper.Content.Decks.RegisterDeck("EvilCat", new DeckConfiguration
         {
             Definition = new DeckDef
             {
@@ -255,6 +258,15 @@ internal class ModEntry : SimpleMod
 
 
 
+        //
+        //Define patch to change Evil Cat's name to proper display name in combat
+        //
+        var ResetName_PatchTargetMethod = typeof(Character).GetMethod("GetDisplayName", AccessTools.all, new[] { typeof(string), typeof(State) });
+        var ResetName_PatchInsertionMethod = typeof(ModEntry).GetMethod("ResetDisplayName", AccessTools.all);
+        Harmony.Patch(ResetName_PatchTargetMethod, postfix: new HarmonyMethod(ResetName_PatchInsertionMethod));
+
+
+
         ///
         /// Setup dialogue machine localdB
         ///
@@ -290,5 +302,19 @@ internal class ModEntry : SimpleMod
                 .ToImmutableList()
         });
     }
+
+
+
+    //
+    //Define method to change the way Evil Cat's name is displayed in combat
+    //
+    private static void ResetDisplayName(ref string __result)
+    {
+        if (__result == "CAT?")
+        {
+            __result = "\\\\cat.msi";
+        }
+    }
+
 }
 

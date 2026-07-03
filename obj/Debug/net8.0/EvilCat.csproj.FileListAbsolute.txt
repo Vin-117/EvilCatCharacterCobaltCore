@@ -7,3 +7,4 @@ C:\Users\conce\Desktop\Cobalt Core Mods\Mine\EvilCat\obj\Debug\net8.0\EvilCat.As
 C:\Users\conce\Desktop\Cobalt Core Mods\Mine\EvilCat\obj\Debug\net8.0\EvilCat.AssemblyInfo.cs
 C:\Users\conce\Desktop\Cobalt Core Mods\Mine\EvilCat\obj\Debug\net8.0\EvilCat.csproj.CoreCompileInputs.cache
 C:\Users\conce\Desktop\Cobalt Core Mods\Mine\EvilCat\obj\Debug\net8.0\EvilCat.dll
+C:\Users\conce\Desktop\Cobalt Core Mods\Mine\EvilCat\obj\Debug\net8.0\EvilCat.sourcelink.json
