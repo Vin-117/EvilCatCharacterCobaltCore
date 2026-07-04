@@ -256,7 +256,7 @@ internal class ModEntry : SimpleMod
             Icon = (state, card) => EvilCatImmortalIcon.Sprite,
             Tooltips = (state, card) => 
             [
-                new GlossaryTooltip($"trait.{Instance.Package.Manifest.UniqueName}::Sequential")
+                new GlossaryTooltip($"trait.{Instance.Package.Manifest.UniqueName}::Immortal")
                 {
                     Icon = EvilCatImmortalIcon.Sprite,
                     TitleColor = Colors.cardtrait,
@@ -265,6 +265,7 @@ internal class ModEntry : SimpleMod
                 },
             ]
         });
+        _ = new ImmortalTraitManager();
 
 
 
@@ -367,6 +368,14 @@ internal class ModEntry : SimpleMod
             __result = "\\\\cat.msi";
         }
     }
+
+
+    ///
+    ///Define method to send Immortal cards to discard from exhaust pile on turn end
+    ///
+
+
+
 
 }
 

@@ -49,7 +49,7 @@
         "Immortal": 
         {
             "name": "Undying",
-            "desc": "Whatever this card enters the exhaust pile, it is immediately moved to the discard pile."
+            "desc": "At the end of your turn, if this card is in your exhaust pile, it is placed in the discard pile."
         },
     }
 }

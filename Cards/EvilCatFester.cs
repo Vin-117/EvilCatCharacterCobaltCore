@@ -4,6 +4,7 @@ using System.Reflection;
 using Nanoray.PluginManager;
 using Nickel;
 using static EvilCat.External.IKokoroApi.IV2;
+using EvilCat.Features;
 
 namespace EvilCat.Cards;
 
@@ -90,11 +91,21 @@ public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
         {
             case Upgrade.None:
                 {
-                    return new HashSet<ICardTraitEntry> { ModEntry.Instance.EvilCatImmortalTrait };
+                    this.SetIsImmortal(true);
+                    HashSet<ICardTraitEntry> cardTraitEntries = new HashSet<ICardTraitEntry>()
+                    {
+                        ModEntry.Instance.EvilCatImmortalTrait
+                    };
+                    return cardTraitEntries;
                 }
             case Upgrade.A:
                 {
-                    return new HashSet<ICardTraitEntry> { ModEntry.Instance.EvilCatImmortalTrait };
+                    this.SetIsImmortal(true);
+                    HashSet<ICardTraitEntry> cardTraitEntries = new HashSet<ICardTraitEntry>()
+                    {
+                        ModEntry.Instance.EvilCatImmortalTrait
+                    };
+                    return cardTraitEntries;
                 }
             case Upgrade.B:
                 {
