@@ -34,6 +34,7 @@ public class AExhaustTargetCard : CardAction
         if (card != null && c.hand.Contains(card))
         {
             Audio.Play(Event.CardHandling);
+            card.ExhaustFX();
             c.hand.Remove(card); //Remove card from hand
             //c.RenderExhaust(g);
             c.SendCardToExhaust(s, card); //Send to exhaust pile

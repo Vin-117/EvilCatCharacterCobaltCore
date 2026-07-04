@@ -70,11 +70,20 @@ internal class ModEntry : SimpleMod
 
 
     ///
+    ///Define custom trait
+    ///
+    internal ICardTraitEntry EvilCatImmortalTrait;
+    internal ISpriteEntry EvilCatImmortalIcon;
+
+
+    ///
     /// Define card types as static lists
     ///
     private static List<Type> EvilCatCommonCardTypes = 
     [
-        typeof(EvilCatCorrupt)
+        typeof(EvilCatCorrupt),
+        typeof(EvilCatDisplace),
+        typeof(EvilCatFester)
     ];
     private static List<Type> EvilCatUncommonCardTypes = 
     [    
@@ -83,7 +92,8 @@ internal class ModEntry : SimpleMod
     [    
     ];
     private static List<Type> EvilCatSpecialCardTypes = 
-    [    
+    [
+        typeof(EvilCatVoid)
     ];
     private static List<Type> EvilCatEXECardTypes =
     [
@@ -192,7 +202,9 @@ internal class ModEntry : SimpleMod
             {
                 cards = 
                 [
-                    new EvilCatCorrupt()
+                    new EvilCatCorrupt(),
+                    new EvilCatDisplace(),
+                    new EvilCatFester()
                 ],
             },
             SoloStarters = new StarterDeck
@@ -221,9 +233,38 @@ internal class ModEntry : SimpleMod
         //(TODO)
 
 
+        ///
         ///Define tooltip sprites
+        ///
         AExhaustSelect.AExhaustSelectSpr = RegisterSprite(package, "assets/Actions/chooseExhaust.png").Sprite;
         AOptionalExhaustSelect.AOptionalExhaustSelectSpr = RegisterSprite(package, "assets/Actions/optionalExhaust.png").Sprite;
+
+
+
+        ///
+        ///Define trait sprites
+        ///
+        EvilCatImmortalIcon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardTrait/Immortal.png"));
+
+
+        ///
+        ///Define custom traits
+        ///
+        EvilCatImmortalTrait = helper.Content.Cards.RegisterTrait("ImmortalTrait", new()
+        {
+            Name = this.AnyLocalizations.Bind(["trait", "Immortal", "name"]).Localize,
+            Icon = (state, card) => EvilCatImmortalIcon.Sprite,
+            Tooltips = (state, card) => 
+            [
+                new GlossaryTooltip($"trait.{Instance.Package.Manifest.UniqueName}::Sequential")
+                {
+                    Icon = EvilCatImmortalIcon.Sprite,
+                    TitleColor = Colors.cardtrait,
+                    Title = Localizations.Localize(["trait", "Immortal", "name"]),
+                    Description = Localizations.Localize(["trait", "Immortal", "desc"])
+                },
+            ]
+        });
 
 
 

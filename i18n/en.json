@@ -28,7 +28,28 @@
         {
             "name": "Corrupt"
         },
+        "EvilCatDisplace": 
+        {
+            "name": "Displace"
+        },
+        "EvilCatVoid": 
+        {
+            "name": "Void"
+        },
+        "EvilCatFester": 
+        {
+            "name": "Fester"
+        },
     },
-    "artifact": {
+    "artifact": 
+    {
+    },
+    "trait": 
+    {
+        "Immortal": 
+        {
+            "name": "Undying",
+            "desc": "Whatever this card enters the exhaust pile, it is immediately moved to the discard pile."
+        },
     }
 }
