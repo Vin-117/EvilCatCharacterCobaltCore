@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
+﻿using EvilCat.Actions;
+using EvilCat.Features;
 using Nanoray.PluginManager;
 using Nickel;
-using static EvilCat.External.IKokoroApi.IV2;
-using EvilCat.Features;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace EvilCat.Cards;
 
@@ -12,7 +12,7 @@ namespace EvilCat.Cards;
 //
 //Define card unique class
 //
-public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
+public class EvilCatReanimate : Card, IRegisterable, IHasCustomCardTraits
 {
     //
     //Begin card registration
@@ -38,7 +38,7 @@ public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
             //
             //Define card name and art file
             //
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatFester", "name"]).Localize,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatReanimate", "name"]).Localize,
             //Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/FILENAME.png")).Sprite,
         });
     }
@@ -56,15 +56,18 @@ public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 2
+                        cost = 0,
+                        exhaust = true,
+                        description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "EvilCatReanimate", "desc"]))
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 2,
-                        retain = true
+                        cost = 0,
+                        exhaust = true,
+                        description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "EvilCatReanimate", "descA"]))
                     };
                 }
             case Upgrade.B:
@@ -72,7 +75,7 @@ public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
                     return new CardData
                     {
                         cost = 1,
-                        unplayable = true
+                        description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "EvilCatReanimate", "descB"]))
                     };
                 }
             default:
@@ -81,6 +84,7 @@ public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
                 }
         }
     }
+
 
 
     ///
@@ -92,21 +96,11 @@ public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
         {
             case Upgrade.None:
                 {
-                    this.SetIsImmortal(true);
-                    HashSet<ICardTraitEntry> cardTraitEntries = new HashSet<ICardTraitEntry>()
-                    {
-                        ModEntry.Instance.EvilCatImmortalTrait
-                    };
-                    return cardTraitEntries;
+                    return new HashSet<ICardTraitEntry> { };
                 }
             case Upgrade.A:
                 {
-                    this.SetIsImmortal(true);
-                    HashSet<ICardTraitEntry> cardTraitEntries = new HashSet<ICardTraitEntry>()
-                    {
-                        ModEntry.Instance.EvilCatImmortalTrait
-                    };
-                    return cardTraitEntries;
+                    return new HashSet<ICardTraitEntry> { };
                 }
             case Upgrade.B:
                 {
@@ -125,8 +119,6 @@ public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
 
     }
 
-
-
     //
     //Define what actions the card performs for default and each upgrade path
     //
@@ -138,68 +130,42 @@ public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new List<CardAction>
                     {
-                        new AStatus
+                        new ACardSelect
                         {
-                            status = Status.overdrive,
-                            statusAmount = 1,
-                            targetPlayer = true
-                        },
-                        ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
-                        (
-                            new AStatus
-                            {
-                                status = Status.overdrive,
-                                statusAmount = 1,
-                                targetPlayer = true
-                            }
-                        ).AsCardAction
-
+                            browseAction = new ReanimatePickCard{ },
+                            browseSource = CardBrowse.Source.ExhaustPile,
+                            ignoreCardType = new EvilCatReanimate().Key()
+                        }
                     };
                 }
             case Upgrade.A:
                 {
                     return new List<CardAction>
                     {
-                        new AStatus
+                        new ACardSelect
                         {
-                            status = Status.overdrive,
-                            statusAmount = 1,
-                            targetPlayer = true
+                            browseAction = new ReanimatePickCard{ },
+                            browseSource = CardBrowse.Source.ExhaustPile,
+                            ignoreCardType = new EvilCatReanimate().Key()
                         },
-                        ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
-                        (
-                            new AStatus
-                            {
-                                status = Status.overdrive,
-                                statusAmount = 1,
-                                targetPlayer = true
-                            }
-                        ).AsCardAction
-
+                        new ACardSelect
+                        {
+                            browseAction = new ReanimatePickCard{ },
+                            browseSource = CardBrowse.Source.ExhaustPile,
+                            ignoreCardType = new EvilCatReanimate().Key()
+                        }
                     };
                 }
             case Upgrade.B:
                 {
                     return new List<CardAction>
                     {
-                        ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
-                        (
-                            new AStatus
-                            {
-                                status = Status.timeStop,
-                                statusAmount = 1,
-                                targetPlayer = true
-                            }
-                        ).AsCardAction,
-                        ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
-                        (
-                            new AStatus
-                            {
-                                status = Status.overdrive,
-                                statusAmount = 1,
-                                targetPlayer = true
-                            }
-                        ).AsCardAction
+                        new ACardSelect
+                        {
+                            browseAction = new ReanimatePickCardToDiscard{ },
+                            browseSource = CardBrowse.Source.ExhaustPile,
+                            ignoreCardType = new EvilCatReanimate().Key()
+                        }
                     };
                 }
             default:

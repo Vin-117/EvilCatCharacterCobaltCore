@@ -40,6 +40,34 @@
         {
             "name": "Fester"
         },
+        "EvilCatInstability": 
+        {
+            "name": "Instability"
+        },
+        "EvilCatManipulate": 
+        {
+            "name": "Manipulate"
+        },
+        "EvilCatUndying":
+        {
+            "name": "Undying"
+        },
+        "EvilCatReanimate":
+        {
+            "name": "Reanimate",
+            "desc": "Return an <c=cardtrait>exhausted</c> card to the draw pile.",
+            "descA": "Return 2 <c=cardtrait>exhausted</c> cards to the draw pile.",
+            "descB": "Return an <c=cardtrait>exhausted</c> card to the discard pile."
+        },
+        "EvilCatAggressiveMode":
+        {
+            "name": "Aggressive Mode"
+        },
+        "EvilCatImpose":
+        {
+            "name": "Impose"
+        },
+        
     },
     "artifact": 
     {
@@ -48,7 +76,7 @@
     {
         "Immortal": 
         {
-            "name": "Undying",
+            "name": "Immortal",
             "desc": "At the end of your turn, if this card is in your exhaust pile, it is placed in the discard pile."
         },
     }

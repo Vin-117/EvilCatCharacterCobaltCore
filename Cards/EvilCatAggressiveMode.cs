@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Nanoray.PluginManager;
 using Nickel;
+using EvilCat.Actions;
 
 namespace EvilCat.Cards;
 
@@ -10,7 +11,7 @@ namespace EvilCat.Cards;
 //
 //Define card unique class
 //
-public class EvilCatDisplace : Card, IRegisterable
+public class EvilCatAggressiveMode : Card, IRegisterable
 {
     //
     //Begin card registration
@@ -36,7 +37,7 @@ public class EvilCatDisplace : Card, IRegisterable
             //
             //Define card name and art file
             //
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatDisplace", "name"]).Localize,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatAggressiveMode", "name"]).Localize,
             //Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/FILENAME.png")).Sprite,
         });
     }
@@ -55,7 +56,7 @@ public class EvilCatDisplace : Card, IRegisterable
                     return new CardData
                     {
                         cost = 1,
-                        flippable = true
+                        exhaust = true
                     };
                 }
             case Upgrade.A:
@@ -63,16 +64,14 @@ public class EvilCatDisplace : Card, IRegisterable
                     return new CardData
                     {
                         cost = 0,
-                        flippable = true
+                        exhaust = true
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 1,
-                        flippable = true,
-                        retain = true
+                        cost = 1
                     };
                 }
             default:
@@ -95,39 +94,33 @@ public class EvilCatDisplace : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new AMove
+                        new AAttack
                         {
-                            dir = -2,
-                            targetPlayer = false
+                            damage = GetDmg(s, 1),
+                            piercing = true
                         },
-                        new AAddCard
+                        new AStatus
                         {
-                            card = new EvilCatVoid()
-                            {
-                            },
-                            destination = CardDestination.Hand,
-                            amount = 1,
+                            status = Status.overdrive,
+                            statusAmount = 1,
+                            targetPlayer = true
                         }
-                        
                     };
                 }
             case Upgrade.A:
                 {
                     return new List<CardAction>
                     {
-                        new AMove
+                        new AAttack
                         {
-                            dir = -2,
-                            targetPlayer = false
+                            damage = GetDmg(s, 1),
+                            piercing = true
                         },
-                        new AAddCard
+                        new AStatus
                         {
-                            card = new EvilCatVoid()
-                            {
-                            },
-                            destination = CardDestination.Hand,
-                            amount = 1,
-                            dialogueSelector = ".EvilCatMeme"
+                            status = Status.overdrive,
+                            statusAmount = 1,
+                            targetPlayer = true
                         }
                     };
                 }
@@ -135,18 +128,16 @@ public class EvilCatDisplace : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new AMove
+                        new AAttack
                         {
-                            dir = -2,
-                            targetPlayer = false
+                            damage = GetDmg(s, 1),
+                            piercing = true
                         },
-                        new AAddCard
+                        new AStatus
                         {
-                            card = new EvilCatVoid()
-                            {
-                            },
-                            destination = CardDestination.Hand,
-                            amount = 1,
+                            status = Status.overdrive,
+                            statusAmount = 1,
+                            targetPlayer = true
                         }
                     };
                 }

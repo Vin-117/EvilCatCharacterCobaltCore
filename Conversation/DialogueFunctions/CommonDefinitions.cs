@@ -1,0 +1,51 @@
+using System.Linq;
+using Microsoft.Extensions.Logging;
+using Nickel;
+
+namespace EvilCat.Conversation;
+
+/// <summary>
+/// For if a dialogue needs to be registered AFTER mods have been loaded
+/// </summary>
+internal interface IDialogueRegisterable
+{
+    static abstract void LateRegister();
+}
+
+static class CommonDefinitions
+{
+    internal static ModEntry Instance => ModEntry.Instance;
+
+    internal static string AmEvilCat => Instance.EvilCatDeck.UniqueName;
+    internal static Deck AmEvilCatDeck => Instance.EvilCatDeck.Deck;
+
+    internal const string AmCat = "comp";
+
+    internal const string AmJumbo = "miner";
+    internal const string AmStardog = "wolf";
+    internal const string AmSmiff = "batboy";
+    internal const string AmRatzo = "knight";
+    internal static string AmDizzy => Deck.dizzy.Key();
+    internal static string AmPeri => Deck.peri.Key();
+    internal static string AmRiggs => Deck.riggs.Key();
+    internal static string AmDrake => Deck.eunice.Key();
+    internal static string AmIsaac => Deck.goat.Key();
+    internal static string AmBooks => Deck.shard.Key();
+    internal static string AmMax => Deck.hacker.Key();
+    internal const string AmVoid = "void";
+    internal const string AmShopkeeper = "nerd";
+    internal const string AmBrimford = "walrus";
+    internal const string AmPirateDrake = "pirate";
+
+    internal readonly static string AmJohnson = "Shockah.Johnson::Johnson";
+    internal readonly static string JohnsonDeck = "Shockah.Johnson.JohnsonDeck";
+    internal readonly static string JohnsonFrugal = "Shockah.Johnson::Frugality";
+
+    internal readonly static string AmNibbs = "TheJazMaster.Nibbs::Nibbs";
+
+    internal readonly static string AmGarrus = "Vintage.VicCharacter::VicCharacterFullMod";
+
+    internal readonly static string AmTera = "TeraTheTaxCollector::Tera";
+
+
+}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Nanoray.PluginManager;
 using Nickel;
+using EvilCat.Actions;
 
 namespace EvilCat.Cards;
 

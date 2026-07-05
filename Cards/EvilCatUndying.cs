@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
+﻿using EvilCat.Actions;
+using EvilCat.Features;
 using Nanoray.PluginManager;
 using Nickel;
-using static EvilCat.External.IKokoroApi.IV2;
-using EvilCat.Features;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace EvilCat.Cards;
 
@@ -12,7 +12,7 @@ namespace EvilCat.Cards;
 //
 //Define card unique class
 //
-public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
+public class EvilCatUndying : Card, IRegisterable, IHasCustomCardTraits
 {
     //
     //Begin card registration
@@ -38,7 +38,7 @@ public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
             //
             //Define card name and art file
             //
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatFester", "name"]).Localize,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatUndying", "name"]).Localize,
             //Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/FILENAME.png")).Sprite,
         });
     }
@@ -56,23 +56,21 @@ public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 2
+                        cost = 1
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 2,
-                        retain = true
+                        cost = 1
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 1,
-                        unplayable = true
+                        cost = 0
                     };
                 }
             default:
@@ -81,6 +79,7 @@ public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
                 }
         }
     }
+
 
 
     ///
@@ -138,18 +137,19 @@ public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new List<CardAction>
                     {
+
                         new AStatus
                         {
-                            status = Status.overdrive,
-                            statusAmount = 1,
-                            targetPlayer = true
+                            targetPlayer = true,
+                            status = Status.tempShield,
+                            statusAmount = 2
                         },
                         ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
                         (
                             new AStatus
                             {
-                                status = Status.overdrive,
-                                statusAmount = 1,
+                                status = Status.tempShield,
+                                statusAmount = 2,
                                 targetPlayer = true
                             }
                         ).AsCardAction
@@ -160,18 +160,19 @@ public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new List<CardAction>
                     {
+
                         new AStatus
                         {
-                            status = Status.overdrive,
-                            statusAmount = 1,
-                            targetPlayer = true
+                            targetPlayer = true,
+                            status = Status.tempShield,
+                            statusAmount = 3
                         },
                         ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
                         (
                             new AStatus
                             {
-                                status = Status.overdrive,
-                                statusAmount = 1,
+                                status = Status.tempShield,
+                                statusAmount = 3,
                                 targetPlayer = true
                             }
                         ).AsCardAction
@@ -182,12 +183,19 @@ public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new List<CardAction>
                     {
+
+                        new AStatus
+                        {
+                            targetPlayer = true,
+                            status = Status.tempShield,
+                            statusAmount = 1
+                        },
                         ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
                         (
                             new AStatus
                             {
-                                status = Status.timeStop,
-                                statusAmount = 1,
+                                status = Status.tempShield,
+                                statusAmount = 2,
                                 targetPlayer = true
                             }
                         ).AsCardAction,
@@ -195,11 +203,14 @@ public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
                         (
                             new AStatus
                             {
-                                status = Status.overdrive,
-                                statusAmount = 1,
+                                status = Status.tempPayback,
+                                statusAmount = 2,
                                 targetPlayer = true
                             }
-                        ).AsCardAction
+                        ).AsCardAction,
+
+
+
                     };
                 }
             default:

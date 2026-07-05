@@ -1,5 +1,6 @@
 ﻿using EvilCat.Actions;
 using EvilCat.Cards;
+using EvilCat.Conversation;
 using EvilCat.External;
 using EvilCat.Features;
 using HarmonyLib;
@@ -57,7 +58,7 @@ internal class ModEntry : SimpleMod
     ///
     /// This is required for dialogue machine registration
     ///
-    //public LocalDB localDB { get; set; } = null!;
+    public LocalDB localDB { get; set; } = null!;
 
 
 
@@ -83,10 +84,16 @@ internal class ModEntry : SimpleMod
     [
         typeof(EvilCatCorrupt),
         typeof(EvilCatDisplace),
-        typeof(EvilCatFester)
+        typeof(EvilCatFester),
+        typeof(EvilCatInstability),
+        typeof(EvilCatManipulate),
+        typeof(EvilCatUndying),
+        typeof(EvilCatReanimate),
+        typeof(EvilCatAggressiveMode),
+        typeof(EvilCatImpose)
     ];
     private static List<Type> EvilCatUncommonCardTypes = 
-    [    
+    [
     ];
     private static List<Type> EvilCatRareCardTypes = 
     [    
@@ -127,6 +134,7 @@ internal class ModEntry : SimpleMod
     ///
     private static List<Type> EvilCatDialogueTypes =
     [
+        typeof(EvilCatCombatDialogue)
     ];
 
 
@@ -203,8 +211,7 @@ internal class ModEntry : SimpleMod
                 cards = 
                 [
                     new EvilCatCorrupt(),
-                    new EvilCatDisplace(),
-                    new EvilCatFester()
+                    new EvilCatDisplace()
                 ],
             },
             SoloStarters = new StarterDeck
@@ -308,19 +315,32 @@ internal class ModEntry : SimpleMod
 
 
 
+        ///
+        /// Setup dialogue machine localdB
+        ///
+        helper.Events.OnModLoadPhaseFinished += (_, phase) =>
+        {
+            if (phase == ModLoadPhase.AfterDbInit)
+            {
+                localDB = new(helper, package);
+            }
+        };
+        helper.Events.OnLoadStringsForLocale += (_, thing) =>
+        {
+            foreach (KeyValuePair<string, string> entry in localDB.GetLocalizationResults(thing.Locale))
+            {
+                thing.Localizations[entry.Key] = entry.Value;
+            }
+        };
+
+
+
         //
         //Define patch to change Evil Cat's name to proper display name in combat
         //
         var ResetName_PatchTargetMethod = typeof(Character).GetMethod("GetDisplayName", AccessTools.all, new[] { typeof(string), typeof(State) });
         var ResetName_PatchInsertionMethod = typeof(ModEntry).GetMethod("ResetDisplayName", AccessTools.all);
         Harmony.Patch(ResetName_PatchTargetMethod, postfix: new HarmonyMethod(ResetName_PatchInsertionMethod));
-
-
-
-        ///
-        /// Setup dialogue machine localdB
-        ///
-        //(TODO)
 
 
 

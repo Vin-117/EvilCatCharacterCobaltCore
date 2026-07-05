@@ -45,7 +45,7 @@ public class AExhaustTargetCard : CardAction
 
 
 ///
-/// Function which queues actions for multibrowse
+/// Function which queues exhaust actions for multibrowse
 /// 
 public class AMultiBrowseExhaustActions : CardAction
 {
@@ -63,6 +63,35 @@ public class AMultiBrowseExhaustActions : CardAction
             var action = new AExhaustTargetCard { };
             action.selectedCard = card;
             c.QueueImmediate(action);
+        }
+    }
+}
+
+
+
+public class ReanimatePickCard : CardAction
+{
+    public override void Begin(G g, State s, Combat c)
+    {
+        Card card = selectedCard!;
+        if (card != null)
+        {
+            s.RemoveCardFromWhereverItIs(card.uuid);
+            s.SendCardToDeck(card, doAnimation: true, insertRandomly: true);
+        }
+    }
+}
+
+
+public class ReanimatePickCardToDiscard : CardAction
+{
+    public override void Begin(G g, State s, Combat c)
+    {
+        Card card = selectedCard!;
+        if (card != null)
+        {
+            s.RemoveCardFromWhereverItIs(card.uuid);
+            c.SendCardToDiscard(s, card);
         }
     }
 }
