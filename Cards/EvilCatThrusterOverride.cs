@@ -1,10 +1,8 @@
-﻿using EvilCat.Actions;
-using EvilCat.Features;
-using Nanoray.PluginManager;
-using Nickel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using Nanoray.PluginManager;
+using Nickel;
 
 namespace EvilCat.Cards;
 
@@ -12,7 +10,7 @@ namespace EvilCat.Cards;
 //
 //Define card unique class
 //
-public class EvilCatReanimate : Card, IRegisterable, IHasCustomCardTraits
+public class EvilCatThrusterOverride : Card, IRegisterable
 {
     //
     //Begin card registration
@@ -38,7 +36,7 @@ public class EvilCatReanimate : Card, IRegisterable, IHasCustomCardTraits
             //
             //Define card name and art file
             //
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatReanimate", "name"]).Localize,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatThrusterOverride", "name"]).Localize,
             //Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/FILENAME.png")).Sprite,
         });
     }
@@ -56,9 +54,8 @@ public class EvilCatReanimate : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 0,
-                        exhaust = true,
-                        description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "EvilCatReanimate", "desc"]))
+                        cost = 1,
+                        flippable = true
                     };
                 }
             case Upgrade.A:
@@ -66,8 +63,7 @@ public class EvilCatReanimate : Card, IRegisterable, IHasCustomCardTraits
                     return new CardData
                     {
                         cost = 0,
-                        exhaust = true,
-                        description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "EvilCatReanimate", "descA"]))
+                        flippable = true
                     };
                 }
             case Upgrade.B:
@@ -75,7 +71,8 @@ public class EvilCatReanimate : Card, IRegisterable, IHasCustomCardTraits
                     return new CardData
                     {
                         cost = 1,
-                        description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "EvilCatReanimate", "descB"]))
+                        flippable = true,
+                        retain = true
                     };
                 }
             default:
@@ -86,38 +83,6 @@ public class EvilCatReanimate : Card, IRegisterable, IHasCustomCardTraits
     }
 
 
-
-    ///
-    /// Define additional custom card traits
-    ///
-    public IReadOnlySet<ICardTraitEntry> GetInnateTraits(State state)
-    {
-        switch (this.upgrade)
-        {
-            case Upgrade.None:
-                {
-                    return new HashSet<ICardTraitEntry> { };
-                }
-            case Upgrade.A:
-                {
-                    return new HashSet<ICardTraitEntry> { };
-                }
-            case Upgrade.B:
-                {
-                    this.SetIsImmortal(true);
-                    HashSet<ICardTraitEntry> cardTraitEntries = new HashSet<ICardTraitEntry>()
-                    {
-                        ModEntry.Instance.EvilCatImmortalTrait
-                    };
-                    return cardTraitEntries;
-                }
-            default:
-                {
-                    return new HashSet<ICardTraitEntry> { };
-                }
-        }
-
-    }
 
     //
     //Define what actions the card performs for default and each upgrade path
@@ -130,29 +95,39 @@ public class EvilCatReanimate : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new List<CardAction>
                     {
-                        new ACardSelect
+                        new AMove
                         {
-                            browseAction = new ReanimatePickCard{ },
-                            browseSource = CardBrowse.Source.ExhaustPile,
-                            ignoreCardType = new EvilCatReanimate().Key()
+                            dir = -2,
+                            targetPlayer = false
+                        },
+                        new AAddCard
+                        {
+                            card = new EvilCatSegFault()
+                            {
+                            },
+                            destination = CardDestination.Hand,
+                            amount = 1,
                         }
+                        
                     };
                 }
             case Upgrade.A:
                 {
                     return new List<CardAction>
                     {
-                        new ACardSelect
+                        new AMove
                         {
-                            browseAction = new ReanimatePickCard{ },
-                            browseSource = CardBrowse.Source.ExhaustPile,
-                            ignoreCardType = new EvilCatReanimate().Key()
+                            dir = -2,
+                            targetPlayer = false
                         },
-                        new ACardSelect
+                        new AAddCard
                         {
-                            browseAction = new ReanimatePickCard{ },
-                            browseSource = CardBrowse.Source.ExhaustPile,
-                            ignoreCardType = new EvilCatReanimate().Key()
+                            card = new EvilCatSegFault()
+                            {
+                            },
+                            destination = CardDestination.Hand,
+                            amount = 1,
+                            dialogueSelector = ".EvilCatMeme"
                         }
                     };
                 }
@@ -160,11 +135,18 @@ public class EvilCatReanimate : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new List<CardAction>
                     {
-                        new ACardSelect
+                        new AMove
                         {
-                            browseAction = new ReanimatePickCardToDiscard{ },
-                            browseSource = CardBrowse.Source.ExhaustPile,
-                            ignoreCardType = new EvilCatReanimate().Key()
+                            dir = -2,
+                            targetPlayer = false
+                        },
+                        new AAddCard
+                        {
+                            card = new EvilCatSegFault()
+                            {
+                            },
+                            destination = CardDestination.Hand,
+                            amount = 1,
                         }
                     };
                 }

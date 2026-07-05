@@ -10,7 +10,7 @@ namespace EvilCat.Cards;
 //
 //Define card unique class
 //
-public class EvilCatDisplace : Card, IRegisterable
+public class EvilCatSegFault : Card, IRegisterable
 {
     //
     //Begin card registration
@@ -27,7 +27,7 @@ public class EvilCatDisplace : Card, IRegisterable
             {
                 deck = ModEntry.Instance.EvilCatDeck.Deck,
                 rarity = Rarity.common,
-                dontOffer = false,
+                dontOffer = true,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
 
@@ -36,7 +36,7 @@ public class EvilCatDisplace : Card, IRegisterable
             //
             //Define card name and art file
             //
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatDisplace", "name"]).Localize,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatSegFault", "name"]).Localize,
             //Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/FILENAME.png")).Sprite,
         });
     }
@@ -54,8 +54,9 @@ public class EvilCatDisplace : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1,
-                        flippable = true
+                        cost = 0,
+                        unplayable = true,
+                        temporary = true
                     };
                 }
             case Upgrade.A:
@@ -63,16 +64,18 @@ public class EvilCatDisplace : Card, IRegisterable
                     return new CardData
                     {
                         cost = 0,
-                        flippable = true
+                        unplayable = true,
+                        temporary = true,
+                        retain = true
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 1,
-                        flippable = true,
-                        retain = true
+                        cost = 0,
+                        temporary = true,
+                        exhaust = true
                     };
                 }
             default:
@@ -95,19 +98,6 @@ public class EvilCatDisplace : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new AMove
-                        {
-                            dir = -2,
-                            targetPlayer = false
-                        },
-                        new AAddCard
-                        {
-                            card = new EvilCatVoid()
-                            {
-                            },
-                            destination = CardDestination.Hand,
-                            amount = 1,
-                        }
                         
                     };
                 }
@@ -115,39 +105,14 @@ public class EvilCatDisplace : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new AMove
-                        {
-                            dir = -2,
-                            targetPlayer = false
-                        },
-                        new AAddCard
-                        {
-                            card = new EvilCatVoid()
-                            {
-                            },
-                            destination = CardDestination.Hand,
-                            amount = 1,
-                            dialogueSelector = ".EvilCatMeme"
-                        }
+                        
                     };
                 }
             case Upgrade.B:
                 {
                     return new List<CardAction>
                     {
-                        new AMove
-                        {
-                            dir = -2,
-                            targetPlayer = false
-                        },
-                        new AAddCard
-                        {
-                            card = new EvilCatVoid()
-                            {
-                            },
-                            destination = CardDestination.Hand,
-                            amount = 1,
-                        }
+                        
                     };
                 }
             default:

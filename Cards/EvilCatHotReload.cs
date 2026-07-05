@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
+﻿using EvilCat.Actions;
+using EvilCat.Features;
 using Nanoray.PluginManager;
 using Nickel;
-using static EvilCat.External.IKokoroApi.IV2;
-using EvilCat.Features;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace EvilCat.Cards;
 
@@ -12,7 +12,7 @@ namespace EvilCat.Cards;
 //
 //Define card unique class
 //
-public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
+public class EvilCatHotReload : Card, IRegisterable, IHasCustomCardTraits
 {
     //
     //Begin card registration
@@ -28,7 +28,7 @@ public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
             Meta = new CardMeta
             {
                 deck = ModEntry.Instance.EvilCatDeck.Deck,
-                rarity = Rarity.common,
+                rarity = Rarity.uncommon,
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
@@ -38,7 +38,7 @@ public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
             //
             //Define card name and art file
             //
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatFester", "name"]).Localize,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatHotReload", "name"]).Localize,
             //Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/FILENAME.png")).Sprite,
         });
     }
@@ -56,23 +56,24 @@ public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 2
+                        cost = 0,
+                        exhaust = true
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 2,
-                        retain = true
+                        cost = 0,
+                        exhaust = true
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 1,
-                        unplayable = true
+                        cost = 0,
+                        exhaust = true
                     };
                 }
             default:
@@ -81,6 +82,7 @@ public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
                 }
         }
     }
+
 
 
     ///
@@ -138,41 +140,36 @@ public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new List<CardAction>
                     {
-                        new AStatus
-                        {
-                            status = Status.overdrive,
-                            statusAmount = 1,
-                            targetPlayer = true
-                        },
                         ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
                         (
-                            new AStatus
+                            new AAttack
                             {
-                                status = Status.overdrive,
-                                statusAmount = 1,
-                                targetPlayer = true
+                                damage = GetDmg(s, 1),
+                                piercing = true,
+                                stunEnemy = false
                             }
                         ).AsCardAction
-
                     };
                 }
             case Upgrade.A:
                 {
                     return new List<CardAction>
                     {
-                        new AStatus
-                        {
-                            status = Status.overdrive,
-                            statusAmount = 1,
-                            targetPlayer = true
-                        },
+
                         ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
                         (
-                            new AStatus
+                            new AAttack
                             {
-                                status = Status.overdrive,
-                                statusAmount = 1,
-                                targetPlayer = true
+                                damage = GetDmg(s, 1),
+                                piercing = true,
+                                stunEnemy = false
+                            }
+                        ).AsCardAction,
+                        ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
+                        (
+                            new ADrawCard
+                            {
+                                count = 1
                             }
                         ).AsCardAction
 
@@ -182,24 +179,24 @@ public class EvilCatFester : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new List<CardAction>
                     {
+
                         ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
                         (
-                            new AStatus
+                            new AAttack
                             {
-                                status = Status.timeStop,
-                                statusAmount = 1,
-                                targetPlayer = true
+                                damage = GetDmg(s, 1),
+                                piercing = true,
+                                stunEnemy = false
                             }
                         ).AsCardAction,
                         ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
                         (
-                            new AStatus
+                            new AEnergy
                             {
-                                status = Status.overdrive,
-                                statusAmount = 1,
-                                targetPlayer = true
+                                changeAmount = 1
                             }
                         ).AsCardAction
+
                     };
                 }
             default:

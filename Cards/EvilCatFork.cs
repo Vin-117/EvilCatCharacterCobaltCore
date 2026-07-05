@@ -4,6 +4,8 @@ using System.Reflection;
 using Nanoray.PluginManager;
 using Nickel;
 using EvilCat.Actions;
+using System.Net.Http.Headers;
+using System.Runtime.CompilerServices;
 
 namespace EvilCat.Cards;
 
@@ -11,7 +13,7 @@ namespace EvilCat.Cards;
 //
 //Define card unique class
 //
-public class EvilCatManipulate : Card, IRegisterable
+public class EvilCatFork : Card, IRegisterable
 {
     //
     //Begin card registration
@@ -27,7 +29,7 @@ public class EvilCatManipulate : Card, IRegisterable
             Meta = new CardMeta
             {
                 deck = ModEntry.Instance.EvilCatDeck.Deck,
-                rarity = Rarity.common,
+                rarity = Rarity.uncommon,
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
@@ -37,7 +39,7 @@ public class EvilCatManipulate : Card, IRegisterable
             //
             //Define card name and art file
             //
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatManipulate", "name"]).Localize,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatFork", "name"]).Localize,
             //Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/FILENAME.png")).Sprite,
         });
     }
@@ -55,22 +57,26 @@ public class EvilCatManipulate : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 2
+                        cost = 1,
+                        retain = false,
+                        description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatFork", "desc"], new { cnt = GetDmg(state, 2) })
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 1,
+                        retain = true,
+                        description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatFork", "descA"], new { cnt = GetDmg(state, 2) })
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 2,
-                        flippable = true
+                        cost = 1,
+                        description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatFork", "descB"], new { cnt = GetDmg(state, 2) })
                     };
                 }
             default:
@@ -93,19 +99,18 @@ public class EvilCatManipulate : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new AMove
+                        new AAttack
                         {
-                            dir = -2,
-                            targetPlayer = false
+                            damage = GetDmg(s, 2),
+                            piercing = false
                         },
-                        new AMove
+                        new AAddCard
                         {
-                            dir = 1,
-                            targetPlayer = true
-                        },
-                        new AOptionalExhaustSelect
-                        {
-                            count = 1
+                            card = new EvilCatFork
+                            {
+                                temporaryOverride = true,
+                            },
+                            destination = CardDestination.Discard
                         }
                     };
                 }
@@ -113,40 +118,44 @@ public class EvilCatManipulate : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new AMove
+
+                        new AAttack
                         {
-                            dir = -2,
-                            targetPlayer = false
+                            damage = GetDmg(s, 2),
+                            piercing = false
                         },
-                        new AMove
+                        new AAddCard
                         {
-                            dir = 1,
-                            targetPlayer = true
-                        },
-                        new AOptionalExhaustSelect
-                        {
-                            count = 1
+                            card = new EvilCatFork
+                            {
+                                temporaryOverride = true,
+                                upgrade = Upgrade.A
+                            },
+                            destination = CardDestination.Discard
                         }
+
                     };
                 }
             case Upgrade.B:
                 {
                     return new List<CardAction>
                     {
-                        new AMove
+
+                        new AAttack
                         {
-                            dir = -2,
-                            targetPlayer = false
+                            damage = GetDmg(s, 2),
+                            piercing = false
                         },
-                        new AMove
+                        new AAddCard
                         {
-                            dir = 1,
-                            targetPlayer = true
+                            card = new EvilCatFork
+                            {
+                                temporaryOverride = true,
+                                upgrade = Upgrade.B
+                            },
+                            destination = CardDestination.Hand
                         },
-                        new AOptionalExhaustSelect
-                        {
-                            count = 1
-                        }
+
                     };
                 }
             default:

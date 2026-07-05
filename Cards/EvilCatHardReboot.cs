@@ -12,7 +12,7 @@ namespace EvilCat.Cards;
 //
 //Define card unique class
 //
-public class EvilCatUndying : Card, IRegisterable, IHasCustomCardTraits
+public class EvilCatHardReboot : Card, IRegisterable, IHasCustomCardTraits
 {
     //
     //Begin card registration
@@ -28,7 +28,7 @@ public class EvilCatUndying : Card, IRegisterable, IHasCustomCardTraits
             Meta = new CardMeta
             {
                 deck = ModEntry.Instance.EvilCatDeck.Deck,
-                rarity = Rarity.common,
+                rarity = Rarity.uncommon,
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
@@ -38,7 +38,7 @@ public class EvilCatUndying : Card, IRegisterable, IHasCustomCardTraits
             //
             //Define card name and art file
             //
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatUndying", "name"]).Localize,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatHardReboot", "name"]).Localize,
             //Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/FILENAME.png")).Sprite,
         });
     }
@@ -56,21 +56,24 @@ public class EvilCatUndying : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 0,
+                        unplayable = true
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 0,
+                        unplayable = true
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 0
+                        cost = 0,
+                        unplayable = true
                     };
                 }
             default:
@@ -91,30 +94,15 @@ public class EvilCatUndying : Card, IRegisterable, IHasCustomCardTraits
         {
             case Upgrade.None:
                 {
-                    this.SetIsImmortal(true);
-                    HashSet<ICardTraitEntry> cardTraitEntries = new HashSet<ICardTraitEntry>()
-                    {
-                        ModEntry.Instance.EvilCatImmortalTrait
-                    };
-                    return cardTraitEntries;
+                    return new HashSet<ICardTraitEntry> { };
                 }
             case Upgrade.A:
                 {
-                    this.SetIsImmortal(true);
-                    HashSet<ICardTraitEntry> cardTraitEntries = new HashSet<ICardTraitEntry>()
-                    {
-                        ModEntry.Instance.EvilCatImmortalTrait
-                    };
-                    return cardTraitEntries;
+                    return new HashSet<ICardTraitEntry> { };
                 }
             case Upgrade.B:
                 {
-                    this.SetIsImmortal(true);
-                    HashSet<ICardTraitEntry> cardTraitEntries = new HashSet<ICardTraitEntry>()
-                    {
-                        ModEntry.Instance.EvilCatImmortalTrait
-                    };
-                    return cardTraitEntries;
+                    return new HashSet<ICardTraitEntry> { };
                 }
             default:
                 {
@@ -137,23 +125,20 @@ public class EvilCatUndying : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new List<CardAction>
                     {
-
-                        new AStatus
-                        {
-                            targetPlayer = true,
-                            status = Status.tempShield,
-                            statusAmount = 2
-                        },
                         ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
                         (
-                            new AStatus
+                            new ADrawCard
                             {
-                                status = Status.tempShield,
-                                statusAmount = 2,
-                                targetPlayer = true
+                                count = 2
                             }
-                        ).AsCardAction
-
+                        ).AsCardAction,
+                        ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
+                        (
+                            new AEnergy
+                            {
+                                changeAmount = 1
+                            }
+                        ).AsCardAction,
                     };
                 }
             case Upgrade.A:
@@ -161,21 +146,20 @@ public class EvilCatUndying : Card, IRegisterable, IHasCustomCardTraits
                     return new List<CardAction>
                     {
 
-                        new AStatus
-                        {
-                            targetPlayer = true,
-                            status = Status.tempShield,
-                            statusAmount = 3
-                        },
                         ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
                         (
-                            new AStatus
+                            new ADrawCard
                             {
-                                status = Status.tempShield,
-                                statusAmount = 3,
-                                targetPlayer = true
+                                count = 3
                             }
-                        ).AsCardAction
+                        ).AsCardAction,
+                        ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
+                        (
+                            new AEnergy
+                            {
+                                changeAmount = 1
+                            }
+                        ).AsCardAction,
 
                     };
                 }
@@ -184,32 +168,20 @@ public class EvilCatUndying : Card, IRegisterable, IHasCustomCardTraits
                     return new List<CardAction>
                     {
 
-                        new AStatus
-                        {
-                            targetPlayer = true,
-                            status = Status.tempShield,
-                            statusAmount = 1
-                        },
                         ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
                         (
-                            new AStatus
+                            new ADrawCard
                             {
-                                status = Status.tempShield,
-                                statusAmount = 2,
-                                targetPlayer = true
+                                count = 2
                             }
                         ).AsCardAction,
                         ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
                         (
-                            new AStatus
+                            new AEnergy
                             {
-                                status = Status.tempPayback,
-                                statusAmount = 2,
-                                targetPlayer = true
+                                changeAmount = 2
                             }
                         ).AsCardAction,
-
-
 
                     };
                 }

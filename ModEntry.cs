@@ -3,8 +3,11 @@ using EvilCat.Cards;
 using EvilCat.Conversation;
 using EvilCat.External;
 using EvilCat.Features;
+using Nickel;
+using Nickel.Common;
 using HarmonyLib;
 using Microsoft.Extensions.Logging;
+using Microsoft.Win32;
 using Nanoray.PluginManager;
 using Nickel;
 using OneOf.Types;
@@ -31,6 +34,7 @@ internal class ModEntry : SimpleMod
     internal static ModEntry Instance { get; private set; } = null!;
     internal Harmony Harmony;
     internal IKokoroApi.IV2 KokoroApi;
+    public IModHelper helper { get; }
 
 
 
@@ -83,24 +87,32 @@ internal class ModEntry : SimpleMod
     private static List<Type> EvilCatCommonCardTypes = 
     [
         typeof(EvilCatCorrupt),
-        typeof(EvilCatDisplace),
-        typeof(EvilCatFester),
+        typeof(EvilCatThrusterOverride),
+        typeof(EvilCatViralTendency),
         typeof(EvilCatInstability),
-        typeof(EvilCatManipulate),
-        typeof(EvilCatUndying),
-        typeof(EvilCatReanimate),
+        typeof(EvilCatSystemRefactor),
+        typeof(EvilCatProcessSafeguard),
+        typeof(EvilCatRestore),
         typeof(EvilCatAggressiveMode),
-        typeof(EvilCatImpose)
+        typeof(EvilCatThreadTerminate)
     ];
     private static List<Type> EvilCatUncommonCardTypes = 
     [
+        typeof(EvilCatFork),
+        typeof(EvilCatAccessViolation),
+        typeof(EvilCatHotReload),
+        typeof(EvilCatRegistryEdit),
+        typeof(EvilCatInfect),
+        typeof(EvilCatSabotage),
+        typeof(EvilCatHardReboot)
     ];
     private static List<Type> EvilCatRareCardTypes = 
-    [    
+    [
+        typeof(EvilCatTrojan)
     ];
     private static List<Type> EvilCatSpecialCardTypes = 
     [
-        typeof(EvilCatVoid)
+        typeof(EvilCatSegFault)
     ];
     private static List<Type> EvilCatEXECardTypes =
     [
@@ -161,6 +173,7 @@ internal class ModEntry : SimpleMod
         /// Define instance, as well as Harmony and KokoroAPI fields
         ///
         Instance = this;
+        this.helper = helper;
         Harmony = new Harmony("Vintage.EvilCat");
         KokoroApi = helper.ModRegistry.GetApi<IKokoroApi>("Shockah.Kokoro")!.V2;
 
@@ -211,7 +224,7 @@ internal class ModEntry : SimpleMod
                 cards = 
                 [
                     new EvilCatCorrupt(),
-                    new EvilCatDisplace()
+                    new EvilCatThrusterOverride()
                 ],
             },
             SoloStarters = new StarterDeck

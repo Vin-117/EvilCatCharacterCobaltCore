@@ -11,7 +11,7 @@ namespace EvilCat.Cards;
 //
 //Define card unique class
 //
-public class EvilCatImpose : Card, IRegisterable
+public class EvilCatRegistryEdit : Card, IRegisterable
 {
     //
     //Begin card registration
@@ -27,7 +27,7 @@ public class EvilCatImpose : Card, IRegisterable
             Meta = new CardMeta
             {
                 deck = ModEntry.Instance.EvilCatDeck.Deck,
-                rarity = Rarity.common,
+                rarity = Rarity.uncommon,
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
@@ -37,7 +37,7 @@ public class EvilCatImpose : Card, IRegisterable
             //
             //Define card name and art file
             //
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatImpose", "name"]).Localize,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatRegistryEdit", "name"]).Localize,
             //Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/FILENAME.png")).Sprite,
         });
     }
@@ -55,21 +55,27 @@ public class EvilCatImpose : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 2,
+                        exhaust = true,
+                        description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatRegistryEdit", "desc"])
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 1,
+                        exhaust = true,
+                        description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatRegistryEdit", "descA"])
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 2,
+                        exhaust = true,
+                        description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatRegistryEdit", "descB"])
                     };
                 }
             default:
@@ -92,70 +98,42 @@ public class EvilCatImpose : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new AAttack
+                        new ACardSelect
                         {
-                            damage = GetDmg(s, 2),
-                            piercing = false,
-                            stunEnemy = true
-                        },
-                        new AAddCard
-                        {
-                            card = new EvilCatVoid()
-                            {
-                            },
-                            destination = CardDestination.Discard,
-                            amount = 1,
+                            browseAction =  new AAddImmortal { },
+                            browseSource = CardBrowse.Source.Hand,
+                            ignoreCardType = new EvilCatRegistryEdit().Key()
                         }
-
                     };
                 }
             case Upgrade.A:
                 {
                     return new List<CardAction>
                     {
-                        new AAttack
+                        new ACardSelect
                         {
-                            damage = GetDmg(s, 3),
-                            piercing = false,
-                            stunEnemy = true
-                        },
-                        new AAddCard
-                        {
-                            card = new EvilCatVoid()
-                            {
-                            },
-                            destination = CardDestination.Discard,
-                            amount = 1,
+                            browseAction =  new AAddImmortal { },
+                            browseSource = CardBrowse.Source.Hand,
+                            ignoreCardType = new EvilCatRegistryEdit().Key()
                         }
-
                     };
                 }
             case Upgrade.B:
                 {
                     return new List<CardAction>
                     {
-
-                        new AAttack
+                        new ACardSelect
                         {
-                            damage = GetDmg(s, 1),
-                            piercing = true,
-                            stunEnemy = true
+                            browseAction =  new AAddImmortal { },
+                            browseSource = CardBrowse.Source.Hand,
+                            ignoreCardType = new EvilCatRegistryEdit().Key()
                         },
-                        new AAttack
+                        new ACardSelect
                         {
-                            damage = GetDmg(s, 1),
-                            piercing = true,
-                            stunEnemy = true
-                        },
-                        new AAddCard
-                        {
-                            card = new EvilCatVoid()
-                            {
-                            },
-                            destination = CardDestination.Discard,
-                            amount = 1,
+                            browseAction =  new AAddImmortal { },
+                            browseSource = CardBrowse.Source.Hand,
+                            ignoreCardType = new EvilCatRegistryEdit().Key()
                         }
-
                     };
                 }
             default:

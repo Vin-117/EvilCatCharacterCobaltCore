@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Nanoray.PluginManager;
 using Nickel;
+using EvilCat.Actions;
 
 namespace EvilCat.Cards;
 
@@ -10,7 +11,7 @@ namespace EvilCat.Cards;
 //
 //Define card unique class
 //
-public class EvilCatVoid : Card, IRegisterable
+public class EvilCatThreadTerminate : Card, IRegisterable
 {
     //
     //Begin card registration
@@ -27,7 +28,7 @@ public class EvilCatVoid : Card, IRegisterable
             {
                 deck = ModEntry.Instance.EvilCatDeck.Deck,
                 rarity = Rarity.common,
-                dontOffer = true,
+                dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
 
@@ -36,7 +37,7 @@ public class EvilCatVoid : Card, IRegisterable
             //
             //Define card name and art file
             //
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatVoid", "name"]).Localize,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatThreadTerminate", "name"]).Localize,
             //Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/FILENAME.png")).Sprite,
         });
     }
@@ -54,28 +55,21 @@ public class EvilCatVoid : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 0,
-                        unplayable = true,
-                        temporary = true
+                        cost = 1
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 0,
-                        unplayable = true,
-                        temporary = true,
-                        retain = true
+                        cost = 1
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 0,
-                        temporary = true,
-                        exhaust = true
+                        cost = 1
                     };
                 }
             default:
@@ -98,21 +92,70 @@ public class EvilCatVoid : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        
+                        new AAttack
+                        {
+                            damage = GetDmg(s, 2),
+                            piercing = false,
+                            stunEnemy = true
+                        },
+                        new AAddCard
+                        {
+                            card = new EvilCatSegFault()
+                            {
+                            },
+                            destination = CardDestination.Discard,
+                            amount = 1,
+                        }
+
                     };
                 }
             case Upgrade.A:
                 {
                     return new List<CardAction>
                     {
-                        
+                        new AAttack
+                        {
+                            damage = GetDmg(s, 3),
+                            piercing = false,
+                            stunEnemy = true
+                        },
+                        new AAddCard
+                        {
+                            card = new EvilCatSegFault()
+                            {
+                            },
+                            destination = CardDestination.Discard,
+                            amount = 1,
+                        }
+
                     };
                 }
             case Upgrade.B:
                 {
                     return new List<CardAction>
                     {
-                        
+
+                        new AAttack
+                        {
+                            damage = GetDmg(s, 1),
+                            piercing = true,
+                            stunEnemy = true
+                        },
+                        new AAttack
+                        {
+                            damage = GetDmg(s, 1),
+                            piercing = true,
+                            stunEnemy = true
+                        },
+                        new AAddCard
+                        {
+                            card = new EvilCatSegFault()
+                            {
+                            },
+                            destination = CardDestination.Discard,
+                            amount = 1,
+                        }
+
                     };
                 }
             default:

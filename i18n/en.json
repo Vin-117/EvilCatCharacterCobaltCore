@@ -28,33 +28,33 @@
         {
             "name": "Corrupt"
         },
-        "EvilCatDisplace": 
+        "EvilCatThrusterOverride": 
         {
-            "name": "Displace"
+            "name": "Thruster Override"
         },
-        "EvilCatVoid": 
+        "EvilCatSegFault": 
         {
-            "name": "Void"
+            "name": "SegFault"
         },
-        "EvilCatFester": 
+        "EvilCatViralTendency": 
         {
-            "name": "Fester"
+            "name": "Viral Tendency"
         },
         "EvilCatInstability": 
         {
             "name": "Instability"
         },
-        "EvilCatManipulate": 
+        "EvilCatSystemRefactor": 
         {
-            "name": "Manipulate"
+            "name": "System Refactor"
         },
-        "EvilCatUndying":
+        "EvilCatProcessSafeguard":
         {
-            "name": "Undying"
+            "name": "Process Safeguard"
         },
-        "EvilCatReanimate":
+        "EvilCatRestore":
         {
-            "name": "Reanimate",
+            "name": "Restore",
             "desc": "Return an <c=cardtrait>exhausted</c> card to the draw pile.",
             "descA": "Return 2 <c=cardtrait>exhausted</c> cards to the draw pile.",
             "descB": "Return an <c=cardtrait>exhausted</c> card to the discard pile."
@@ -63,9 +63,47 @@
         {
             "name": "Aggressive Mode"
         },
-        "EvilCatImpose":
+        "EvilCatThreadTerminate":
         {
-            "name": "Impose"
+            "name": "Thread Terminate"
+        },
+        "EvilCatFork":
+        {
+            "name": "Fork",
+            "desc": "Attack for {{cnt}}. Add a <c=cardtrait>temp</c> <c=card>Fork</c> to your <c=keyword>discard pile</c>.",
+            "descA": "Attack for {{cnt}}. Add a <c=cardtrait>temp</c> <c=card>Fork A</c> to your <c=keyword>discard pile</c>.",
+            "descB": "Attack for {{cnt}}. Add a <c=cardtrait>temp</c> <c=card>Fork B</c> to your <c=keyword>hand</c>."
+        },
+        "EvilCatAccessViolation":
+        {
+            "name": "Access Violation"
+        },
+        "EvilCatRegistryEdit":
+        {
+            "name": "Registry Edit",
+            "desc": "Select a card in hand to give <c=cardtrait>persistent</c> this combat.",
+            "descA": "Select a card in hand to give <c=cardtrait>persistent</c> this combat.",
+            "descB": "Select 2 cards in hand to give <c=cardtrait>persistent</c> this combat."
+        },
+        "EvilCatHotReload":
+        {
+            "name": "Hot Reload"
+        },
+        "EvilCatHardReboot":
+        {
+            "name": "Hard Reboot"
+        },
+        "EvilCatInfect":
+        {
+            "name": "Infect"
+        },
+        "EvilCatSabotage":
+        {
+            "name": "Sabotage"
+        },
+        "EvilCatTrojan":
+        {
+            "name": "Trojan"
         },
         
     },
@@ -76,7 +114,7 @@
     {
         "Immortal": 
         {
-            "name": "Immortal",
+            "name": "Persistent",
             "desc": "At the end of your turn, if this card is in your exhaust pile, it is placed in the discard pile."
         },
     }
