@@ -6,6 +6,21 @@
     },
     "status": 
     {
+        "EvilCatFullMemoryAccessStatus": 
+        {
+            "name": "Full Kernel Access",
+            "desc": "Whenever a card is exhausted, draw <c=boldPink>{0}</c>."
+        },
+        "EvilCatMemoryMismatchStatus": 
+        {
+            "name": "Buffer Overflow",
+            "desc": "At the start of every turn, draw <c=boldPink>{0}</c> and add <c=boldPink>{0}</c> SegFault cards to your hand."
+        },
+        "EvilCatDeallocateStatus": 
+        {
+            "name": "Deallocate",
+            "desc": "Whenever a card is exhausted, gain <c=boldPink>{0}</c> <c=status>EVADE</c>."
+        }
     },
     "action": 
     {
@@ -105,6 +120,25 @@
         {
             "name": "Trojan"
         },
+        "EvilCatFullMemoryAccess":
+        {
+            "name": "Full Kernel Access"
+        },
+        "EvilCatMemoryMismatch":
+        {
+            "name": "Buffer Overflow"
+        },
+        "EvilCatDeallocate":
+        {
+            "name": "Deallocate"
+        },
+        "EvilCatErase":
+        {
+            "name": "Erase",
+            "desc": "Exhaust a card in your draw pile. Draw 1.",
+            "descA": "Exhaust a card in your draw pile. Draw 2.",
+            "descB": "Exhaust a card in your draw pile. Draw 1. Gain 1 <c=energy>energy</c>."
+        }
         
     },
     "artifact": 

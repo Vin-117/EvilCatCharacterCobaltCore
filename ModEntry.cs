@@ -55,7 +55,9 @@ internal class ModEntry : SimpleMod
     ///
     /// Construct status variables
     ///
-    //internal IStatusEntry PLACEHOLDER;
+    internal IStatusEntry EvilCatFullMemoryAccessStatus;
+    internal IStatusEntry EvilCatMemoryMismatchStatus;
+    internal IStatusEntry EvilCatDeallocateStatus;
 
 
 
@@ -108,7 +110,11 @@ internal class ModEntry : SimpleMod
     ];
     private static List<Type> EvilCatRareCardTypes = 
     [
-        typeof(EvilCatTrojan)
+        typeof(EvilCatTrojan),
+        typeof(EvilCatFullMemoryAccess),
+        typeof(EvilCatMemoryMismatch),
+        typeof(EvilCatDeallocate),
+        typeof(EvilCatErase)
     ];
     private static List<Type> EvilCatSpecialCardTypes = 
     [
@@ -250,7 +256,47 @@ internal class ModEntry : SimpleMod
         ///
         /// Define status metadata and manager
         ///
-        //(TODO)
+        EvilCatFullMemoryAccessStatus = helper.Content.Statuses.RegisterStatus("EvilCatFullMemoryAccessStatus", new StatusConfiguration
+        {
+            Definition = new StatusDef
+            {
+                isGood = true,
+                affectedByTimestop = false,
+                color = new Color("3FBFFF"),
+                icon = RegisterSprite(package, "assets/Status/FullMemoryAccess.png").Sprite
+            },
+            Name = AnyLocalizations.Bind(["status", "EvilCatFullMemoryAccessStatus", "name"]).Localize,
+            Description = AnyLocalizations.Bind(["status", "EvilCatFullMemoryAccessStatus", "desc"]).Localize
+        });
+        _ = new EvilCatFullMemoryAccessStatusManager();
+
+        EvilCatMemoryMismatchStatus = helper.Content.Statuses.RegisterStatus("EvilCatMemoryMismatchStatus", new StatusConfiguration
+        {
+            Definition = new StatusDef
+            {
+                isGood = true,
+                affectedByTimestop = false,
+                color = new Color("3FBFFF"),
+                icon = RegisterSprite(package, "assets/Status/MemoryMismatch.png").Sprite
+            },
+            Name = AnyLocalizations.Bind(["status", "EvilCatMemoryMismatchStatus", "name"]).Localize,
+            Description = AnyLocalizations.Bind(["status", "EvilCatMemoryMismatchStatus", "desc"]).Localize
+        });
+        _ = new EvilCatMemoryMismatchStatusManager();
+
+        EvilCatDeallocateStatus = helper.Content.Statuses.RegisterStatus("EvilCatDeallocateStatus", new StatusConfiguration
+        {
+            Definition = new StatusDef
+            {
+                isGood = true,
+                affectedByTimestop = false,
+                color = new Color("3FBFFF"),
+                icon = RegisterSprite(package, "assets/Status/Deallocate.png").Sprite
+            },
+            Name = AnyLocalizations.Bind(["status", "EvilCatDeallocateStatus", "name"]).Localize,
+            Description = AnyLocalizations.Bind(["status", "EvilCatDeallocateStatus", "desc"]).Localize
+        });
+        _ = new EvilCatDeallocateStatusManager();
 
 
         ///
@@ -348,14 +394,20 @@ internal class ModEntry : SimpleMod
 
 
 
-        //
-        //Define patch to change Evil Cat's name to proper display name in combat
-        //
+        ///
+        ///Define patch to change Evil Cat's name to proper display name in combat
+        ///
         var ResetName_PatchTargetMethod = typeof(Character).GetMethod("GetDisplayName", AccessTools.all, new[] { typeof(string), typeof(State) });
         var ResetName_PatchInsertionMethod = typeof(ModEntry).GetMethod("ResetDisplayName", AccessTools.all);
         Harmony.Patch(ResetName_PatchTargetMethod, postfix: new HarmonyMethod(ResetName_PatchInsertionMethod));
 
 
+        ///
+        ///Define patch to give functionality to Full Memory Access and Deallocate
+        ///
+        var EvilCatFullMemoryAccess_Deallocate_patch_target = typeof(Combat).GetMethod("SendCardToExhaust", AccessTools.all);
+        var EvilCatFullMemoryAccess_Deallocate_patch_insert = typeof(ModEntry).GetMethod("EvilCatFullMemoryAccessPatch", AccessTools.all);
+        Harmony.Patch(EvilCatFullMemoryAccess_Deallocate_patch_target, postfix: new HarmonyMethod(EvilCatFullMemoryAccess_Deallocate_patch_insert));
 
     }
 
@@ -388,9 +440,9 @@ internal class ModEntry : SimpleMod
 
 
 
-    //
-    //Define method to change the way Evil Cat's name is displayed in combat
-    //
+    ///
+    ///Define method to change the way Evil Cat's name is displayed in combat
+    /// 
     private static void ResetDisplayName(ref string __result)
     {
         //NOTE: This breaks if another mod has a name starting with "CAT?"
@@ -404,11 +456,40 @@ internal class ModEntry : SimpleMod
 
 
     ///
-    ///Define method to send Immortal cards to discard from exhaust pile on turn end
+    ///Define method to give functionality to Full Memory Access and Deallocate
     ///
+    private static void EvilCatFullMemoryAccessPatch(State s, Card card, ref Combat __instance)
+    {
+        Status statusFullMemoryAccess = ModEntry.Instance.EvilCatFullMemoryAccessStatus.Status;
+        Status statusDeallocate = ModEntry.Instance.EvilCatDeallocateStatus.Status;
+
+        if (s.ship.Get(statusFullMemoryAccess) > 0)
+        {
+            __instance.QueueImmediate 
+            (
+                new ADrawCard()
+                {
+                    count = s.ship.Get(statusFullMemoryAccess),
+                    timer = 0.3
+                }
+            );
+        }
+
+        if (s.ship.Get(statusDeallocate) > 0)
+        {
+            __instance.QueueImmediate
+            (
+                new AStatus()
+                {
+                    statusAmount = s.ship.Get(statusDeallocate),
+                    targetPlayer = true,
+                    status = Status.evade
+                }
+            );
+        }
 
 
-
+    }
 
 }
 
