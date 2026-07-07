@@ -55,7 +55,7 @@ public class EvilCatMemoryMismatch : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 0,
+                        cost = 1,
                         exhaust = true
                     };
                 }
@@ -64,8 +64,7 @@ public class EvilCatMemoryMismatch : Card, IRegisterable
                     return new CardData
                     {
                         cost = 0,
-                        exhaust = true,
-                        buoyant = true
+                        exhaust = true
                     };
                 }
             case Upgrade.B:
@@ -99,6 +98,12 @@ public class EvilCatMemoryMismatch : Card, IRegisterable
                         new AStatus
                         {
                             targetPlayer = true,
+                            statusAmount = 2,
+                            status = ModEntry.Instance.EvilCatGenericDrawStatus.Status
+                        },
+                        new AStatus
+                        {
+                            targetPlayer = true,
                             statusAmount = 1,
                             status = ModEntry.Instance.EvilCatMemoryMismatchStatus.Status
                         }
@@ -111,6 +116,12 @@ public class EvilCatMemoryMismatch : Card, IRegisterable
                         new AStatus
                         {
                             targetPlayer = true,
+                            statusAmount = 2,
+                            status = ModEntry.Instance.EvilCatGenericDrawStatus.Status
+                        },
+                        new AStatus
+                        {
+                            targetPlayer = true,
                             statusAmount = 1,
                             status = ModEntry.Instance.EvilCatMemoryMismatchStatus.Status
                         }
@@ -120,15 +131,16 @@ public class EvilCatMemoryMismatch : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        
-                        new ADrawCard
+                        new AStatus
                         {
-                            count = 2
+                            targetPlayer = true,
+                            statusAmount = 3,
+                            status = ModEntry.Instance.EvilCatGenericDrawStatus.Status
                         },
                         new AStatus
                         {
                             targetPlayer = true,
-                            statusAmount = 1,
+                            statusAmount = 2,
                             status = ModEntry.Instance.EvilCatMemoryMismatchStatus.Status
                         }
                     };

@@ -21,15 +21,15 @@ namespace EvilCat.Features;
 
 
 ///
-/// Status which makes the player gain a SegFault every turn
+/// Status which makes the player draw extra cards every turn
 /// 
-public class EvilCatMemoryMismatchStatusManager : IKokoroApi.IV2.IStatusLogicApi.IHook, IKokoroApi.IV2.IStatusRenderingApi.IHook
+public class EvilCatGenericDrawStatusManager : IKokoroApi.IV2.IStatusLogicApi.IHook, IKokoroApi.IV2.IStatusRenderingApi.IHook
 {
 
     /// 
     /// Register hooks
     /// 
-    public EvilCatMemoryMismatchStatusManager() 
+    public EvilCatGenericDrawStatusManager() 
     {
         ModEntry.Instance.KokoroApi.StatusLogic.RegisterHook(this, 0);
         ModEntry.Instance.KokoroApi.StatusRendering.RegisterHook(this, 0);
@@ -47,7 +47,7 @@ public class EvilCatMemoryMismatchStatusManager : IKokoroApi.IV2.IStatusLogicApi
         /// Do nothing if either the hook does not detect the status, 
         /// or its not the start of the turn.
         ///
-        if (args.Status != ModEntry.Instance.EvilCatMemoryMismatchStatus.Status)
+        if (args.Status != ModEntry.Instance.EvilCatGenericDrawStatus.Status)
         {
             return false;
         }
@@ -57,19 +57,16 @@ public class EvilCatMemoryMismatchStatusManager : IKokoroApi.IV2.IStatusLogicApi
         }
         ///
         /// Will only get here if its the start of the turn and is the correct status,
-        /// so add SegFaults equal to status amount
+        /// so then draw equal to status
         ///
         if (args.Amount > 0)
         {
-            args.Combat.Queue
+            args.Combat.QueueImmediate
             (
-                new AAddCard
+                new ADrawCard()
                 {
-                    card = new EvilCatSegFault()
-                    {
-                    },
-                    destination = CardDestination.Hand,
-                    amount = args.Amount
+                    count = args.Amount,
+                    timer = 1
                 }
             );
         }

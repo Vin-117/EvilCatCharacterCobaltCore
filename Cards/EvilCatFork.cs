@@ -58,7 +58,7 @@ public class EvilCatFork : Card, IRegisterable
                     return new CardData
                     {
                         cost = 1,
-                        retain = false,
+                        retain = true,
                         description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatFork", "desc"], new { cnt = GetDmg(state, 2) })
                     };
                 }
@@ -75,7 +75,8 @@ public class EvilCatFork : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1,
+                        cost = 0,
+                        retain = true,
                         description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatFork", "descB"], new { cnt = GetDmg(state, 2) })
                     };
                 }
@@ -122,7 +123,7 @@ public class EvilCatFork : Card, IRegisterable
                         new AAttack
                         {
                             damage = GetDmg(s, 2),
-                            piercing = false
+                            piercing = true
                         },
                         new AAddCard
                         {
@@ -143,7 +144,7 @@ public class EvilCatFork : Card, IRegisterable
 
                         new AAttack
                         {
-                            damage = GetDmg(s, 2),
+                            damage = GetDmg(s, 1),
                             piercing = false
                         },
                         new AAddCard
@@ -153,7 +154,7 @@ public class EvilCatFork : Card, IRegisterable
                                 temporaryOverride = true,
                                 upgrade = Upgrade.B
                             },
-                            destination = CardDestination.Hand
+                            destination = CardDestination.Discard
                         },
 
                     };

@@ -123,9 +123,9 @@ public class EvilCatInstability : Card, IRegisterable
                     {
                         new ADrawCard
                         {
-                            count = 3
+                            count = 4
                         },
-                        new AOptionalExhaustSelect
+                        new AExhaustSelect
                         {
                             count = 1
                         }

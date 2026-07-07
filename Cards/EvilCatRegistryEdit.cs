@@ -55,7 +55,7 @@ public class EvilCatRegistryEdit : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 2,
+                        cost = 1,
                         exhaust = true,
                         description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatRegistryEdit", "desc"])
                     };
@@ -64,7 +64,7 @@ public class EvilCatRegistryEdit : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1,
+                        cost = 0,
                         exhaust = true,
                         description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatRegistryEdit", "descA"])
                     };
@@ -74,7 +74,8 @@ public class EvilCatRegistryEdit : Card, IRegisterable
                     return new CardData
                     {
                         cost = 2,
-                        exhaust = true,
+                        exhaust = false,
+                        singleUse = true,
                         description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatRegistryEdit", "descB"])
                     };
                 }
@@ -100,7 +101,7 @@ public class EvilCatRegistryEdit : Card, IRegisterable
                     {
                         new ACardSelect
                         {
-                            browseAction =  new AAddImmortal { },
+                            browseAction =  new AAddImmortal { isPermanent = false },
                             browseSource = CardBrowse.Source.Hand,
                             ignoreCardType = new EvilCatRegistryEdit().Key()
                         }
@@ -112,7 +113,7 @@ public class EvilCatRegistryEdit : Card, IRegisterable
                     {
                         new ACardSelect
                         {
-                            browseAction =  new AAddImmortal { },
+                            browseAction =  new AAddImmortal { isPermanent = false },
                             browseSource = CardBrowse.Source.Hand,
                             ignoreCardType = new EvilCatRegistryEdit().Key()
                         }
@@ -124,13 +125,7 @@ public class EvilCatRegistryEdit : Card, IRegisterable
                     {
                         new ACardSelect
                         {
-                            browseAction =  new AAddImmortal { },
-                            browseSource = CardBrowse.Source.Hand,
-                            ignoreCardType = new EvilCatRegistryEdit().Key()
-                        },
-                        new ACardSelect
-                        {
-                            browseAction =  new AAddImmortal { },
+                            browseAction =  new AAddImmortal {  isPermanent = true },
                             browseSource = CardBrowse.Source.Hand,
                             ignoreCardType = new EvilCatRegistryEdit().Key()
                         }

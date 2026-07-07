@@ -57,6 +57,7 @@ internal class ModEntry : SimpleMod
     ///
     internal IStatusEntry EvilCatFullMemoryAccessStatus;
     internal IStatusEntry EvilCatMemoryMismatchStatus;
+    internal IStatusEntry EvilCatGenericDrawStatus;
     internal IStatusEntry EvilCatDeallocateStatus;
 
 
@@ -80,6 +81,7 @@ internal class ModEntry : SimpleMod
     ///Define custom trait
     ///
     internal ICardTraitEntry EvilCatImmortalTrait;
+    internal ICardTraitEntry TEMPEvilCatImmortalTrait;
     internal ISpriteEntry EvilCatImmortalIcon;
 
 
@@ -277,12 +279,26 @@ internal class ModEntry : SimpleMod
                 isGood = true,
                 affectedByTimestop = false,
                 color = new Color("3FBFFF"),
-                icon = RegisterSprite(package, "assets/Status/MemoryMismatch.png").Sprite
+                icon = RegisterSprite(package, "assets/Status/BufferOverflow.png").Sprite
             },
             Name = AnyLocalizations.Bind(["status", "EvilCatMemoryMismatchStatus", "name"]).Localize,
             Description = AnyLocalizations.Bind(["status", "EvilCatMemoryMismatchStatus", "desc"]).Localize
         });
         _ = new EvilCatMemoryMismatchStatusManager();
+
+        EvilCatGenericDrawStatus = helper.Content.Statuses.RegisterStatus("EvilCatGenericDrawStatus", new StatusConfiguration
+        {
+            Definition = new StatusDef
+            {
+                isGood = true,
+                affectedByTimestop = false,
+                color = new Color("3FBFFF"),
+                icon = RegisterSprite(package, "assets/Status/GenericDraw.png").Sprite
+            },
+            Name = AnyLocalizations.Bind(["status", "EvilCatGenericDrawStatus", "name"]).Localize,
+            Description = AnyLocalizations.Bind(["status", "EvilCatGenericDrawStatus", "desc"]).Localize
+        });
+        _ = new EvilCatGenericDrawStatusManager();
 
         EvilCatDeallocateStatus = helper.Content.Statuses.RegisterStatus("EvilCatDeallocateStatus", new StatusConfiguration
         {
@@ -332,6 +348,24 @@ internal class ModEntry : SimpleMod
             ]
         });
         _ = new ImmortalTraitManager();
+
+        ///Need to make a temporary version of the immortal trait for Registry Edit
+        TEMPEvilCatImmortalTrait = helper.Content.Cards.RegisterTrait("TEMPImmortalTrait", new()
+        {
+            Name = this.AnyLocalizations.Bind(["trait", "Immortal", "name"]).Localize,
+            Icon = (state, card) => EvilCatImmortalIcon.Sprite,
+            Tooltips = (state, card) =>
+            [
+                new GlossaryTooltip($"trait.{Instance.Package.Manifest.UniqueName}::Immortal")
+                {
+                    Icon = EvilCatImmortalIcon.Sprite,
+                    TitleColor = Colors.cardtrait,
+                    Title = Localizations.Localize(["trait", "Immortal", "name"]),
+                    Description = Localizations.Localize(["trait", "Immortal", "desc"])
+                },
+            ]
+        });
+        _ = new TEMPImmortalTraitManager();
 
 
 

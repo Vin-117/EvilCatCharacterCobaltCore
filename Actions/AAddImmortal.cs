@@ -21,22 +21,55 @@ namespace EvilCat.Actions;
 ///
 public class AAddImmortal : CardAction
 {
+
+    public required bool isPermanent;
+
     public override void Begin(G g, State s, Combat c)
     {
 
         Card card = selectedCard!; //Define variable to store selected card
 
-        //If the card is NOT null
-        if (card != null)
-        {
-            //If the card does not already have the immortal trait
-            if (!ImmortalTraitExt.GetIsImmortal(card)) 
-            {
-                ModEntry.Instance.helper.Content.Cards.SetCardTraitOverride(s, card, ModEntry.Instance.EvilCatImmortalTrait, true, false);
-                ImmortalTraitExt.SetIsImmortal(card, true);
-            }
-        }
 
+        if (isPermanent)
+        {
+
+            //If the card is NOT null
+            if (card != null)
+            {
+                //If the card does not already have the immortal trait
+                if (!ImmortalTraitExt.GetIsImmortal(card))
+                {
+
+                    //And if the card does not already have the temp immortal trait
+                    if (!TEMPImmortalTraitExt.GetIsTEMPImmortal(card))
+                    {
+                        ModEntry.Instance.helper.Content.Cards.SetCardTraitOverride(s, card, ModEntry.Instance.EvilCatImmortalTrait, true, true);
+                        ImmortalTraitExt.SetIsImmortal(card, true);
+                    }
+                }
+            }
+
+
+        }
+        else 
+        {
+            //If the card is NOT null
+            if (card != null)
+            {
+                //If the card does not already have the immortal trait
+                if (!ImmortalTraitExt.GetIsImmortal(card))
+                {
+
+                    //And if the card does not already have the temp immortal trait
+                    if (!TEMPImmortalTraitExt.GetIsTEMPImmortal(card))
+                    {
+                        ModEntry.Instance.helper.Content.Cards.SetCardTraitOverride(s, card, ModEntry.Instance.TEMPEvilCatImmortalTrait, true, false);
+                        TEMPImmortalTraitExt.SetIsTEMPImmortal(card, true);
+                    }
+                }
+            }
+
+        }
 
     }
 

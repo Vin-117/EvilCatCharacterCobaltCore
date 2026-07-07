@@ -14,12 +14,17 @@
         "EvilCatMemoryMismatchStatus": 
         {
             "name": "Buffer Overflow",
-            "desc": "At the start of every turn, draw <c=boldPink>{0}</c> and add <c=boldPink>{0}</c> SegFault cards to your hand."
+            "desc": "At the start of every turn, add <c=boldPink>{0}</c> SegFault cards to your hand."
+        },
+        "EvilCatGenericDrawStatus": 
+        {
+            "name": "Persistent Draw",
+            "desc": "At the start of every turn, draw <c=boldPink>{0}</c>."
         },
         "EvilCatDeallocateStatus": 
         {
-            "name": "Deallocate",
-            "desc": "Whenever a card is exhausted, gain <c=boldPink>{0}</c> <c=status>EVADE</c>."
+            "name": "Viral Accelerant",
+            "desc": "For the rest of combat, gain <c=boldPink>{0}</c> <c=status>EVADE</c> any time a card is exhausted."
         }
     },
     "action": 
@@ -53,7 +58,7 @@
         },
         "EvilCatViralTendency": 
         {
-            "name": "Viral Tendency"
+            "name": "Destructive Payload"
         },
         "EvilCatInstability": 
         {
@@ -86,8 +91,8 @@
         {
             "name": "Fork",
             "desc": "Attack for {{cnt}}. Add a <c=cardtrait>temp</c> <c=card>Fork</c> to your <c=keyword>discard pile</c>.",
-            "descA": "Attack for {{cnt}}. Add a <c=cardtrait>temp</c> <c=card>Fork A</c> to your <c=keyword>discard pile</c>.",
-            "descB": "Attack for {{cnt}}. Add a <c=cardtrait>temp</c> <c=card>Fork B</c> to your <c=keyword>hand</c>."
+            "descA": "Pierce for {{cnt}}. Add a <c=cardtrait>temp</c> <c=card>Fork A</c> to your <c=keyword>discard pile</c>.",
+            "descB": "Attack for {{cnt}}. Add a <c=cardtrait>temp</c> <c=card>Fork B</c> to your <c=keyword>discard pile</c>."
         },
         "EvilCatAccessViolation":
         {
@@ -96,9 +101,9 @@
         "EvilCatRegistryEdit":
         {
             "name": "Registry Edit",
-            "desc": "Select a card in hand to give <c=cardtrait>persistent</c> this combat.",
-            "descA": "Select a card in hand to give <c=cardtrait>persistent</c> this combat.",
-            "descB": "Select 2 cards in hand to give <c=cardtrait>persistent</c> this combat."
+            "desc": "Select a card in hand to gain <c=cardtrait>persistent</c> this combat.",
+            "descA": "Select a card in hand to gain <c=cardtrait>persistent</c> this combat.",
+            "descB": "Select a card in hand to gain <c=cardtrait>persistent</c> forever."
         },
         "EvilCatHotReload":
         {
@@ -130,7 +135,7 @@
         },
         "EvilCatDeallocate":
         {
-            "name": "Deallocate"
+            "name": "Viral Accelerant"
         },
         "EvilCatErase":
         {
