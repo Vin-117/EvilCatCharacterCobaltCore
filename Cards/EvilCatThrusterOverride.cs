@@ -97,7 +97,7 @@ public class EvilCatThrusterOverride : Card, IRegisterable
                     {
                         new AMove
                         {
-                            dir = -2,
+                            dir = -3,
                             targetPlayer = false
                         },
                         new AAddCard
@@ -117,7 +117,7 @@ public class EvilCatThrusterOverride : Card, IRegisterable
                     {
                         new AMove
                         {
-                            dir = -2,
+                            dir = -3,
                             targetPlayer = false
                         },
                         new AAddCard
@@ -137,7 +137,7 @@ public class EvilCatThrusterOverride : Card, IRegisterable
                     {
                         new AMove
                         {
-                            dir = -2,
+                            dir = -3,
                             targetPlayer = false
                         },
                         new AAddCard

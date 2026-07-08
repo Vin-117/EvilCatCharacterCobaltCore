@@ -77,7 +77,7 @@ public class EvilCatFork : Card, IRegisterable
                     {
                         cost = 0,
                         retain = true,
-                        description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatFork", "descB"], new { cnt = GetDmg(state, 2) })
+                        description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatFork", "descB"], new { cnt = GetDmg(state, 1) })
                     };
                 }
             default:

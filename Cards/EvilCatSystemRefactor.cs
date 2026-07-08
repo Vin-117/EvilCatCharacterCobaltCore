@@ -105,7 +105,7 @@ public class EvilCatSystemRefactor : Card, IRegisterable
                         },
                         new AOptionalExhaustSelect
                         {
-                            count = 1
+                            count = 2
                         }
                     };
                 }
@@ -125,7 +125,7 @@ public class EvilCatSystemRefactor : Card, IRegisterable
                         },
                         new AOptionalExhaustSelect
                         {
-                            count = 1
+                            count = 2
                         }
                     };
                 }
@@ -145,7 +145,7 @@ public class EvilCatSystemRefactor : Card, IRegisterable
                         },
                         new AOptionalExhaustSelect
                         {
-                            count = 1
+                            count = 2
                         }
                     };
                 }

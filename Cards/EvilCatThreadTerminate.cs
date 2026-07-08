@@ -4,6 +4,7 @@ using System.Reflection;
 using Nanoray.PluginManager;
 using Nickel;
 using EvilCat.Actions;
+using System.Linq.Expressions;
 
 namespace EvilCat.Cards;
 
@@ -62,7 +63,7 @@ public class EvilCatThreadTerminate : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 0
                     };
                 }
             case Upgrade.B:
@@ -95,8 +96,9 @@ public class EvilCatThreadTerminate : Card, IRegisterable
                         new AAttack
                         {
                             damage = GetDmg(s, 2),
-                            piercing = false,
-                            stunEnemy = true
+                            piercing = true,
+                            status = ModEntry.Instance.KokoroApi.DriveStatus.Underdrive,
+                            statusAmount = 1
                         },
                         new AAddCard
                         {
@@ -115,9 +117,10 @@ public class EvilCatThreadTerminate : Card, IRegisterable
                     {
                         new AAttack
                         {
-                            damage = GetDmg(s, 3),
-                            piercing = false,
-                            stunEnemy = true
+                            damage = GetDmg(s, 2),
+                            piercing = true,
+                            status = ModEntry.Instance.KokoroApi.DriveStatus.Underdrive,
+                            statusAmount = 1
                         },
                         new AAddCard
                         {
@@ -135,15 +138,15 @@ public class EvilCatThreadTerminate : Card, IRegisterable
                     return new List<CardAction>
                     {
 
-                        new AAttack
+                        new AStatus
                         {
-                            damage = GetDmg(s, 1),
-                            piercing = true,
-                            stunEnemy = true
+                            status = ModEntry.Instance.KokoroApi.DriveStatus.Underdrive,
+                            statusAmount = 1,
+                            targetPlayer = false
                         },
                         new AAttack
                         {
-                            damage = GetDmg(s, 1),
+                            damage = GetDmg(s, 2),
                             piercing = true,
                             stunEnemy = true
                         },

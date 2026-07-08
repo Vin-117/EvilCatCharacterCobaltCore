@@ -55,7 +55,7 @@ public class EvilCatInfect : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 2,
+                        cost = 1,
                         exhaust = true
                     };
                 }
@@ -63,7 +63,7 @@ public class EvilCatInfect : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1,
+                        cost = 0,
                         exhaust = true
                     };
                 }
@@ -71,7 +71,7 @@ public class EvilCatInfect : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 2,
+                        cost = 1,
                         exhaust = true
                     };
                 }
@@ -105,7 +105,7 @@ public class EvilCatInfect : Card, IRegisterable
                         {
                             targetPlayer = false
                         },
-                        new AOptionalExhaustSelect
+                        new AExhaustSelect
                         {
                             count = 1
                         }
@@ -125,7 +125,7 @@ public class EvilCatInfect : Card, IRegisterable
                         {
                             targetPlayer = false
                         },
-                        new AOptionalExhaustSelect
+                        new AExhaustSelect
                         {
                             count = 1
                         }
@@ -139,9 +139,9 @@ public class EvilCatInfect : Card, IRegisterable
                         {
                             targetPlayer = false
                         },
-                        new AExhaustSelect
+                        new AOptionalExhaustSelect
                         {
-                            count = 1
+                            count = 3
                         }
                     };
                 }

@@ -74,7 +74,7 @@ public class EvilCatSabotage : Card, IRegisterable
                     return new CardData
                     {
                         cost = 1,
-                        exhaust = false
+                        exhaust = true
                     };
                 }
             default:
@@ -126,7 +126,7 @@ public class EvilCatSabotage : Card, IRegisterable
                         },
                         new AStatus
                         {
-                            statusAmount = 1,
+                            statusAmount = 2,
                             targetPlayer = false,
                             status = Status.backwardsMissiles
                         }
@@ -140,19 +140,13 @@ public class EvilCatSabotage : Card, IRegisterable
 
                         new AOptionalExhaustSelect
                         {
-                            count = 1
+                            count = 2
                         },
                         new AStatus
                         {
-                            statusAmount = 1,
+                            statusAmount = 2,
                             targetPlayer = false,
                             status = ModEntry.Instance.KokoroApi.DriveStatus.Underdrive
-                        },
-                        new AStatus
-                        {
-                            statusAmount = -3,
-                            targetPlayer = false,
-                            status = Status.shield
                         }
                     };
                 }

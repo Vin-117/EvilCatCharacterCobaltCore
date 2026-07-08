@@ -75,7 +75,7 @@ public class EvilCatRegistryEdit : Card, IRegisterable
                     {
                         cost = 2,
                         exhaust = false,
-                        singleUse = true,
+                        retain = true,
                         description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatRegistryEdit", "descB"])
                     };
                 }
@@ -125,7 +125,7 @@ public class EvilCatRegistryEdit : Card, IRegisterable
                     {
                         new ACardSelect
                         {
-                            browseAction =  new AAddImmortal {  isPermanent = true },
+                            browseAction =  new AAddImmortal {  isPermanent = false },
                             browseSource = CardBrowse.Source.Hand,
                             ignoreCardType = new EvilCatRegistryEdit().Key()
                         }

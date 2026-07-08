@@ -9,7 +9,7 @@
         "EvilCatFullMemoryAccessStatus": 
         {
             "name": "Full Kernel Access",
-            "desc": "Whenever a card is exhausted, draw <c=boldPink>{0}</c>."
+            "desc": "For the rest of combat, gain <c=boldPink>{0}</c> <c=status>TEMP SHIELD</c> any time a card is exhausted."
         },
         "EvilCatMemoryMismatchStatus": 
         {
@@ -85,7 +85,7 @@
         },
         "EvilCatThreadTerminate":
         {
-            "name": "Thread Terminate"
+            "name": "Null Pointer Exception"
         },
         "EvilCatFork":
         {
@@ -100,10 +100,10 @@
         },
         "EvilCatRegistryEdit":
         {
-            "name": "Registry Edit",
+            "name": "Rootkit Patch",
             "desc": "Select a card in hand to gain <c=cardtrait>persistent</c> this combat.",
             "descA": "Select a card in hand to gain <c=cardtrait>persistent</c> this combat.",
-            "descB": "Select a card in hand to gain <c=cardtrait>persistent</c> forever."
+            "descB": "Select a card in hand to gain <c=cardtrait>persistent</c> this combat."
         },
         "EvilCatHotReload":
         {
@@ -119,7 +119,7 @@
         },
         "EvilCatSabotage":
         {
-            "name": "Sabotage"
+            "name": "Runtime Error"
         },
         "EvilCatTrojan":
         {
@@ -148,6 +148,14 @@
     },
     "artifact": 
     {
+        "EvilCatThreadMismatch":
+        {
+            "name": "Thread Mismatch",
+            "desc": "The first time you exhaust a card in combat, draw 3 cards."
+        }
+
+
+
     },
     "trait": 
     {

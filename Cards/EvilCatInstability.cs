@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
+﻿using EvilCat.Actions;
+using EvilCat.Features;
 using Nanoray.PluginManager;
 using Nickel;
-using EvilCat.Actions;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace EvilCat.Cards;
 
@@ -11,7 +12,7 @@ namespace EvilCat.Cards;
 //
 //Define card unique class
 //
-public class EvilCatInstability : Card, IRegisterable
+public class EvilCatInstability : Card, IRegisterable, IHasCustomCardTraits
 {
     //
     //Begin card registration
@@ -62,14 +63,15 @@ public class EvilCatInstability : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 0
+                        cost = 1
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 0,
+                        exhaust = true
                     };
                 }
             default:
@@ -79,6 +81,38 @@ public class EvilCatInstability : Card, IRegisterable
         }
     }
 
+
+    ///
+    /// Define additional custom card traits
+    ///
+    public IReadOnlySet<ICardTraitEntry> GetInnateTraits(State state)
+    {
+        switch (this.upgrade)
+        {
+            case Upgrade.None:
+                {
+                    return new HashSet<ICardTraitEntry> { };
+                }
+            case Upgrade.A:
+                {
+                    return new HashSet<ICardTraitEntry> { };
+                }
+            case Upgrade.B:
+                {
+                    this.SetIsImmortal(true);
+                    HashSet<ICardTraitEntry> cardTraitEntries = new HashSet<ICardTraitEntry>()
+                    {
+                        ModEntry.Instance.EvilCatImmortalTrait
+                    };
+                    return cardTraitEntries;
+                }
+            default:
+                {
+                    return new HashSet<ICardTraitEntry> { };
+                }
+        }
+
+    }
 
 
     //
@@ -94,7 +128,7 @@ public class EvilCatInstability : Card, IRegisterable
                     {
                         new ADrawCard
                         {
-                            count = 2
+                            count = 3
                         },
                         new AExhaustSelect
                         {
@@ -109,7 +143,7 @@ public class EvilCatInstability : Card, IRegisterable
                     {
                         new ADrawCard
                         {
-                            count = 2
+                            count = 4
                         },
                         new AExhaustSelect
                         {
@@ -123,7 +157,7 @@ public class EvilCatInstability : Card, IRegisterable
                     {
                         new ADrawCard
                         {
-                            count = 4
+                            count = 2
                         },
                         new AExhaustSelect
                         {

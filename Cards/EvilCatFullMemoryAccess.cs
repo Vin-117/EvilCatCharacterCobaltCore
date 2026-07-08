@@ -55,7 +55,7 @@ public class EvilCatFullMemoryAccess : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 2,
+                        cost = 1,
                         exhaust = true
                     };
                 }
@@ -63,7 +63,7 @@ public class EvilCatFullMemoryAccess : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1,
+                        cost = 0,
                         exhaust = true
                     };
                 }
@@ -71,7 +71,7 @@ public class EvilCatFullMemoryAccess : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 2,
+                        cost = 1,
                         buoyant = true,
                         exhaust = true
                     };

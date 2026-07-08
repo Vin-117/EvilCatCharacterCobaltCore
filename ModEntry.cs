@@ -1,15 +1,16 @@
 ﻿using EvilCat.Actions;
+using EvilCat.Artifacts;
 using EvilCat.Cards;
 using EvilCat.Conversation;
 using EvilCat.External;
 using EvilCat.Features;
-using Nickel;
-using Nickel.Common;
 using HarmonyLib;
 using Microsoft.Extensions.Logging;
 using Microsoft.Win32;
 using Nanoray.PluginManager;
 using Nickel;
+using Nickel;
+using Nickel.Common;
 using OneOf.Types;
 using System;
 using System.Collections.Generic;
@@ -139,6 +140,7 @@ internal class ModEntry : SimpleMod
     ///
     private static List<Type> EvilCatCommonArtifacts = 
     [    
+        typeof(EvilCatThreadMismatch)
     ];
     private static List<Type> EvilCatBossArtifacts = 
     [    
@@ -264,7 +266,7 @@ internal class ModEntry : SimpleMod
             {
                 isGood = true,
                 affectedByTimestop = false,
-                color = new Color("3FBFFF"),
+                color = new Color("9E3DFF"),
                 icon = RegisterSprite(package, "assets/Status/FullMemoryAccess.png").Sprite
             },
             Name = AnyLocalizations.Bind(["status", "EvilCatFullMemoryAccessStatus", "name"]).Localize,
@@ -278,7 +280,7 @@ internal class ModEntry : SimpleMod
             {
                 isGood = true,
                 affectedByTimestop = false,
-                color = new Color("3FBFFF"),
+                color = new Color("7F7F7F"),
                 icon = RegisterSprite(package, "assets/Status/BufferOverflow.png").Sprite
             },
             Name = AnyLocalizations.Bind(["status", "EvilCatMemoryMismatchStatus", "name"]).Localize,
@@ -306,7 +308,7 @@ internal class ModEntry : SimpleMod
             {
                 isGood = true,
                 affectedByTimestop = false,
-                color = new Color("3FBFFF"),
+                color = new Color("D3A8FF"),
                 icon = RegisterSprite(package, "assets/Status/Deallocate.png").Sprite
             },
             Name = AnyLocalizations.Bind(["status", "EvilCatDeallocateStatus", "name"]).Localize,
@@ -501,10 +503,11 @@ internal class ModEntry : SimpleMod
         {
             __instance.QueueImmediate 
             (
-                new ADrawCard()
+                new AStatus()
                 {
-                    count = s.ship.Get(statusFullMemoryAccess),
-                    timer = 0.3
+                    statusAmount = s.ship.Get(statusFullMemoryAccess),
+                    targetPlayer = true,
+                    status = Status.tempShield
                 }
             );
         }
@@ -521,7 +524,6 @@ internal class ModEntry : SimpleMod
                 }
             );
         }
-
 
     }
 
