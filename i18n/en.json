@@ -143,19 +143,28 @@
             "desc": "Exhaust a card in your draw pile. Draw 1.",
             "descA": "Exhaust a card in your draw pile. Draw 2.",
             "descB": "Exhaust a card in your draw pile. Draw 1. Gain 1 <c=energy>energy</c>."
-        }
+        },
+        "EvilCatIfElse":
+        {
+            "name": ["If()","Else()"],
+        },
         
     },
     "artifact": 
     {
         "EvilCatThreadMismatch":
         {
-            "name": "Thread Mismatch",
+            "name": "THREAD MISMATCH",
             "desc": "The first time you exhaust a card in combat, draw 3 cards."
-        }
-
-
-
+        },
+        "EvilCatBinaryExecution" : {
+			"name" : "BINARY EXECUTION",
+			"desc": "At the start of combat, gain an <c=card>If() Else()</c>."
+		},
+        "EvilCatDangerousUnlock" : {
+			"name" : "DANGEROUS UNLOCK",
+			"desc": "Upon pickup, choose two cards in your deck. They gain <c=cardtrait>persistent</c>. Then, add a <c=cardtrait>non-temp</c> <c=card>SegFault</c> to your deck."
+		},
     },
     "trait": 
     {

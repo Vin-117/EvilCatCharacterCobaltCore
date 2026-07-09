@@ -25,7 +25,8 @@ public class EvilCatSegFault : Card, IRegisterable
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new CardMeta
             {
-                deck = ModEntry.Instance.EvilCatDeck.Deck,
+                //deck = ModEntry.Instance.EvilCat.Deck,
+                deck = Deck.trash,
                 rarity = Rarity.common,
                 dontOffer = true,
                 upgradesTo = [Upgrade.A, Upgrade.B]
@@ -37,7 +38,7 @@ public class EvilCatSegFault : Card, IRegisterable
             //Define card name and art file
             //
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatSegFault", "name"]).Localize,
-            //Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/FILENAME.png")).Sprite,
+            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/SegFault.png")).Sprite,
         });
     }
 

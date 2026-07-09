@@ -121,7 +121,8 @@ internal class ModEntry : SimpleMod
     ];
     private static List<Type> EvilCatSpecialCardTypes = 
     [
-        typeof(EvilCatSegFault)
+        typeof(EvilCatSegFault),
+        typeof(EvilCatIfElse)
     ];
     private static List<Type> EvilCatEXECardTypes =
     [
@@ -140,7 +141,9 @@ internal class ModEntry : SimpleMod
     ///
     private static List<Type> EvilCatCommonArtifacts = 
     [    
-        typeof(EvilCatThreadMismatch)
+        typeof(EvilCatThreadMismatch),
+        typeof(EvilCatBinaryExecution),
+        typeof(EvilCatDangerousUnlock)
     ];
     private static List<Type> EvilCatBossArtifacts = 
     [    
