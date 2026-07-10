@@ -60,6 +60,7 @@ internal class ModEntry : SimpleMod
     internal IStatusEntry EvilCatMemoryMismatchStatus;
     internal IStatusEntry EvilCatGenericDrawStatus;
     internal IStatusEntry EvilCatDeallocateStatus;
+    internal IStatusEntry EvilCatTempShieldExhaustStatus;
 
 
 
@@ -106,7 +107,7 @@ internal class ModEntry : SimpleMod
         typeof(EvilCatFork),
         typeof(EvilCatAccessViolation),
         typeof(EvilCatHotReload),
-        typeof(EvilCatRegistryEdit),
+        typeof(EvilCatSoftwareDaemon),
         typeof(EvilCatInfect),
         typeof(EvilCatSabotage),
         typeof(EvilCatHardReboot)
@@ -115,6 +116,7 @@ internal class ModEntry : SimpleMod
     [
         typeof(EvilCatTrojan),
         typeof(EvilCatFullMemoryAccess),
+        typeof(EvilCatMemoryProtection),
         typeof(EvilCatMemoryMismatch),
         typeof(EvilCatDeallocate),
         typeof(EvilCatErase)
@@ -147,6 +149,8 @@ internal class ModEntry : SimpleMod
     ];
     private static List<Type> EvilCatBossArtifacts = 
     [    
+        typeof(EvilCatVoidControl),
+        typeof(EvilCatFullKernel)
     ];
     private static IEnumerable<Type> EvilCatArtifactTypes =
         EvilCatCommonArtifacts
@@ -270,7 +274,7 @@ internal class ModEntry : SimpleMod
                 isGood = true,
                 affectedByTimestop = false,
                 color = new Color("9E3DFF"),
-                icon = RegisterSprite(package, "assets/Status/FullMemoryAccess.png").Sprite
+                icon = RegisterSprite(package, "assets/Status/OptimizerStatus.png").Sprite
             },
             Name = AnyLocalizations.Bind(["status", "EvilCatFullMemoryAccessStatus", "name"]).Localize,
             Description = AnyLocalizations.Bind(["status", "EvilCatFullMemoryAccessStatus", "desc"]).Localize
@@ -318,6 +322,20 @@ internal class ModEntry : SimpleMod
             Description = AnyLocalizations.Bind(["status", "EvilCatDeallocateStatus", "desc"]).Localize
         });
         _ = new EvilCatDeallocateStatusManager();
+
+        EvilCatTempShieldExhaustStatus = helper.Content.Statuses.RegisterStatus("EvilCatTempShieldExhaustStatus", new StatusConfiguration
+        {
+            Definition = new StatusDef
+            {
+                isGood = true,
+                affectedByTimestop = false,
+                color = new Color("D3A8FF"),
+                icon = RegisterSprite(package, "assets/Status/tempShieldExhaust.png").Sprite
+            },
+            Name = AnyLocalizations.Bind(["status", "EvilCatTempShieldExhaustStatus", "name"]).Localize,
+            Description = AnyLocalizations.Bind(["status", "EvilCatTempShieldExhaustStatus", "desc"]).Localize
+        });
+        _ = new EvilCatTempShieldExhaustStatusManager();
 
 
         ///
@@ -501,14 +519,28 @@ internal class ModEntry : SimpleMod
     {
         Status statusFullMemoryAccess = ModEntry.Instance.EvilCatFullMemoryAccessStatus.Status;
         Status statusDeallocate = ModEntry.Instance.EvilCatDeallocateStatus.Status;
+        Status statusTempShieldExhaust = ModEntry.Instance.EvilCatTempShieldExhaustStatus.Status;
 
         if (s.ship.Get(statusFullMemoryAccess) > 0)
         {
             __instance.QueueImmediate 
             (
+
+                new ADrawCard() 
+                {
+                    count = s.ship.Get(statusFullMemoryAccess)
+                }
+            );
+        }
+
+        if (s.ship.Get(statusTempShieldExhaust) > 0)
+        {
+            __instance.QueueImmediate
+            (
+
                 new AStatus()
                 {
-                    statusAmount = s.ship.Get(statusFullMemoryAccess),
+                    statusAmount = s.ship.Get(statusTempShieldExhaust),
                     targetPlayer = true,
                     status = Status.tempShield
                 }

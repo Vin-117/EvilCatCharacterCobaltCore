@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
+﻿using EvilCat.Actions;
+using EvilCat.Features;
 using Nanoray.PluginManager;
 using Nickel;
-using EvilCat.Actions;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace EvilCat.Cards;
 
@@ -11,7 +12,7 @@ namespace EvilCat.Cards;
 //
 //Define card unique class
 //
-public class EvilCatRegistryEdit : Card, IRegisterable
+public class EvilCatMemoryProtection : Card, IRegisterable
 {
     //
     //Begin card registration
@@ -27,7 +28,7 @@ public class EvilCatRegistryEdit : Card, IRegisterable
             Meta = new CardMeta
             {
                 deck = ModEntry.Instance.EvilCatDeck.Deck,
-                rarity = Rarity.uncommon,
+                rarity = Rarity.rare,
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
@@ -37,7 +38,7 @@ public class EvilCatRegistryEdit : Card, IRegisterable
             //
             //Define card name and art file
             //
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatRegistryEdit", "name"]).Localize,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatMemoryProtection", "name"]).Localize,
             //Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/FILENAME.png")).Sprite,
         });
     }
@@ -55,18 +56,16 @@ public class EvilCatRegistryEdit : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1,
-                        exhaust = true,
-                        description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatRegistryEdit", "desc"])
+                        cost = 2,
+                        exhaust = true
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 0,
+                        cost = 1,
                         exhaust = true,
-                        description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatRegistryEdit", "descA"])
                     };
                 }
             case Upgrade.B:
@@ -74,9 +73,7 @@ public class EvilCatRegistryEdit : Card, IRegisterable
                     return new CardData
                     {
                         cost = 2,
-                        exhaust = false,
-                        retain = true,
-                        description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatRegistryEdit", "descB"])
+                        unplayable = true
                     };
                 }
             default:
@@ -87,6 +84,8 @@ public class EvilCatRegistryEdit : Card, IRegisterable
     }
 
 
+
+   
 
     //
     //Define what actions the card performs for default and each upgrade path
@@ -99,11 +98,11 @@ public class EvilCatRegistryEdit : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ACardSelect
+                        new AStatus
                         {
-                            browseAction =  new AAddImmortal { isPermanent = false },
-                            browseSource = CardBrowse.Source.Hand,
-                            ignoreCardType = new EvilCatRegistryEdit().Key()
+                            targetPlayer = true,
+                            statusAmount = 1,
+                            status = ModEntry.Instance.EvilCatTempShieldExhaustStatus.Status
                         }
                     };
                 }
@@ -111,24 +110,29 @@ public class EvilCatRegistryEdit : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ACardSelect
+                        new AStatus
                         {
-                            browseAction =  new AAddImmortal { isPermanent = false },
-                            browseSource = CardBrowse.Source.Hand,
-                            ignoreCardType = new EvilCatRegistryEdit().Key()
+                            targetPlayer = true,
+                            statusAmount = 1,
+                            status = ModEntry.Instance.EvilCatTempShieldExhaustStatus.Status
                         }
+
                     };
                 }
             case Upgrade.B:
                 {
                     return new List<CardAction>
                     {
-                        new ACardSelect
-                        {
-                            browseAction =  new AAddImmortal {  isPermanent = false },
-                            browseSource = CardBrowse.Source.Hand,
-                            ignoreCardType = new EvilCatRegistryEdit().Key()
-                        }
+                        ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
+                        (
+                            new AStatus
+                            {
+                                targetPlayer = true,
+                                statusAmount = 1,
+                                status = ModEntry.Instance.EvilCatTempShieldExhaustStatus.Status
+                            }
+                        ).AsCardAction
+
                     };
                 }
             default:

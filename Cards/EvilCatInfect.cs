@@ -135,6 +135,12 @@ public class EvilCatInfect : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
+                        new AStatus()
+                        {
+                            status = ModEntry.EvilCatPlayableCharacter.MissingStatus.Status,
+                            statusAmount = 1,
+                            targetPlayer = true
+                        },
                         new AStunShip
                         {
                             targetPlayer = false

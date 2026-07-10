@@ -8,8 +8,8 @@
     {
         "EvilCatFullMemoryAccessStatus": 
         {
-            "name": "Full Kernel Access",
-            "desc": "For the rest of combat, gain <c=boldPink>{0}</c> <c=status>TEMP SHIELD</c> any time a card is exhausted."
+            "name": "Subroutine",
+            "desc": "For the rest of combat, draw <c=boldPink>{0}</c> any time a card is exhausted."
         },
         "EvilCatMemoryMismatchStatus": 
         {
@@ -25,7 +25,12 @@
         {
             "name": "Viral Accelerant",
             "desc": "For the rest of combat, gain <c=boldPink>{0}</c> <c=status>EVADE</c> any time a card is exhausted."
-        }
+        },
+        "EvilCatTempShieldExhaustStatus": 
+        {
+            "name": "Process Safeguard",
+            "desc": "For the rest of combat, gain <c=boldPink>{0}</c> <c=status>TEMP SHIELD</c> any time a card is exhausted."
+        },
     },
     "action": 
     {
@@ -66,11 +71,11 @@
         },
         "EvilCatSystemRefactor": 
         {
-            "name": "System Refactor"
+            "name": "Script Refactor"
         },
         "EvilCatProcessSafeguard":
         {
-            "name": "Process Safeguard"
+            "name": "System Lock"
         },
         "EvilCatRestore":
         {
@@ -127,7 +132,10 @@
         },
         "EvilCatFullMemoryAccess":
         {
-            "name": "Full Kernel Access"
+            "name": "Full Kernel Access",
+            "desc": "Play an exhausted card for free, then discard it.",
+            "descA": "Play an exhausted card for free, then discard it.",
+            "descB": "Play an exhausted card for free, then topdeck it."
         },
         "EvilCatMemoryMismatch":
         {
@@ -144,9 +152,17 @@
             "descA": "Exhaust a card in your draw pile. Draw 2.",
             "descB": "Exhaust a card in your draw pile. Draw 1. Gain 1 <c=energy>energy</c>."
         },
+        "EvilCatSoftwareDaemon":
+        {
+            "name": "Subroutine",
+        },
         "EvilCatIfElse":
         {
             "name": ["If()","Else()"],
+        },
+        "EvilCatMemoryProtection":
+        {
+            "name": "Process Safeguard"
         },
         
     },
@@ -162,9 +178,19 @@
 			"desc": "At the start of combat, gain an <c=card>If() Else()</c>."
 		},
         "EvilCatDangerousUnlock" : {
-			"name" : "DANGEROUS UNLOCK",
+			"name" : "PERMISSION BYPASS",
 			"desc": "Upon pickup, choose two cards in your deck. They gain <c=cardtrait>persistent</c>. Then, add a <c=cardtrait>non-temp</c> <c=card>SegFault</c> to your deck."
 		},
+        "EvilCatVoidControl":
+        {
+            "name": "VOID CONTROL",
+            "desc": "After every battle, you may choose an <c=cardtrait>exhaust</c> card in your deck to duplicate."
+        },
+        "EvilCatFullKernel":
+        {
+            "name": "FULL KERNEL ACCESS",
+            "desc": "Upon pickup, add a <c=card>Full Kernel Access</c> to your deck."
+        },
     },
     "trait": 
     {

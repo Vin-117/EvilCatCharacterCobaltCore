@@ -48,15 +48,27 @@ public class EvilCatDangerousUnlock : Artifact, IRegisterable
             browseAction = new AAddImmortal { isPermanent = true },
             browseSource = CardBrowse.Source.Deck
         });
-        state.GetCurrentQueue().Queue(new ASpecificCardOffering
+        state.GetCurrentQueue().QueueImmediate(new AAddCard
         {
-            Destination = CardDestination.Deck,
-            CanSkip = false,
-            Cards = [
-                        new EvilCatSegFault{ temporaryOverride = false },
-                    ],
+            amount = 1,
+            card = new EvilCatSegFault { temporaryOverride = false },
         });
 
+    }
+
+    public override List<Tooltip>? GetExtraTooltips()
+    {
+        return new List<Tooltip>
+        {
+            new TTCard
+            {
+                card = new EvilCatSegFault()
+                {
+                    upgrade = Upgrade.None,
+                    temporaryOverride = false
+                }
+            }
+        };
     }
 
 }

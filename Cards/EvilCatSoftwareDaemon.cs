@@ -11,7 +11,7 @@ namespace EvilCat.Cards;
 //
 //Define card unique class
 //
-public class EvilCatFullMemoryAccess : Card, IRegisterable
+public class EvilCatSoftwareDaemon : Card, IRegisterable
 {
     //
     //Begin card registration
@@ -27,8 +27,8 @@ public class EvilCatFullMemoryAccess : Card, IRegisterable
             Meta = new CardMeta
             {
                 deck = ModEntry.Instance.EvilCatDeck.Deck,
-                rarity = Rarity.rare,
-                dontOffer = true,
+                rarity = Rarity.uncommon,
+                dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
 
@@ -37,7 +37,7 @@ public class EvilCatFullMemoryAccess : Card, IRegisterable
             //
             //Define card name and art file
             //
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatFullMemoryAccess", "name"]).Localize,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatSoftwareDaemon", "name"]).Localize,
             //Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/FILENAME.png")).Sprite,
         });
     }
@@ -56,7 +56,7 @@ public class EvilCatFullMemoryAccess : Card, IRegisterable
                     return new CardData
                     {
                         cost = 1,
-                        description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatFullMemoryAccess", "desc"])
+                        exhaust = true
                     };
                 }
             case Upgrade.A:
@@ -64,7 +64,7 @@ public class EvilCatFullMemoryAccess : Card, IRegisterable
                     return new CardData
                     {
                         cost = 0,
-                        description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatFullMemoryAccess", "descA"])
+                        exhaust = true
                     };
                 }
             case Upgrade.B:
@@ -72,7 +72,8 @@ public class EvilCatFullMemoryAccess : Card, IRegisterable
                     return new CardData
                     {
                         cost = 1,
-                        description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatFullMemoryAccess", "descB"])
+                        buoyant = true,
+                        exhaust = true
                     };
                 }
             default:
@@ -96,23 +97,27 @@ public class EvilCatFullMemoryAccess : Card, IRegisterable
                     return new List<CardAction>
                     {
 
-                        new ACardSelect
+                        new AStatus
                         {
-                            browseAction = new AFullKernelAccessToDiscard(),
-                            browseSource = CardBrowse.Source.ExhaustPile
+                            targetPlayer = true,
+                            statusAmount = 1,
+                            status = ModEntry.Instance.EvilCatFullMemoryAccessStatus.Status
                         }
-
+                        
                     };
                 }
             case Upgrade.A:
                 {
                     return new List<CardAction>
                     {
-                        new ACardSelect
+
+                        new AStatus
                         {
-                            browseAction = new AFullKernelAccessToDiscard(),
-                            browseSource = CardBrowse.Source.ExhaustPile
+                            targetPlayer = true,
+                            statusAmount = 1,
+                            status = ModEntry.Instance.EvilCatFullMemoryAccessStatus.Status
                         }
+
                     };
                 }
             case Upgrade.B:
@@ -120,10 +125,11 @@ public class EvilCatFullMemoryAccess : Card, IRegisterable
                     return new List<CardAction>
                     {
 
-                        new ACardSelect
+                        new AStatus
                         {
-                            browseAction = new AFullKernelAccessToTopDeck(),
-                            browseSource = CardBrowse.Source.ExhaustPile
+                            targetPlayer = true,
+                            statusAmount = 1,
+                            status = ModEntry.Instance.EvilCatFullMemoryAccessStatus.Status
                         }
 
                     };
