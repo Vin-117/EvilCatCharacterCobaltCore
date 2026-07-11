@@ -150,7 +150,8 @@ internal class ModEntry : SimpleMod
     private static List<Type> EvilCatBossArtifacts = 
     [    
         typeof(EvilCatVoidControl),
-        typeof(EvilCatFullKernel)
+        typeof(EvilCatFullKernel),
+        typeof(EvilCatBadMemory)
     ];
     private static IEnumerable<Type> EvilCatArtifactTypes =
         EvilCatCommonArtifacts

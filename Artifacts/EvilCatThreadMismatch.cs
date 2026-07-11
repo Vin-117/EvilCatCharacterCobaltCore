@@ -64,10 +64,6 @@ public class EvilCatThreadMismatch : Artifact, IRegisterable
     private static void EvilCatThreadMismatchPostfix(State s, Card card, ref Combat __instance)
     {
 
-        // Do nothing if this is not the player turn, or artifact is not in player possession
-        if (!__instance.isPlayerTurn)
-            return;
-
         if (s.EnumerateAllArtifacts().FirstOrDefault(a => a is EvilCatThreadMismatch) is not { } artifact)
             return;
 

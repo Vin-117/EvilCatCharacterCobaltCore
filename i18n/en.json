@@ -191,6 +191,11 @@
             "name": "FULL KERNEL ACCESS",
             "desc": "Upon pickup, add a <c=card>Full Kernel Access</c> to your deck."
         },
+        "EvilCatBadMemory":
+        {
+            "name": "DATA OVERWRITE",
+            "desc": "Gain 1 extra <c=energy>ENERGY</c> every turn. <c=downside>Any time a card is exhausted, create a random temp card from a member of your current crew and add it to your hand.</c>"
+        },
     },
     "trait": 
     {
