@@ -62,15 +62,16 @@ public class EvilCatSystemRefactor : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 2,
+                        flippable = true
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 2,
-                        flippable = true
+                        cost = 1,
+                        flippable = false
                     };
                 }
             default:
@@ -145,7 +146,7 @@ public class EvilCatSystemRefactor : Card, IRegisterable
                         },
                         new AOptionalExhaustSelect
                         {
-                            count = 2
+                            count = 1
                         }
                     };
                 }

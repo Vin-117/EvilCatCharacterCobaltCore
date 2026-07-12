@@ -2,7 +2,7 @@
     "character": 
     {
         "name": "CAT?",
-        "desc": ["<c=FF48EB>CAT?</c>", "The ship's computer? Her cards <c=boldPink>exhaust</c> other cards, and provide lots of <c=boldPink>attacks</c> and <c=boldPink>debuffs</c>"]
+        "desc": ["<c=FF48EB>CAT?</c>", "...The ship's computer? Her cards are mostly <c=boldPink>attacks</c>, <c=boldPink>targeted exhaust</c> and <c=boldPink>debuffs</c>."]
     },
     "status": 
     {
@@ -71,7 +71,7 @@
         },
         "EvilCatSystemRefactor": 
         {
-            "name": "Script Refactor"
+            "name": "Pivot Exploit"
         },
         "EvilCatProcessSafeguard":
         {
