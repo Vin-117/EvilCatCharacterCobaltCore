@@ -56,14 +56,14 @@ public class EvilCatViralTendency : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 2
+                        cost = 1
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 2,
+                        cost = 1,
                         retain = true
                     };
                 }
@@ -71,7 +71,7 @@ public class EvilCatViralTendency : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 2,
+                        cost = 1,
                         unplayable = true
                     };
                 }
@@ -138,11 +138,10 @@ public class EvilCatViralTendency : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new List<CardAction>
                     {
-                        new AStatus
+                        new AAttack
                         {
-                            status = Status.overdrive,
-                            statusAmount = 1,
-                            targetPlayer = true
+                            damage = GetDmg(s, 1),
+                            piercing = false
                         },
                         ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
                         (
@@ -160,11 +159,10 @@ public class EvilCatViralTendency : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new List<CardAction>
                     {
-                        new AStatus
+                        new AAttack
                         {
-                            status = Status.overdrive,
-                            statusAmount = 1,
-                            targetPlayer = true
+                            damage = GetDmg(s, 1),
+                            piercing = false
                         },
                         ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
                         (

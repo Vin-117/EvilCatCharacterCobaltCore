@@ -128,7 +128,8 @@ public class EvilCatInstability : Card, IRegisterable, IHasCustomCardTraits
                     {
                         new ADrawCard
                         {
-                            count = 3
+                            count = 3,
+                            timer = 1.5
                         },
                         new AExhaustSelect
                         {
@@ -143,7 +144,8 @@ public class EvilCatInstability : Card, IRegisterable, IHasCustomCardTraits
                     {
                         new ADrawCard
                         {
-                            count = 4
+                            count = 4,
+                            timer = 1.5
                         },
                         new AExhaustSelect
                         {
@@ -157,7 +159,8 @@ public class EvilCatInstability : Card, IRegisterable, IHasCustomCardTraits
                     {
                         new ADrawCard
                         {
-                            count = 2
+                            count = 2,
+                            timer = 1.5
                         },
                         new AExhaustSelect
                         {

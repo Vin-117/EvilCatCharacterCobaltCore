@@ -40,16 +40,6 @@ public class EvilCatBadMemory : Artifact, IRegisterable
 
     }
 
-    public override void OnReceiveArtifact(State state)
-    {
-        state.ship.baseEnergy++;
-    }
-
-    public override void OnRemoveArtifact(State state)
-    {
-        state.ship.baseEnergy--;
-    }
-
     private static void EvilCatBadMemoryPostfix(State s, Card card, ref Combat __instance)
     {
 

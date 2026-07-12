@@ -63,7 +63,7 @@ public class EvilCatDeallocate : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 2,
+                        cost = 3,
                         exhaust = true
                     };
                 }
@@ -71,7 +71,7 @@ public class EvilCatDeallocate : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 3,
+                        cost = 2,
                         exhaust = true
                     };
                 }
@@ -100,6 +100,14 @@ public class EvilCatDeallocate : Card, IRegisterable
                             targetPlayer = true,
                             statusAmount = 1,
                             status = ModEntry.Instance.EvilCatDeallocateStatus.Status
+                        },
+                        new AAddCard
+                        {
+                            card = new EvilCatSegFault
+                            {
+                            },
+                            amount = 1,
+                            destination = CardDestination.Deck
                         }
                     };
                 }
@@ -128,11 +136,13 @@ public class EvilCatDeallocate : Card, IRegisterable
                             statusAmount = 1,
                             status = ModEntry.Instance.EvilCatDeallocateStatus.Status
                         },
-                        new AStatus
+                        new AAddCard
                         {
-                            status = Status.evade,
-                            statusAmount = 2,
-                            targetPlayer = true
+                            card = new EvilCatSegFault
+                            {
+                            },
+                            amount = 1,
+                            destination = CardDestination.Deck
                         }
 
                     };

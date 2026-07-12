@@ -194,7 +194,7 @@
         "EvilCatBadMemory":
         {
             "name": "DATA OVERWRITE",
-            "desc": "Gain 1 extra <c=energy>ENERGY</c> every turn. <c=downside>Any time a card is exhausted, create a random temp card from a member of your current crew and add it to your hand.</c>"
+            "desc": "Any time a card is exhausted, add a random temp card to your hand."
         },
     },
     "trait": 
