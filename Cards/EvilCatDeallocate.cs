@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
+﻿using EvilCat.Actions;
+using EvilCat.Features;
 using Nanoray.PluginManager;
 using Nickel;
-using EvilCat.Actions;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace EvilCat.Cards;
 
@@ -11,7 +12,7 @@ namespace EvilCat.Cards;
 //
 //Define card unique class
 //
-public class EvilCatDeallocate : Card, IRegisterable
+public class EvilCatDeallocate : Card, IRegisterable, IHasCustomCardTraits
 {
     //
     //Begin card registration
@@ -44,6 +45,35 @@ public class EvilCatDeallocate : Card, IRegisterable
 
 
 
+    ///
+    /// Define additional custom card traits
+    ///
+    public IReadOnlySet<ICardTraitEntry> GetInnateTraits(State state)
+    {
+        switch (this.upgrade)
+        {
+            case Upgrade.None:
+                {
+                    return new HashSet<ICardTraitEntry> { ModEntry.Instance.KokoroApi.Fleeting.Trait };
+                }
+            case Upgrade.A:
+                {
+                    return new HashSet<ICardTraitEntry> { };
+                }
+            case Upgrade.B:
+                {
+                    return new HashSet<ICardTraitEntry> { };
+                }
+            default:
+                {
+                    return new HashSet<ICardTraitEntry> { };
+                }
+        }
+
+    }
+
+
+
     //
     //Define card cost and traits for default and each upgrade path
     //
@@ -71,8 +101,10 @@ public class EvilCatDeallocate : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 2,
-                        exhaust = true
+                        cost = 4,
+                        exhaust = true,
+                        retain = true,
+                        buoyant = true
                     };
                 }
             default:
@@ -100,14 +132,6 @@ public class EvilCatDeallocate : Card, IRegisterable
                             targetPlayer = true,
                             statusAmount = 1,
                             status = ModEntry.Instance.EvilCatDeallocateStatus.Status
-                        },
-                        new AAddCard
-                        {
-                            card = new EvilCatSegFault
-                            {
-                            },
-                            amount = 1,
-                            destination = CardDestination.Deck
                         }
                     };
                 }
@@ -115,15 +139,12 @@ public class EvilCatDeallocate : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-
                         new AStatus
                         {
                             targetPlayer = true,
                             statusAmount = 1,
                             status = ModEntry.Instance.EvilCatDeallocateStatus.Status
                         }
-
-
                     };
                 }
             case Upgrade.B:
@@ -135,14 +156,6 @@ public class EvilCatDeallocate : Card, IRegisterable
                             targetPlayer = true,
                             statusAmount = 1,
                             status = ModEntry.Instance.EvilCatDeallocateStatus.Status
-                        },
-                        new AAddCard
-                        {
-                            card = new EvilCatSegFault
-                            {
-                            },
-                            amount = 1,
-                            destination = CardDestination.Deck
                         }
 
                     };

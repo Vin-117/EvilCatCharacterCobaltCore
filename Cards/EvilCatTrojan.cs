@@ -71,7 +71,7 @@ public class EvilCatTrojan : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 4,
+                        cost = 3,
                         exhaust = true
                     };
                 }
@@ -169,7 +169,7 @@ public class EvilCatTrojan : Card, IRegisterable
                         new AStatus()
                         {
                             status = ModEntry.EvilCatPlayableCharacter.MissingStatus.Status,
-                            statusAmount = 1,
+                            statusAmount = 2,
                             targetPlayer = true
                         },
                         new AMove
