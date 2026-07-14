@@ -164,7 +164,8 @@ internal class ModEntry : SimpleMod
     ///
     private static List<Type> EvilCatDialogueTypes =
     [
-        typeof(EvilCatCombatDialogue)
+        typeof(EvilCatCombatDialogue),
+        typeof(EvilCatEventDialogue)
     ];
 
 
@@ -420,6 +421,8 @@ internal class ModEntry : SimpleMod
         ///
         RegisterAnimation(package, "neutral", "assets/Animation/Neutral/EvilCat_Neutral", 4);
         RegisterAnimation(package, "squint", "assets/Animation/Squint/EvilCat_Squint", 3);
+        RegisterAnimation(package, "feral", "assets/Animation/Feral/EvilCat_Feral", 3);
+        RegisterAnimation(package, "angry", "assets/Animation/Angry/EvilCat_Angry", 3);
 
 
 

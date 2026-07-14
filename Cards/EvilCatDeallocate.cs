@@ -12,7 +12,7 @@ namespace EvilCat.Cards;
 //
 //Define card unique class
 //
-public class EvilCatDeallocate : Card, IRegisterable, IHasCustomCardTraits
+public class EvilCatDeallocate : Card, IRegisterable
 {
     //
     //Begin card registration
@@ -45,35 +45,6 @@ public class EvilCatDeallocate : Card, IRegisterable, IHasCustomCardTraits
 
 
 
-    ///
-    /// Define additional custom card traits
-    ///
-    public IReadOnlySet<ICardTraitEntry> GetInnateTraits(State state)
-    {
-        switch (this.upgrade)
-        {
-            case Upgrade.None:
-                {
-                    return new HashSet<ICardTraitEntry> { ModEntry.Instance.KokoroApi.Fleeting.Trait };
-                }
-            case Upgrade.A:
-                {
-                    return new HashSet<ICardTraitEntry> { };
-                }
-            case Upgrade.B:
-                {
-                    return new HashSet<ICardTraitEntry> { };
-                }
-            default:
-                {
-                    return new HashSet<ICardTraitEntry> { };
-                }
-        }
-
-    }
-
-
-
     //
     //Define card cost and traits for default and each upgrade path
     //
@@ -85,7 +56,7 @@ public class EvilCatDeallocate : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 3,
+                        cost = 4,
                         exhaust = true
                     };
                 }
@@ -103,8 +74,7 @@ public class EvilCatDeallocate : Card, IRegisterable, IHasCustomCardTraits
                     {
                         cost = 4,
                         exhaust = true,
-                        retain = true,
-                        buoyant = true
+                        retain = true
                     };
                 }
             default:
