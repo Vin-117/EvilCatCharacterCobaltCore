@@ -135,7 +135,7 @@
             "name": "Full Kernel Access",
             "desc": "Play an exhausted card for free, then discard it.",
             "descA": "Play an exhausted card for free, then discard it.",
-            "descB": "Play an exhausted card for free, then topdeck it."
+            "descB": "Play an exhausted card for free, then discard it."
         },
         "EvilCatMemoryMismatch":
         {
@@ -168,10 +168,10 @@
     },
     "artifact": 
     {
-        "EvilCatThreadMismatch":
+        "EvilCatBackupData":
         {
-            "name": "THREAD MISMATCH",
-            "desc": "The first time you exhaust a card in combat, draw 3 cards."
+            "name": "SAVE BACKUP",
+            "desc": "The first time you exhaust a card in combat, draw 2 cards."
         },
         "EvilCatBinaryExecution" : {
 			"name" : "BINARY EXECUTION",
@@ -193,7 +193,7 @@
         },
         "EvilCatBadMemory":
         {
-            "name": "DATA OVERWRITE",
+            "name": "DEAD THREAD",
             "desc": "Any time a card is exhausted, add a random temp card to your hand."
         },
     },

@@ -55,7 +55,7 @@ public class EvilCatFullMemoryAccess : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1,
+                        cost = 2,
                         description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatFullMemoryAccess", "desc"])
                     };
                 }
@@ -63,7 +63,7 @@ public class EvilCatFullMemoryAccess : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 0,
+                        cost = 1,
                         description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatFullMemoryAccess", "descA"])
                     };
                 }
@@ -71,7 +71,8 @@ public class EvilCatFullMemoryAccess : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1,
+                        cost = 2,
+                        retain = true,
                         description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatFullMemoryAccess", "descB"])
                     };
                 }
@@ -122,7 +123,7 @@ public class EvilCatFullMemoryAccess : Card, IRegisterable
 
                         new ACardSelect
                         {
-                            browseAction = new AFullKernelAccessToTopDeck(),
+                            browseAction = new AFullKernelAccessToDiscard(),
                             browseSource = CardBrowse.Source.ExhaustPile
                         }
 

@@ -40,7 +40,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     minDamageDealtToEnemyThisAction = 1,
                     dialogue =
                     [
-                        new(AmEvilCat, "feral", "Hit them again.")
+                        new(AmEvilCat, "neutral", "Hit connected.")
                     ]
                 }
             },
@@ -70,7 +70,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     minDamageDealtToEnemyThisAction = 1,
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "Damage confirmed.")
+                        new(AmEvilCat, "neutral", "Good.")
                     ]
                 }
             },
@@ -85,37 +85,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     minDamageDealtToEnemyThisAction = 1,
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "Shoot them again.")
-                    ]
-                }
-            },
-
-            {
-                "EvilCat_Dialogue_ShotHitGeneric_5", new()
-                {
-                    type = NodeType.combat,
-                    allPresent = [ AmEvilCat ],
-                    playerShotJustHit = true,
-                    oncePerCombatTags = ["EvilCat_WeHit_Tag"],
-                    minDamageDealtToEnemyThisAction = 1,
-                    dialogue =
-                    [
-                        new(AmEvilCat, "feral", "You're mine.")
-                    ]
-                }
-            },
-
-            {
-                "EvilCat_Dialogue_ShotHitGeneric_6", new()
-                {
-                    type = NodeType.combat,
-                    allPresent = [ AmEvilCat ],
-                    playerShotJustHit = true,
-                    oncePerCombatTags = ["EvilCat_WeHit_Tag"],
-                    minDamageDealtToEnemyThisAction = 1,
-                    dialogue =
-                    [
-                        new(AmEvilCat, "neutral", "Keep hurting them.")
+                        new(AmEvilCat, "neutral", "Damage confirmed.")
                     ]
                 }
             },

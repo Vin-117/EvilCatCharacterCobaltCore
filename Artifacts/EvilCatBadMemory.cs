@@ -28,7 +28,7 @@ public class EvilCatBadMemory : Artifact, IRegisterable
             },
             Name = ModEntry.Instance.AnyLocalizations.Bind(["artifact", "EvilCatBadMemory", "name"]).Localize,
             Description = ModEntry.Instance.AnyLocalizations.Bind(["artifact", "EvilCatBadMemory", "desc"]).Localize,
-            Sprite = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Artifact/SaveCorruption.png")).Sprite,
+            Sprite = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Artifact/ThreadMismatch.png")).Sprite,
 
         });
 
