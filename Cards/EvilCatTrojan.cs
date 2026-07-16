@@ -176,12 +176,12 @@ public class EvilCatTrojan : Card, IRegisterable
                         {
                             targetPlayer = false,
                             isRandom = true,
-                            dir = -6
+                            dir = -8
                         },
                         new AStatus
                         {
                             status = Status.heat,
-                            statusAmount = 6,
+                            statusAmount = 8,
                             targetPlayer = false,
                         },
                         new AStatus

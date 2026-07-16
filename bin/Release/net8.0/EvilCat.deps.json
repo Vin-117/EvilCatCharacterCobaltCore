@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "EvilCat/0.7.1": {
+      "EvilCat/0.7.2": {
         "dependencies": {
           "EnumByNameSourceGenerator": "1.1.2",
           "Nickel.ModBuildConfig": "2.0.2"
@@ -27,7 +27,7 @@
     }
   },
   "libraries": {
-    "EvilCat/0.7.1": {
+    "EvilCat/0.7.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

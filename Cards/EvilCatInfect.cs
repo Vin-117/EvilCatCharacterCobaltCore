@@ -55,7 +55,7 @@ public class EvilCatInfect : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1,
+                        cost = 2,
                         exhaust = true
                     };
                 }
@@ -63,7 +63,7 @@ public class EvilCatInfect : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 0,
+                        cost = 1,
                         exhaust = true
                     };
                 }
@@ -71,7 +71,7 @@ public class EvilCatInfect : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1,
+                        cost = 2,
                         exhaust = true
                     };
                 }
