@@ -11,7 +11,7 @@ namespace EvilCat.Cards;
 //
 //Define card unique class
 //
-public class EvilCatCorrupt : Card, IRegisterable
+public class EvilCatEXECard : Card, IRegisterable
 {
     //
     //Begin card registration
@@ -26,8 +26,8 @@ public class EvilCatCorrupt : Card, IRegisterable
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new CardMeta
             {
-                deck = ModEntry.Instance.EvilCatDeck.Deck,
-                rarity = Rarity.common,
+                deck = Deck.colorless,
+                rarity = Rarity.uncommon,
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
@@ -37,8 +37,8 @@ public class EvilCatCorrupt : Card, IRegisterable
             //
             //Define card name and art file
             //
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatCorrupt", "name"]).Localize,
-            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/DistortedAttack.png")).Sprite,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatEXECard", "name"]).Localize,
+            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/plain.png")).Sprite,
         });
     }
 
@@ -55,21 +55,26 @@ public class EvilCatCorrupt : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 1,
+                        exhaust = true,
+                        description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatEXECard", "desc"])
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 0
+                        cost = 0,
+                        exhaust = true,
+                        description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatEXECard", "descA"])
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 1,
+                        description = ModEntry.Instance.Localizations.Localize(["card", "EvilCatEXECard", "descB"])
                     };
                 }
             default:
@@ -92,10 +97,15 @@ public class EvilCatCorrupt : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new AAttack
+                        new ACardOffering
                         {
-                            damage = GetDmg(s, 1),
-                            piercing = true
+                            amount = 3,
+                            limitDeck = ModEntry.Instance.EvilCatDeck.Deck,
+                            makeAllCardsTemporary = true,
+                            overrideUpgradeChances = false,
+                            canSkip = false,
+                            inCombat = true,
+                            discount = -1,
                         },
                         new AExhaustSelect
                         {
@@ -107,10 +117,15 @@ public class EvilCatCorrupt : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new AAttack
+                        new ACardOffering
                         {
-                            damage = GetDmg(s, 1),
-                            piercing = true
+                            amount = 3,
+                            limitDeck = ModEntry.Instance.EvilCatDeck.Deck,
+                            makeAllCardsTemporary = true,
+                            overrideUpgradeChances = false,
+                            canSkip = false,
+                            inCombat = true,
+                            discount = -1,
                         },
                         new AExhaustSelect
                         {
@@ -122,16 +137,17 @@ public class EvilCatCorrupt : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new AAttack
+                        new ACardOffering
                         {
-                            damage = GetDmg(s, 1),
-                            piercing = true
+                            amount = 5,
+                            limitDeck = ModEntry.Instance.EvilCatDeck.Deck,
+                            makeAllCardsTemporary = true,
+                            overrideUpgradeChances = false,
+                            canSkip = false,
+                            inCombat = true,
+                            discount = -1,
                         },
-                        new ADrawCard
-                        {
-                            count = 1
-                        },
-                        new AOptionalExhaustSelect
+                        new AExhaustSelect
                         {
                             count = 1
                         }

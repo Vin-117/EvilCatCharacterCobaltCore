@@ -28,6 +28,17 @@ public class EvilCatFullKernel : Artifact, IRegisterable
             Description = ModEntry.Instance.AnyLocalizations.Bind(["artifact", "EvilCatFullKernel", "desc"]).Localize,
             Sprite = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Artifact/FullKernel.png")).Sprite
         });
+
+    }
+
+    public override void OnReceiveArtifact(State state)
+    {
+        state.ship.baseEnergy++;
+    }
+
+    public override void OnRemoveArtifact(State state)
+    {
+        state.ship.baseEnergy--;
     }
 
     public override List<Tooltip>? GetExtraTooltips()
@@ -36,21 +47,25 @@ public class EvilCatFullKernel : Artifact, IRegisterable
         {
             new TTCard
             {
-                card = new EvilCatFullMemoryAccess()
+                card = new EvilCatSegFault()
                 {
-                    upgrade = Upgrade.None
+                    upgrade = Upgrade.A
                 }
             }
         };
     }
 
-
-    public override void OnReceiveArtifact(State state)
+    public override void OnCombatStart(State state, Combat combat)
     {
-        state.GetCurrentQueue().QueueImmediate(new AAddCard
+        combat.QueueImmediate(new AAddCard
         {
-            amount = 1,
-            card = new EvilCatFullMemoryAccess()
+            card = new EvilCatSegFault()
+            {
+                upgrade = Upgrade.A
+            },
+            artifactPulse = Key(),
+            destination = CardDestination.Hand,
+            amount = 4
         });
     }
 

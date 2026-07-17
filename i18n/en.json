@@ -164,6 +164,13 @@
         {
             "name": "Process Safeguard"
         },
+        "EvilCatEXECard":
+        {
+            "name": "CAT.MSI",
+            "desc": "Add 1 of 3 <c=cardtrait>discount, temp</c> <c=FF48EB>CAT?</c> cards to your hand. Exhaust 1.",
+            "descA": "Add 1 of 3 <c=cardtrait>discount, temp</c> <c=FF48EB>CAT?</c> cards to your hand. Exhaust 1.",
+            "descB": "Add 1 of 5 <c=cardtrait>discount, temp</c> <c=FF48EB>CAT?</c> cards to your hand. Exhaust 1."
+        },
         
     },
     "artifact": 
@@ -188,8 +195,8 @@
         },
         "EvilCatFullKernel":
         {
-            "name": "FULL KERNEL ACCESS",
-            "desc": "Upon pickup, add a <c=card>Full Kernel Access</c> to your deck."
+            "name": "CPU SIPHON",
+            "desc": "Gain 1 extra <c=energy>ENERGY</c> every turn. <c=downside>At the start of combat, add 4 SegFault A cards to your hand.</c>"
         },
         "EvilCatBadMemory":
         {

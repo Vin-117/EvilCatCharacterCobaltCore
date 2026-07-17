@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|c:\\users\\conce\\desktop\\cobalt core mods\\mine\\evilcat\\evilcat.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|solutionrelative:evilcat.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|c:\\users\\conce\\desktop\\cobalt core mods\\mine\\evilcat\\cards\\evilcatsystemrefactor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|solutionrelative:cards\\evilcatsystemrefactor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|c:\\users\\conce\\desktop\\cobalt core mods\\mine\\evilcat\\cards\\evilcatcorrupt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|solutionrelative:cards\\evilcatcorrupt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|c:\\users\\conce\\desktop\\cobalt core mods\\mine\\evilcat\\modentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|solutionrelative:modentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|c:\\users\\conce\\desktop\\cobalt core mods\\mine\\evilcat\\cards\\evilcatexe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|solutionrelative:cards\\evilcatexe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|c:\\users\\conce\\desktop\\cobalt core mods\\mine\\evilcat\\i18n\\en.json||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|solutionrelative:i18n\\en.json||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|c:\\users\\conce\\desktop\\cobalt core mods\\mine\\evilcat\\nickel.json||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|solutionrelative:nickel.json||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|c:\\users\\conce\\desktop\\cobalt core mods\\mine\\evilcat\\conversation\\evilcateventdialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|solutionrelative:conversation\\evilcateventdialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|c:\\users\\conce\\desktop\\cobalt core mods\\mine\\evilcat\\cards\\evilcatinfect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|solutionrelative:cards\\evilcatinfect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|c:\\users\\conce\\desktop\\cobalt core mods\\mine\\evilcat\\modentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|solutionrelative:modentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|c:\\users\\conce\\desktop\\cobalt core mods\\mine\\evilcat\\external\\moredifficulties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|solutionrelative:external\\moredifficulties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|c:\\users\\conce\\desktop\\cobalt core mods\\mine\\evilcat\\cards\\evilcatdeallocate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,8 +38,48 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "en.json",
+              "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\i18n\\en.json",
+              "RelativeDocumentMoniker": "i18n\\en.json",
+              "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\i18n\\en.json",
+              "RelativeToolTip": "i18n\\en.json",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAAAKsAAABoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-07-15T02:16:34.557Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EvilCatCorrupt.cs",
+              "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\Cards\\EvilCatCorrupt.cs",
+              "RelativeDocumentMoniker": "Cards\\EvilCatCorrupt.cs",
+              "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\Cards\\EvilCatCorrupt.cs",
+              "RelativeToolTip": "Cards\\EvilCatCorrupt.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAB4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-17T02:16:40.944Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EvilCatSystemRefactor.cs",
+              "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\Cards\\EvilCatSystemRefactor.cs",
+              "RelativeDocumentMoniker": "Cards\\EvilCatSystemRefactor.cs",
+              "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\Cards\\EvilCatSystemRefactor.cs",
+              "RelativeToolTip": "Cards\\EvilCatSystemRefactor.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAwwIEAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-17T02:08:44.27Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
@@ -59,79 +99,41 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "EvilCatEventDialogue.cs",
-              "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\Conversation\\EvilCatEventDialogue.cs",
-              "RelativeDocumentMoniker": "Conversation\\EvilCatEventDialogue.cs",
-              "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\Conversation\\EvilCatEventDialogue.cs",
-              "RelativeToolTip": "Conversation\\EvilCatEventDialogue.cs",
-              "ViewState": "AgIAAJAAAAAAAAAAAAAqwKsAAAB5AAAAAAAAAA==",
+              "Title": "EvilCatEXE.cs",
+              "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\Cards\\EvilCatEXE.cs",
+              "RelativeDocumentMoniker": "Cards\\EvilCatEXE.cs",
+              "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\Cards\\EvilCatEXE.cs",
+              "RelativeToolTip": "Cards\\EvilCatEXE.cs",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAwwJUAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-15T22:43:29.717Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EvilCatInfect.cs",
-              "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\Cards\\EvilCatInfect.cs",
-              "RelativeDocumentMoniker": "Cards\\EvilCatInfect.cs",
-              "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\Cards\\EvilCatInfect.cs",
-              "RelativeToolTip": "Cards\\EvilCatInfect.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAgwCkAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-15T22:42:21.529Z",
+              "WhenOpened": "2026-07-17T01:51:26.738Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "nickel.json",
-              "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\nickel.json",
-              "RelativeDocumentMoniker": "nickel.json",
-              "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\nickel.json",
-              "RelativeToolTip": "nickel.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-07-15T02:50:33.87Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "EvilCat.csproj",
-              "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\EvilCat.csproj",
-              "RelativeDocumentMoniker": "EvilCat.csproj",
-              "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\EvilCat.csproj",
-              "RelativeToolTip": "EvilCat.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-07-15T02:50:14.629Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "en.json",
-              "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\i18n\\en.json",
-              "RelativeDocumentMoniker": "i18n\\en.json",
-              "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\i18n\\en.json",
-              "RelativeToolTip": "i18n\\en.json",
-              "ViewState": "AgIAAJ8AAAAAAAAAAAAIwMoAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-07-15T02:16:34.557Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "ModEntry.cs",
               "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\ModEntry.cs",
               "RelativeDocumentMoniker": "ModEntry.cs",
               "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\ModEntry.cs",
               "RelativeToolTip": "ModEntry.cs",
-              "ViewState": "AgIAAIMAAAAAAAAAAAAQwJEAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAJYBAAAAAAAAAAAowKcBAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-14T01:53:41.054Z"
+              "WhenOpened": "2026-07-14T01:53:41.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MoreDifficulties.cs",
+              "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\External\\MoreDifficulties.cs",
+              "RelativeDocumentMoniker": "External\\MoreDifficulties.cs",
+              "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\External\\MoreDifficulties.cs",
+              "RelativeToolTip": "External\\MoreDifficulties.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-17T01:45:16.603Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

@@ -115,7 +115,6 @@ internal class ModEntry : SimpleMod
     private static List<Type> EvilCatRareCardTypes = 
     [
         typeof(EvilCatTrojan),
-        typeof(EvilCatFullMemoryAccess),
         typeof(EvilCatMemoryProtection),
         typeof(EvilCatMemoryMismatch),
         typeof(EvilCatDeallocate),
@@ -128,6 +127,7 @@ internal class ModEntry : SimpleMod
     ];
     private static List<Type> EvilCatEXECardTypes =
     [
+        typeof(EvilCatEXECard)
     ];
     private static IEnumerable<Type> EvilCatCardTypes =
         EvilCatCommonCardTypes
@@ -250,9 +250,15 @@ internal class ModEntry : SimpleMod
             {
                 cards = 
                 [
+                    new EvilCatCorrupt(),
+                    new EvilCatThrusterOverride(),
+                    new EvilCatSystemRefactor(),
+                    new EvilCatThreadTerminate(),
+                    new BasicShieldColorless(),
+                    new CannonColorless()
                 ]
             },
-            //ExeCardType = typeof(PLACEHOLDER),
+            ExeCardType = typeof(EvilCatEXECard),
             Description = AnyLocalizations.Bind(["character", "desc"]).Localize
         });
 
@@ -262,7 +268,35 @@ internal class ModEntry : SimpleMod
         /// Define alternate starting cards for the more difficulties mod
         /// as well as starters for custom run option duos
         ///
-        //(TODO)
+        helper.ModRegistry.AwaitApi<IMoreDifficultiesApi>(
+            "TheJazMaster.MoreDifficulties",
+            new SemanticVersion(1, 3, 0),
+            api => api.RegisterAltStarters
+            (
+                deck: EvilCatDeck.Deck,
+                starterDeck: new StarterDeck
+                {
+                    cards =
+                    [
+                        new EvilCatSystemRefactor(),
+                        new EvilCatThreadTerminate(),
+                    ]
+                }
+
+            )
+        );
+        helper.ModRegistry.AwaitApi<ICustomRunOptionsApi>("Shockah.CustomRunOptions", cro =>
+        {
+            cro.RegisterPartialDuoDeck(EvilCatDeck.Deck, new StarterDeck
+            {
+                cards =
+                [
+                    new EvilCatCorrupt(),
+                    new EvilCatThrusterOverride(),
+                    new EvilCatThreadTerminate(),
+                ]
+            });
+        });
 
 
 

@@ -55,7 +55,8 @@ public class EvilCatSystemRefactor : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 2
+                        cost = 2,
+                        flippable = true
                     };
                 }
             case Upgrade.A:
@@ -71,7 +72,7 @@ public class EvilCatSystemRefactor : Card, IRegisterable
                     return new CardData
                     {
                         cost = 1,
-                        flippable = false
+                        flippable = true
                     };
                 }
             default:
@@ -104,9 +105,9 @@ public class EvilCatSystemRefactor : Card, IRegisterable
                             dir = 1,
                             targetPlayer = true
                         },
-                        new AOptionalExhaustSelect
+                        new AExhaustSelect
                         {
-                            count = 2
+                            count = 1
                         }
                     };
                 }
@@ -121,7 +122,7 @@ public class EvilCatSystemRefactor : Card, IRegisterable
                         },
                         new AMove
                         {
-                            dir = 1,
+                            dir = 2,
                             targetPlayer = true
                         },
                         new AOptionalExhaustSelect
@@ -144,7 +145,7 @@ public class EvilCatSystemRefactor : Card, IRegisterable
                             dir = 1,
                             targetPlayer = true
                         },
-                        new AOptionalExhaustSelect
+                        new AExhaustSelect
                         {
                             count = 1
                         }
