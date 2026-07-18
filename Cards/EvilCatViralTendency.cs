@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
+﻿using EvilCat.Actions;
+using EvilCat.Features;
 using Nanoray.PluginManager;
 using Nickel;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 using static EvilCat.External.IKokoroApi.IV2;
-using EvilCat.Features;
 
 namespace EvilCat.Cards;
 
@@ -56,14 +57,14 @@ public class EvilCatViralTendency : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 0
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 1,
+                        cost = 0,
                         retain = true
                     };
                 }
@@ -71,8 +72,7 @@ public class EvilCatViralTendency : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 1,
-                        unplayable = true
+                        cost = 0
                     };
                 }
             default:
@@ -92,30 +92,15 @@ public class EvilCatViralTendency : Card, IRegisterable, IHasCustomCardTraits
         {
             case Upgrade.None:
                 {
-                    this.SetIsImmortal(true);
-                    HashSet<ICardTraitEntry> cardTraitEntries = new HashSet<ICardTraitEntry>()
-                    {
-                        ModEntry.Instance.EvilCatImmortalTrait
-                    };
-                    return cardTraitEntries;
+                    return new HashSet<ICardTraitEntry> { };
                 }
             case Upgrade.A:
                 {
-                    this.SetIsImmortal(true);
-                    HashSet<ICardTraitEntry> cardTraitEntries = new HashSet<ICardTraitEntry>()
-                    {
-                        ModEntry.Instance.EvilCatImmortalTrait
-                    };
-                    return cardTraitEntries;
+                    return new HashSet<ICardTraitEntry> { };
                 }
             case Upgrade.B:
                 {
-                    this.SetIsImmortal(true);
-                    HashSet<ICardTraitEntry> cardTraitEntries = new HashSet<ICardTraitEntry>()
-                    {
-                        ModEntry.Instance.EvilCatImmortalTrait
-                    };
-                    return cardTraitEntries;
+                    return new HashSet<ICardTraitEntry> { };
                 }
             default:
                 {
@@ -137,67 +122,65 @@ public class EvilCatViralTendency : Card, IRegisterable, IHasCustomCardTraits
             case Upgrade.None:
                 {
                     return new List<CardAction>
-                    {
-                        new AAttack
+                    { 
+                        new AStatus
                         {
-                            damage = GetDmg(s, 1),
-                            piercing = false
+                            status = Status.overdrive,
+                            statusAmount = 1,
+                            targetPlayer = true
                         },
-                        ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
-                        (
-                            new AStatus
+                        new AAddCard
+                        {
+                            card = new EvilCatSegFault()
                             {
-                                status = Status.overdrive,
-                                statusAmount = 1,
-                                targetPlayer = true
-                            }
-                        ).AsCardAction
-
+                            },
+                            destination = CardDestination.Hand,
+                            amount = 1,
+                        }
                     };
                 }
             case Upgrade.A:
                 {
                     return new List<CardAction>
                     {
-                        new AAttack
+                        new AStatus
                         {
-                            damage = GetDmg(s, 1),
-                            piercing = false
+                            status = Status.overdrive,
+                            statusAmount = 1,
+                            targetPlayer = true
                         },
-                        ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
-                        (
-                            new AStatus
+                        new AAddCard
+                        {
+                            card = new EvilCatSegFault()
                             {
-                                status = Status.overdrive,
-                                statusAmount = 1,
-                                targetPlayer = true
-                            }
-                        ).AsCardAction
-
+                            },
+                            destination = CardDestination.Hand,
+                            amount = 1,
+                        }
                     };
                 }
             case Upgrade.B:
                 {
                     return new List<CardAction>
                     {
-                        ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
-                        (
-                            new AStatus
+                        new AStatus
+                        {
+                            status = Status.overdrive,
+                            statusAmount = 1,
+                            targetPlayer = true
+                        },
+                        new ADrawCard
+                        {
+                            count = 1
+                        },
+                        new AAddCard
+                        {
+                            card = new EvilCatSegFault()
                             {
-                                status = Status.timeStop,
-                                statusAmount = 1,
-                                targetPlayer = true
-                            }
-                        ).AsCardAction,
-                        ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
-                        (
-                            new AStatus
-                            {
-                                status = Status.overdrive,
-                                statusAmount = 1,
-                                targetPlayer = true
-                            }
-                        ).AsCardAction
+                            },
+                            destination = CardDestination.Hand,
+                            amount = 1,
+                        }
                     };
                 }
             default:

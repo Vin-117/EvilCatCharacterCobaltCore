@@ -56,7 +56,7 @@ public class EvilCatSystemRefactor : Card, IRegisterable
                     return new CardData
                     {
                         cost = 2,
-                        flippable = true
+                        flippable = false
                     };
                 }
             case Upgrade.A:
@@ -71,8 +71,7 @@ public class EvilCatSystemRefactor : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1,
-                        flippable = true
+                        cost = 2
                     };
                 }
             default:
@@ -105,7 +104,7 @@ public class EvilCatSystemRefactor : Card, IRegisterable
                             dir = 1,
                             targetPlayer = true
                         },
-                        new AExhaustSelect
+                        new AOptionalExhaustSelect
                         {
                             count = 1
                         }
@@ -122,12 +121,12 @@ public class EvilCatSystemRefactor : Card, IRegisterable
                         },
                         new AMove
                         {
-                            dir = 2,
+                            dir = 1,
                             targetPlayer = true
                         },
                         new AOptionalExhaustSelect
                         {
-                            count = 2
+                            count = 1
                         }
                     };
                 }
@@ -142,12 +141,12 @@ public class EvilCatSystemRefactor : Card, IRegisterable
                         },
                         new AMove
                         {
-                            dir = 1,
+                            dir = 2,
                             targetPlayer = true
                         },
-                        new AExhaustSelect
+                        new AOptionalExhaustSelect
                         {
-                            count = 1
+                            count = 2
                         }
                     };
                 }

@@ -39,7 +39,7 @@ public class EvilCatThreadTerminate : Card, IRegisterable
             //Define card name and art file
             //
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatThreadTerminate", "name"]).Localize,
-            //Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/FILENAME.png")).Sprite,
+            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/DistortedAttack.png")).Sprite,
         });
     }
 
@@ -63,14 +63,14 @@ public class EvilCatThreadTerminate : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 0
+                        cost = 1
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 0
                     };
                 }
             default:
@@ -117,6 +117,11 @@ public class EvilCatThreadTerminate : Card, IRegisterable
                     {
                         new AAttack
                         {
+                            damage = GetDmg(s, 1),
+                            piercing = true,
+                        },
+                        new AAttack
+                        {
                             damage = GetDmg(s, 2),
                             piercing = true,
                             status = ModEntry.Instance.KokoroApi.DriveStatus.Underdrive,
@@ -137,18 +142,12 @@ public class EvilCatThreadTerminate : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-
-                        new AStatus
-                        {
-                            status = ModEntry.Instance.KokoroApi.DriveStatus.Underdrive,
-                            statusAmount = 1,
-                            targetPlayer = false
-                        },
                         new AAttack
                         {
                             damage = GetDmg(s, 2),
-                            piercing = true,
-                            stunEnemy = true
+                            piercing = false,
+                            status = ModEntry.Instance.KokoroApi.DriveStatus.Underdrive,
+                            statusAmount = 1
                         },
                         new AAddCard
                         {
