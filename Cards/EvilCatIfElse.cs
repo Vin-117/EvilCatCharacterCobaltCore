@@ -65,10 +65,8 @@ public class EvilCatIfElse : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 0,
+                        cost = 1,
                         retain = true,
-                        exhaust = true,
-                        temporary = true,
                         floppable = true,
                         art = (flipped ? BottomArt : TopArt).Sprite
                     };
@@ -79,7 +77,6 @@ public class EvilCatIfElse : Card, IRegisterable
                     {
                         cost = 0,
                         retain = true,
-                        temporary = true,
                         floppable = true,
                         art = (flipped ? BottomArt : TopArt).Sprite
                     };
@@ -88,10 +85,8 @@ public class EvilCatIfElse : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 0,
+                        cost = 1,
                         retain = true,
-                        exhaust = true,
-                        temporary = true,
                         floppable = true,
                         art = (flipped ? BottomArt : TopArt).Sprite
                     };
@@ -160,18 +155,31 @@ public class EvilCatIfElse : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
+                        new AAttack
+                        {
+                            damage = GetDmg(s, 1),
+                            piercing = true,
+                            disabled = flipped
+                        },
                         new AStatus
                         {
                             status = Status.overdrive,
-                            statusAmount = 2,
+                            statusAmount = 1,
                             targetPlayer = true,
                             disabled = flipped
                         },
                         new ADummyAction(),
                         new AStatus
                         {
+                            status = Status.shield,
+                            statusAmount = 1,
+                            targetPlayer = true,
+                            disabled = !flipped
+                        },
+                        new AStatus
+                        {
                             status = ModEntry.Instance.KokoroApi.DriveStatus.Underdrive,
-                            statusAmount = 2,
+                            statusAmount = 1,
                             targetPlayer = false,
                             disabled = !flipped
                         },

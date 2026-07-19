@@ -182,7 +182,7 @@
         },
         "EvilCatBinaryExecution" : {
 			"name" : "BINARY EXECUTION",
-			"desc": "At the start of combat, gain an <c=card>If() Else()</c>."
+			"desc": "Upon pickup, add an <c=card>If() Else()</c> to your deck."
 		},
         "EvilCatDangerousUnlock" : {
 			"name" : "PERMISSION BYPASS",

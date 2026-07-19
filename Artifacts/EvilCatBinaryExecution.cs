@@ -44,17 +44,12 @@ public class EvilCatBinaryExecution : Artifact, IRegisterable
         };
     }
 
-    public override void OnCombatStart(State state, Combat combat)
-    {
-        combat.QueueImmediate(new AAddCard
-        {
-            card = new EvilCatIfElse()
-            {
-                upgrade = Upgrade.None
-            },
-            artifactPulse = Key(),
-            destination = CardDestination.Hand,
-            amount = 1
-        });
-    }
+    public override void OnReceiveArtifact(State state)
+	{
+		state.GetCurrentQueue().QueueImmediate(new AAddCard
+		{
+			amount = 1,
+			card = new EvilCatIfElse()
+		});
+	}
 }

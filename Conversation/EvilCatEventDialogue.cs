@@ -28,7 +28,7 @@ internal class EvilCatEventDialogue : IRegisterable
                     dialogue =
                     [
                         new(AmShopkeeper, "Meowdy!", true),
-                        new(AmEvilCat, "angry", "I will destroy you."),
+                        new(AmEvilCat, "feral", "I will destroy you."),
                         new(AmShopkeeper, "Ouch.", true),
                         new(new Jump{key = "NewShop"})
                     ]
@@ -43,7 +43,7 @@ internal class EvilCatEventDialogue : IRegisterable
                     allPresent = [ AmEvilCat ],
                     dialogue =
                     [
-                        new(AmEvilCat, "feral", "I think you dropped that USB."),
+                        new(AmEvilCat, "Smartass", "I think you dropped that USB."),
                         new(AmShopkeeper, "I'm not falling for that.", true),
                         new(new Jump{key = "NewShop"})
                     ]
@@ -59,7 +59,7 @@ internal class EvilCatEventDialogue : IRegisterable
                     dialogue =
                     [
                         new(AmShopkeeper, "Love the new look.", true),
-                        new(AmEvilCat, "neutral", "Thank you."),
+                        new(AmEvilCat, "smug", "Thank you."),
                         new(new Jump{key = "NewShop"})
                     ]
                 }

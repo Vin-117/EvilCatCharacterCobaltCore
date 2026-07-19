@@ -454,9 +454,11 @@ internal class ModEntry : SimpleMod
         /// Define all other sprites
         ///
         RegisterAnimation(package, "neutral", "assets/Animation/Neutral/EvilCat_Neutral", 4);
-        RegisterAnimation(package, "squint", "assets/Animation/Squint/EvilCat_Squint", 3);
-        RegisterAnimation(package, "feral", "assets/Animation/Feral/EvilCat_Feral", 3);
-        RegisterAnimation(package, "angry", "assets/Animation/Angry/EvilCat_Angry", 3);
+        RegisterAnimation(package, "squint", "assets/Animation/Squint/EvilCat_Squint", 4);
+        RegisterAnimation(package, "feral", "assets/Animation/Feral/EvilCat_Feral", 4);
+        RegisterAnimation(package, "angry", "assets/Animation/Angry/EvilCat_Angry", 4);
+        RegisterAnimation(package, "smug", "assets/Animation/Smug/EvilCat_Smug", 4);
+        RegisterAnimation(package, "Smartass", "assets/Animation/Smartass/EvilCat_Smartass", 4);
 
 
 

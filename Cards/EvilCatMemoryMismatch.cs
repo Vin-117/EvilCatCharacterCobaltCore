@@ -71,8 +71,9 @@ public class EvilCatMemoryMismatch : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 0,
-                        exhaust = true
+                        cost = 1,
+                        exhaust = true,
+                        buoyant = true
                     };
                 }
             default:
@@ -134,13 +135,13 @@ public class EvilCatMemoryMismatch : Card, IRegisterable
                         new AStatus
                         {
                             targetPlayer = true,
-                            statusAmount = 3,
+                            statusAmount = 2,
                             status = ModEntry.Instance.EvilCatGenericDrawStatus.Status
                         },
                         new AStatus
                         {
                             targetPlayer = true,
-                            statusAmount = 2,
+                            statusAmount = 1,
                             status = ModEntry.Instance.EvilCatMemoryMismatchStatus.Status
                         }
                     };
