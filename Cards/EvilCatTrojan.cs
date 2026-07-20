@@ -169,33 +169,21 @@ public class EvilCatTrojan : Card, IRegisterable
                         new AStatus()
                         {
                             status = ModEntry.EvilCatPlayableCharacter.MissingStatus.Status,
-                            statusAmount = 2,
+                            statusAmount = 1,
                             targetPlayer = true
                         },
                         new AMove
                         {
                             targetPlayer = false,
                             isRandom = true,
-                            dir = -8
-                        },
-                        new AStatus
-                        {
-                            status = Status.heat,
-                            statusAmount = 8,
-                            targetPlayer = false,
+                            dir = -6
                         },
                         new AStatus
                         {
                             status = Status.corrode,
-                            statusAmount = 1,
+                            statusAmount = 2,
                             targetPlayer = false,
                         },
-                        new AStatus
-                        {
-                            status = Status.lockdown,
-                            statusAmount = 1,
-                            targetPlayer = false,
-                        }
 
                     };
                 }

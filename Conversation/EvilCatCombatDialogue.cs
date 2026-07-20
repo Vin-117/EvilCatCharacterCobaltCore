@@ -508,7 +508,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmEvilCat, "Smartass", "Yep. The armor is definitely our weakspot.")
+                        new(AmEvilCat, "smartass", "Yep. The armor is definitely our weakspot.")
                     ]
                 }
             },

@@ -43,7 +43,7 @@ internal class EvilCatEventDialogue : IRegisterable
                     allPresent = [ AmEvilCat ],
                     dialogue =
                     [
-                        new(AmEvilCat, "Smartass", "I think you dropped that USB."),
+                        new(AmEvilCat, "smartass", "I think you dropped that USB."),
                         new(AmShopkeeper, "I'm not falling for that.", true),
                         new(new Jump{key = "NewShop"})
                     ]

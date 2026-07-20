@@ -51,7 +51,7 @@
     {
         "EvilCatCorrupt": 
         {
-            "name": "Basic Shot?"
+            "name": "Corrupt"
         },
         "EvilCatThrusterOverride": 
         {
@@ -196,12 +196,12 @@
         "EvilCatFullKernel":
         {
             "name": "CPU SIPHON",
-            "desc": "Gain 1 extra <c=energy>ENERGY</c> every turn. <c=downside>At the start of combat, add 4 SegFault A cards to your hand.</c>"
+            "desc": "Every <c=keyword>2nd</c> time you exhaust a card, gain 1 <c=energy>ENERGY</c>."
         },
         "EvilCatBadMemory":
         {
             "name": "DEAD THREAD",
-            "desc": "Any time a card is exhausted, add a random temp card to your hand."
+            "desc": "Draw <c=card>+1 card</c> every turn. Any time a card is exhausted, add a random temp card to your hand."
         },
     },
     "trait": 

@@ -40,15 +40,23 @@ public class EvilCatBadMemory : Artifact, IRegisterable
 
     }
 
+
+    public override void OnReceiveArtifact(State state)
+    {
+        state.ship.baseDraw += 1;
+    }
+
+    public override void OnRemoveArtifact(State state)
+    {
+        state.ship.baseDraw -= 1;
+    }
+
     private static void EvilCatBadMemoryPostfix(State s, Card card, ref Combat __instance)
     {
 
 
         if (s.EnumerateAllArtifacts().FirstOrDefault(a => a is EvilCatBadMemory) is not { } artifact)
             return;
-
-        //var exhausted_card_deck = card.GetMeta().deck;
-
 
         __instance.Queue(new AAddRandomCard { destination = CardDestination.Hand });
         artifact.Pulse();

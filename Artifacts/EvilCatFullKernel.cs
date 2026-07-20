@@ -1,4 +1,5 @@
-﻿using EvilCat.Cards;
+﻿using EvilCat.Actions;
+using EvilCat.Cards;
 using EvilCat.Features;
 using FMOD;
 using HarmonyLib;
@@ -29,45 +30,46 @@ public class EvilCatFullKernel : Artifact, IRegisterable
             Sprite = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Artifact/FullKernel.png")).Sprite
         });
 
+        ModEntry.Instance.Harmony.Patch(
+            original: AccessTools.DeclaredMethod(typeof(Combat), nameof(Combat.SendCardToExhaust)),
+            postfix: new HarmonyMethod(MethodBase.GetCurrentMethod()!.DeclaringType!, nameof(EvilCatFullKernelPostfix))
+        );
+
+
+
     }
 
-    public override void OnReceiveArtifact(State state)
+    public int KernelExhaustCount = 0;
+
+    public override int? GetDisplayNumber(State s)
     {
-        state.ship.baseEnergy++;
+        return KernelExhaustCount;
     }
 
-    public override void OnRemoveArtifact(State state)
+    private static void EvilCatFullKernelPostfix(State s, Card card, ref Combat __instance)
     {
-        state.ship.baseEnergy--;
-    }
+        if (s.EnumerateAllArtifacts().FirstOrDefault(a => a is EvilCatFullKernel) is not { } artifact)
+            return;
 
-    public override List<Tooltip>? GetExtraTooltips()
-    {
-        return new List<Tooltip>
+        var kernelartifact = (EvilCatFullKernel)artifact;
+
+        if (kernelartifact.KernelExhaustCount == 1)
         {
-            new TTCard
-            {
-                card = new EvilCatSegFault()
+            __instance.Queue
+                (new AEnergy
                 {
-                    upgrade = Upgrade.A
-                }
-            }
-        };
+                    changeAmount = 1
+                });
+            kernelartifact.KernelExhaustCount = 0;
+            artifact.Pulse();
+        }
+        else
+        {
+            kernelartifact.KernelExhaustCount++;
+        }
     }
 
-    public override void OnCombatStart(State state, Combat combat)
-    {
-        combat.QueueImmediate(new AAddCard
-        {
-            card = new EvilCatSegFault()
-            {
-                upgrade = Upgrade.A
-            },
-            artifactPulse = Key(),
-            destination = CardDestination.Hand,
-            amount = 4
-        });
-    }
+
 
 
 }
