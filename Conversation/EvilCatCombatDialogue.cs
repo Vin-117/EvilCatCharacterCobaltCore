@@ -542,7 +542,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     oncePerCombatTags = [ "NoOverlapBetweenShips" ],
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "We've dodged them. For now.")
+                        new(AmEvilCat, "neutral", "We've shaken them for now.")
                     ]
                 }
             },
@@ -591,6 +591,73 @@ internal class EvilCatCombatDialogue : IRegisterable
                     dialogue =
                     [
                         new(AmEvilCat, "neutral", "Evasive manuevers successful.")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_NoOverlapButSeeker_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    priority = true,
+                    oncePerRun = true,
+                    shipsDontOverlapAtAll = true,
+                    doesNotHaveArtifacts = ["ChaffEmitters"],
+                    oncePerCombatTags = [ "NoOverlapBetweenShipsSeeker"],
+                    anyDronesHostile = [ "missile_seeker" ],
+                    nonePresent = [ "crab" ],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "squint", "That seeker is going to be a problem.")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_NoOverlapButSeeker_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    priority = true,
+                    shipsDontOverlapAtAll = true,
+                    doesNotHaveArtifacts = ["ChaffEmitters"],
+                    oncePerCombatTags = [ "NoOverlapBetweenShipsSeeker"],
+                    anyDronesHostile = [ "missile_seeker" ],
+                    nonePresent = [ "crab" ],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "grumpy", "Can we do something about that seeker?")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_WeHaveNoWarpPrep_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    oncePerRun = true,
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    oncePerRunTags = [ "ShieldPrepIsGoneYouFool" ],
+                    doesNotHaveArtifacts = [ "ShieldPrep", "WarpMastery"],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "grumpy", "Why did we leave Warp Prep behind?")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_WeGainedSimplicity_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    oncePerRun = true,
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    oncePerRunTags = [ "SimplicityShouts" ],
+                    hasArtifacts = [ "Simplicity" ],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "smartass", "Now we simply destroy them.")
                     ]
                 }
             },
