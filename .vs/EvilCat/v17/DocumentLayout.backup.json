@@ -3,13 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|c:\\users\\conce\\desktop\\cobalt core mods\\mine\\evilcat\\conversation\\evilcatcombatdialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|solutionrelative:conversation\\evilcatcombatdialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\ZariMod\\Conversation\\ZariCombatDialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|c:\\users\\conce\\desktop\\cobalt core mods\\mine\\evilcat\\modentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|solutionrelative:modentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -18,17 +11,25 @@
       "RelativeMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|solutionrelative:i18n\\en.json||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Raw Game Code\\HiFreqIntercom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|c:\\users\\conce\\desktop\\cobalt core mods\\mine\\evilcat\\nickel.json||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|solutionrelative:nickel.json||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Raw Game Code\\SelectiveMemory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|c:\\users\\conce\\desktop\\cobalt core mods\\mine\\evilcat\\conversation\\evilcatcombatdialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|solutionrelative:conversation\\evilcatcombatdialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files (x86)\\Steam\\steamapps\\common\\Cobalt Core\\Data\\story.json||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|c:\\users\\conce\\desktop\\cobalt core mods\\mine\\evilcat\\conversation\\dialoguefunctions\\commondefinitions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|solutionrelative:conversation\\dialoguefunctions\\commondefinitions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|c:\\users\\conce\\desktop\\cobalt core mods\\mine\\evilcat\\evilcat.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|solutionrelative:evilcat.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\ZariMod\\Conversation\\ZariCombatDialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Raw Game Code\\CobaltAltDeath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Raw Game Code\\AsteroidDriller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,17 +39,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "en.json",
               "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\i18n\\en.json",
               "RelativeDocumentMoniker": "i18n\\en.json",
               "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\i18n\\en.json",
               "RelativeToolTip": "i18n\\en.json",
-              "ViewState": "AgIAALYAAAAAAAAAAAAAAMsAAABuAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-07-15T02:16:34.557Z",
               "IsPinned": true,
@@ -56,28 +57,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ZariCombatDialogue.cs",
-              "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\ZariMod\\Conversation\\ZariCombatDialogue.cs",
-              "RelativeDocumentMoniker": "..\\ZariMod\\Conversation\\ZariCombatDialogue.cs",
-              "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\ZariMod\\Conversation\\ZariCombatDialogue.cs",
-              "RelativeToolTip": "..\\ZariMod\\Conversation\\ZariCombatDialogue.cs",
-              "ViewState": "AgIAACQDAAAAAAAAAAAuwEYDAAAMAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "ModEntry.cs",
+              "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\ModEntry.cs",
+              "RelativeDocumentMoniker": "ModEntry.cs",
+              "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\ModEntry.cs",
+              "RelativeToolTip": "ModEntry.cs",
+              "ViewState": "AgIAAMoBAAAAAAAAAAAswPEBAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-21T02:57:08.376Z",
+              "WhenOpened": "2026-07-23T02:23:50.571Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "EvilCatCombatDialogue.cs",
               "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\Conversation\\EvilCatCombatDialogue.cs",
               "RelativeDocumentMoniker": "Conversation\\EvilCatCombatDialogue.cs",
               "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\Conversation\\EvilCatCombatDialogue.cs",
               "RelativeToolTip": "Conversation\\EvilCatCombatDialogue.cs",
-              "ViewState": "AgIAAGwCAAAAAAAAAAAqwJMCAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAFACAAAAAAAAAAAuwGcCAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-21T02:56:59.15Z",
+              "WhenOpened": "2026-07-23T02:44:38.594Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CommonDefinitions.cs",
+              "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\Conversation\\DialogueFunctions\\CommonDefinitions.cs",
+              "RelativeDocumentMoniker": "Conversation\\DialogueFunctions\\CommonDefinitions.cs",
+              "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\Conversation\\DialogueFunctions\\CommonDefinitions.cs",
+              "RelativeToolTip": "Conversation\\DialogueFunctions\\CommonDefinitions.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwBMAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-23T02:33:26.875Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CobaltAltDeath.cs",
+              "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Raw Game Code\\CobaltAltDeath.cs",
+              "RelativeDocumentMoniker": "..\\..\\Raw Game Code\\CobaltAltDeath.cs",
+              "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Raw Game Code\\CobaltAltDeath.cs",
+              "RelativeToolTip": "..\\..\\Raw Game Code\\CobaltAltDeath.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-23T02:19:47.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AsteroidDriller.cs",
+              "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Raw Game Code\\AsteroidDriller.cs",
+              "RelativeDocumentMoniker": "..\\..\\Raw Game Code\\AsteroidDriller.cs",
+              "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Raw Game Code\\AsteroidDriller.cs",
+              "RelativeToolTip": "..\\..\\Raw Game Code\\AsteroidDriller.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-23T02:18:10.769Z",
               "EditorCaption": ""
             },
             {
@@ -98,63 +138,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "HiFreqIntercom.cs",
-              "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Raw Game Code\\HiFreqIntercom.cs",
-              "RelativeDocumentMoniker": "..\\..\\Raw Game Code\\HiFreqIntercom.cs",
-              "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Raw Game Code\\HiFreqIntercom.cs",
-              "RelativeToolTip": "..\\..\\Raw Game Code\\HiFreqIntercom.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-19T14:25:46.641Z"
+              "DocumentIndex": 2,
+              "Title": "nickel.json",
+              "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\nickel.json",
+              "RelativeDocumentMoniker": "nickel.json",
+              "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\nickel.json",
+              "RelativeToolTip": "nickel.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-07-22T01:57:39.737Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "SelectiveMemory.cs",
-              "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Raw Game Code\\SelectiveMemory.cs",
-              "RelativeDocumentMoniker": "..\\..\\Raw Game Code\\SelectiveMemory.cs",
-              "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Raw Game Code\\SelectiveMemory.cs",
-              "RelativeToolTip": "..\\..\\Raw Game Code\\SelectiveMemory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "ZariCombatDialogue.cs",
+              "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\ZariMod\\Conversation\\ZariCombatDialogue.cs",
+              "RelativeDocumentMoniker": "..\\ZariMod\\Conversation\\ZariCombatDialogue.cs",
+              "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\ZariMod\\Conversation\\ZariCombatDialogue.cs",
+              "RelativeToolTip": "..\\ZariMod\\Conversation\\ZariCombatDialogue.cs",
+              "ViewState": "AgIAACQDAAAAAAAAAAAuwEYDAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-19T14:24:23.62Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "story.json",
-              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Cobalt Core\\Data\\story.json",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files (x86)\\Steam\\steamapps\\common\\Cobalt Core\\Data\\story.json",
-              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Cobalt Core\\Data\\story.json",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files (x86)\\Steam\\steamapps\\common\\Cobalt Core\\Data\\story.json",
-              "ViewState": "AgIAALdpAAAAAAAAAAAmwNdpAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-07-19T02:16:55.266Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "EvilCat.csproj",
-              "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\EvilCat.csproj",
-              "RelativeDocumentMoniker": "EvilCat.csproj",
-              "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\EvilCat.csproj",
-              "RelativeToolTip": "EvilCat.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-07-18T04:01:20.929Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ModEntry.cs",
-              "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\ModEntry.cs",
-              "RelativeDocumentMoniker": "ModEntry.cs",
-              "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\ModEntry.cs",
-              "RelativeToolTip": "ModEntry.cs",
-              "ViewState": "AgIAAL0BAAAAAAAAAAAAAMwBAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-14T01:53:41.054Z",
+              "WhenOpened": "2026-07-21T02:57:08.376Z",
               "EditorCaption": ""
             }
           ]

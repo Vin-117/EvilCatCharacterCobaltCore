@@ -2,7 +2,8 @@
     "character": 
     {
         "name": "CAT?",
-        "desc": ["<c=FF48EB>CAT?</c>", "...The ship's computer? Her cards are mostly <c=boldPink>attacks</c>, <c=boldPink>targeted exhaust</c> and <c=boldPink>debuffs</c>."]
+        "desc": ["<c=FF48EB>CAT?</c>", "...The ship's computer? Her cards are mostly <c=boldPink>attacks</c>, <c=boldPink>targeted exhaust</c> and <c=boldPink>debuffs</c>."],
+        "fakename": "CAT?"
     },
     "status": 
     {

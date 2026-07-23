@@ -43,6 +43,7 @@ internal class ModEntry : SimpleMod
     /// Construct deck
     ///
     internal IDeckEntry EvilCatDeck;
+    internal IDeckEntry FAKEEvilCatDeck;
 
 
 
@@ -227,6 +228,24 @@ internal class ModEntry : SimpleMod
             DefaultCardArt = StableSpr.cards_colorless,
             BorderSprite = RegisterSprite(package, "assets/EvilCat_CardBorder.png").Sprite,
             Name = AnyLocalizations.Bind(["character", "name"]).Localize
+        });
+
+
+
+        ///
+        /// Define fake deck metadata for a hacky workaround
+        ///
+        FAKEEvilCatDeck = helper.Content.Decks.RegisterDeck("FAKEEvilCat", new DeckConfiguration
+        {
+            Definition = new DeckDef
+            {
+                color = new Color("FF48EB"),
+                titleColor = new Color("000000")
+            },
+
+            DefaultCardArt = StableSpr.cards_colorless,
+            BorderSprite = RegisterSprite(package, "assets/EvilCat_CardBorder.png").Sprite,
+            Name = AnyLocalizations.Bind(["character", "fakename"]).Localize
         });
 
 
@@ -447,6 +466,14 @@ internal class ModEntry : SimpleMod
                 RegisterSprite(package, "assets/Animation/EvilCat_Mini.png").Sprite,
             ]
         });
+        Instance.Helper.Content.Characters.V2.RegisterCharacterAnimation(new CharacterAnimationConfigurationV2
+        {
+            CharacterType = FAKEEvilCatDeck.Deck.Key(),
+            LoopTag = "mini",
+            Frames = [
+                RegisterSprite(package, "assets/Animation/EvilCat_Mini.png").Sprite,
+            ]
+        });
 
 
 
@@ -463,6 +490,12 @@ internal class ModEntry : SimpleMod
         RegisterAnimation(package, "furious", "assets/Animation/Furious/EvilCat_Furious", 4);
 
 
+
+        ///
+        ///Define some fake sprites so the game doesn't crash
+        ///
+        RegisterFakeAnimation(package, "neutral", "assets/Animation/Neutral/EvilCat_Neutral", 4);
+        RegisterFakeAnimation(package, "squint", "assets/Animation/Squint/EvilCat_Squint", 4);
 
         ///
         /// Initialize all cards and artifacts defined by static lists
@@ -499,6 +532,15 @@ internal class ModEntry : SimpleMod
         var ResetName_PatchTargetMethod = typeof(Character).GetMethod("GetDisplayName", AccessTools.all, new[] { typeof(string), typeof(State) });
         var ResetName_PatchInsertionMethod = typeof(ModEntry).GetMethod("ResetDisplayName", AccessTools.all);
         Harmony.Patch(ResetName_PatchTargetMethod, postfix: new HarmonyMethod(ResetName_PatchInsertionMethod));
+
+
+
+        ///
+        ///Define patch to replace CAT in upper left corner with EVIL CAT when she is in the crew
+        ///
+        var RenderEvilCat_PatchTargetMethod = typeof(Character).GetMethod("RenderComputer", AccessTools.all);
+        var RenderEvilCat_PatchInsertionMethod = typeof(ModEntry).GetMethod("RenderEvilCat", AccessTools.all);
+        Harmony.Patch(RenderEvilCat_PatchTargetMethod, prefix: new HarmonyMethod(RenderEvilCat_PatchInsertionMethod));
 
 
         ///
@@ -538,6 +580,22 @@ internal class ModEntry : SimpleMod
     }
 
 
+    ///
+    /// Register fake animations for fake version of evil cat (used for hacky workaround)
+    ///
+    public static void RegisterFakeAnimation(IPluginPackage<IModManifest> package, string tag, string dir, int frames)
+    {
+        Instance.Helper.Content.Characters.V2.RegisterCharacterAnimation(new CharacterAnimationConfigurationV2
+        {
+            CharacterType = Instance.FAKEEvilCatDeck.Deck.Key(),
+            LoopTag = tag,
+            Frames = Enumerable.Range(0, frames)
+                .Select(i => RegisterSprite(package, dir + i + ".png").Sprite)
+                .ToImmutableList()
+        });
+    }
+
+
 
     ///
     ///Define method to change the way Evil Cat's name is displayed in combat
@@ -552,6 +610,48 @@ internal class ModEntry : SimpleMod
             __result = "\\\\cat.msi";
         }
     }
+
+
+
+    ///
+    ///Define method to replace CAT with EVIL CAT if she is in the player's crew
+    ///
+    public static bool RenderEvilCat(G g, Vec offset, bool showDialogue = true) 
+    {
+
+        bool evilCatInCrew = false;
+
+        foreach (Character character in g.state.characters)
+        {
+            if (character.deckType == Instance.EvilCatDeck.Deck)
+            {
+                evilCatInCrew = true;
+            }
+        }
+
+        //Skip this method if evil cat not in crew
+        if (!evilCatInCrew) 
+        {
+            return true;
+        }
+
+
+        string text = (false ? "compOffline" : "comp");
+        Character obj = new Character
+        {
+            type = "Vintage.EvilCat::FAKEEvilCat",
+            deckType = Instance.FAKEEvilCatDeck.Deck,
+            artifacts = g.state.artifacts
+        };
+        int x = (int)offset.x;
+        int y = (int)offset.y;
+        bool showDialogue2 = showDialogue;
+        obj.Render(g, x, y, flipX: false, mini: true, isExploding: false, isDoneExploding: false, isEscaping: false, null, renderLocked: false, hideFace: false, showUnlockInstructions: false, showDialogue2);
+
+        return false;
+
+    }
+
 
 
     ///

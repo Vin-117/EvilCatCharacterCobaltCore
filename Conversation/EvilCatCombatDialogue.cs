@@ -613,7 +613,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                 }
             },
             {
-                "EvilCat_Dialogue_NoOverlapButSeeker_0", new()
+                "EvilCat_Dialogue_NoOverlapButSeeker_1", new()
                 {
                     type = NodeType.combat,
                     allPresent = [ AmEvilCat ],
