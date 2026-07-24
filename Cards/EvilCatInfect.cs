@@ -38,7 +38,7 @@ public class EvilCatInfect : Card, IRegisterable
             //Define card name and art file
             //
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatInfect", "name"]).Localize,
-            //Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/FILENAME.png")).Sprite,
+            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/Smile.png")).Sprite,
         });
     }
 

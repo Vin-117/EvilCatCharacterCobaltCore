@@ -7,6 +7,7 @@ using EvilCat.Features;
 using HarmonyLib;
 using Microsoft.Extensions.Logging;
 using Microsoft.Win32;
+using Microsoft.Xna.Framework.Input;
 using Nanoray.PluginManager;
 using Nickel;
 using Nickel;
@@ -16,6 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
+using static HarmonyLib.Code;
 
 namespace EvilCat;
 
@@ -51,6 +53,9 @@ internal class ModEntry : SimpleMod
     /// Construct character
     ///
     internal static IPlayableCharacterEntryV2 EvilCatPlayableCharacter { get; private set; } = null!;
+    //internal static IPlayableCharacterEntryV2 FAKEEvilCatPlayableCharacter { get; private set; } = null!;
+
+    public SingleLocalizationProvider? FakeDescription { get; init; }
 
 
 
@@ -211,6 +216,9 @@ internal class ModEntry : SimpleMod
         (
             new CurrentLocaleOrEnglishLocalizationProvider<IReadOnlyList<string>>(AnyLocalizations)
         );
+        FakeDescription = AnyLocalizations.Bind(["character", "descFAKE"]).Localize;
+
+        Harmony.PatchAll(typeof(ModEntry).Assembly);
 
 
 
@@ -259,7 +267,7 @@ internal class ModEntry : SimpleMod
             BorderSprite = RegisterSprite(package, "assets/EvilCat_CharacterBorder.png").Sprite,
             Starters = new StarterDeck
             {
-                cards = 
+                cards =
                 [
                     new EvilCatCorrupt(),
                     new EvilCatThrusterOverride()
@@ -267,7 +275,7 @@ internal class ModEntry : SimpleMod
             },
             SoloStarters = new StarterDeck
             {
-                cards = 
+                cards =
                 [
                     new EvilCatCorrupt(),
                     new EvilCatThrusterOverride(),
@@ -280,7 +288,6 @@ internal class ModEntry : SimpleMod
             ExeCardType = typeof(EvilCatEXECard),
             Description = AnyLocalizations.Bind(["character", "desc"]).Localize
         });
-
 
 
         ///
@@ -543,6 +550,12 @@ internal class ModEntry : SimpleMod
         Harmony.Patch(RenderEvilCat_PatchTargetMethod, prefix: new HarmonyMethod(RenderEvilCat_PatchInsertionMethod));
 
 
+        //var RenderEvilCatDesc_PatchTargetMethod = typeof(Tooltips).GetMethod("Render", AccessTools.all);
+        //var RenderEvilCatDesc_PatchInsertionMethod = typeof(ModEntry).GetMethod("RenderEvilCatDesc", AccessTools.all);
+        //Harmony.Patch(RenderEvilCatDesc_PatchTargetMethod, postfix: new HarmonyMethod(RenderEvilCatDesc_PatchInsertionMethod));
+
+
+
         ///
         ///Define patch to give functionality to Full Memory Access and Deallocate
         ///
@@ -636,7 +649,6 @@ internal class ModEntry : SimpleMod
         }
 
 
-        string text = (false ? "compOffline" : "comp");
         Character obj = new Character
         {
             type = "Vintage.EvilCat::FAKEEvilCat",
@@ -647,6 +659,8 @@ internal class ModEntry : SimpleMod
         int y = (int)offset.y;
         bool showDialogue2 = showDialogue;
         obj.Render(g, x, y, flipX: false, mini: true, isExploding: false, isDoneExploding: false, isEscaping: false, null, renderLocked: false, hideFace: false, showUnlockInstructions: false, showDialogue2);
+
+
 
         return false;
 

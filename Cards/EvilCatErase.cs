@@ -40,7 +40,7 @@ public class EvilCatErase : Card, IRegisterable
             //Define card name and art file
             //
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatErase", "name"]).Localize,
-            //Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/FILENAME.png")).Sprite,
+            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/Circut.png")).Sprite,
         });
     }
 
