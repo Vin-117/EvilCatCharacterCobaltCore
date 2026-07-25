@@ -143,31 +143,62 @@ public class AAddImmortal : CardAction
 
 public class AAddImmortalAlt : CardAction
 {
+
+    private bool alreadyExhaust = false;
+    private bool alreadyPersistent = false;
+
     public override Route? BeginWithRoute(G g, State s, Combat c)
     {
         Card card = selectedCard!;
         if (card != null)
         {
-            if (!ImmortalTraitExt.GetIsImmortal(card))
+
+            alreadyPersistent = ImmortalTraitExt.GetIsImmortal(card);
+            alreadyExhaust = card.GetDataWithOverrides(s).exhaust;
+
+
+            //Add persistent if the card does not already have it.
+            if (!alreadyPersistent)
             {
-                //And if the card does not already have the temp immortal trait
-                if (!TEMPImmortalTraitExt.GetIsTEMPImmortal(card))
-                {
-                    ModEntry.Instance.helper.Content.Cards.SetCardTraitOverride(s, card, ModEntry.Instance.EvilCatImmortalTrait, true, true);
-                    ImmortalTraitExt.SetIsImmortal(card, true);
-                }
+                ModEntry.Instance.helper.Content.Cards.SetCardTraitOverride(s, card, ModEntry.Instance.EvilCatImmortalTrait, true, true);
+                ImmortalTraitExt.SetIsImmortal(card, true);
             }
-            return new ShowCardsStrFix
+            if (!alreadyExhaust) 
             {
-                messageKey = "Added <c=cardtrait>persistant</c>!",
-                cardIds = new List<int> { card.uuid }
-            };
+                card.exhaustOverride = true;
+                card.exhaustOverrideIsPermanent = true;
+            }
+
+            if (!alreadyExhaust && !alreadyPersistent)
+            {
+                return new ShowCardsStrFix
+                {
+                    messageKey = "Added <c=cardtrait>persistant</c> and <c=cardtrait>exhaust</c>!",
+                    cardIds = new List<int> { card.uuid }
+                };
+            }
+            else if (!alreadyExhaust && alreadyPersistent) 
+            {
+                return new ShowCardsStrFix
+                {
+                    messageKey = "Added <c=cardtrait>exhaust</c>!",
+                    cardIds = new List<int> { card.uuid }
+                };
+            }
+            else if (alreadyExhaust && !alreadyPersistent)
+            {
+                return new ShowCardsStrFix
+                {
+                    messageKey = "Added <c=cardtrait>persistant</c>!",
+                    cardIds = new List<int> { card.uuid }
+                };
+            }
         }
         return null;
     }
 
     public override string? GetCardSelectText(State s)
     {
-        return "Select a card to gain <c=cardtrait>persistant</c>, forever";
+        return "Select a card to gain <c=cardtrait>persistant</c> and <c=cardtrait>exhaust</c>, forever";
     }
 }

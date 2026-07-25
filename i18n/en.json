@@ -186,7 +186,7 @@
 		},
         "EvilCatDangerousUnlock" : {
 			"name" : "PERMISSION BYPASS",
-			"desc": "Upon pickup, choose two cards in your deck. They gain <c=cardtrait>persistent</c>. Then, add a <c=cardtrait>non-temp</c> <c=card>SegFault</c> to your deck."
+			"desc": "Upon pickup, choose two cards in your deck. They gain <c=cardtrait>persistent</c> and <c=cardtrait>exhaust</c>. Then, add a <c=cardtrait>non-temp</c> <c=card>SegFault</c> to your deck."
 		},
         "EvilCatVoidControl":
         {

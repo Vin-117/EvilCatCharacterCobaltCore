@@ -39,7 +39,7 @@ public class EvilCatThreadTerminate : Card, IRegisterable
             //Define card name and art file
             //
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatThreadTerminate", "name"]).Localize,
-            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/DistortedAttack.png")).Sprite,
+            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/EvilCatThreadTerminate.png")).Sprite,
         });
     }
 

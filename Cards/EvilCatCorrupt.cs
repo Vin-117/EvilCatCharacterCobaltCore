@@ -38,7 +38,7 @@ public class EvilCatCorrupt : Card, IRegisterable
             //Define card name and art file
             //
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatCorrupt", "name"]).Localize,
-            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/DistortedAttack.png")).Sprite,
+            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/EvilCatCorrupt.png")).Sprite,
         });
     }
 
@@ -124,12 +124,8 @@ public class EvilCatCorrupt : Card, IRegisterable
                     {
                         new AAttack
                         {
-                            damage = GetDmg(s, 1),
+                            damage = GetDmg(s, 2),
                             piercing = true
-                        },
-                        new ADrawCard
-                        {
-                            count = 1
                         },
                         new AOptionalExhaustSelect
                         {

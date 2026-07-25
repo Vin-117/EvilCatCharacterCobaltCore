@@ -254,7 +254,7 @@ internal class ModEntry : SimpleMod
             },
 
             DefaultCardArt = StableSpr.cards_colorless,
-            BorderSprite = RegisterSprite(package, "assets/EvilCat_CardBorder.png").Sprite,
+            BorderSprite = RegisterSprite(package, "assets/FAKEEvilCat_CardBorder.png").Sprite,
             Name = AnyLocalizations.Bind(["character", "fakename"]).Localize
         });
 
@@ -480,7 +480,7 @@ internal class ModEntry : SimpleMod
             CharacterType = FAKEEvilCatDeck.Deck.Key(),
             LoopTag = "mini",
             Frames = [
-                RegisterSprite(package, "assets/Animation/EvilCat_Mini.png").Sprite,
+                RegisterSprite(package, "assets/Animation/FAKEEvilCat_Mini.png").Sprite,
             ]
         });
 
@@ -503,8 +503,8 @@ internal class ModEntry : SimpleMod
         ///
         ///Define some fake sprites so the game doesn't crash
         ///
-        RegisterFakeAnimation(package, "neutral", "assets/Animation/Neutral/EvilCat_Neutral", 4);
-        RegisterFakeAnimation(package, "squint", "assets/Animation/Squint/EvilCat_Squint", 4);
+        RegisterFakeAnimation(package, "neutral", "assets/Animation/FAKENeutral/EvilCat_Neutral", 4);
+        RegisterFakeAnimation(package, "squint", "assets/Animation/FAKESquint/EvilCat_Squint", 4);
 
         ///
         /// Initialize all cards and artifacts defined by static lists
