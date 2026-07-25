@@ -1,4 +1,5 @@
-﻿using FSPRO;
+﻿using EvilCat.External;
+using FSPRO;
 using HarmonyLib;
 using JetBrains.Annotations;
 using Nanoray.PluginManager;
@@ -7,7 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using EvilCat.External;
+using System.Threading;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EvilCat.Actions;
 
@@ -18,6 +20,9 @@ namespace EvilCat.Actions;
 /// 
 public class AExhaustTargetCard : CardAction
 {
+
+    public bool fromDraw = false;
+
     public override void Begin(G g, State s, Combat c)
     {
         timer = 0.0; //make the exhaust play out instantly
@@ -30,14 +35,27 @@ public class AExhaustTargetCard : CardAction
         
         Card? card = s.FindCard(selectedCard.uuid); //Get card ID
 
-        //If card is not null and hand contains the card
-        if (card != null && c.hand.Contains(card))
+        if (fromDraw)
         {
-            Audio.Play(Event.CardHandling);
-            card.ExhaustFX();
-            c.hand.Remove(card); //Remove card from hand
-            //c.RenderExhaust(g);
-            c.SendCardToExhaust(s, card); //Send to exhaust pile
+            //If card is not null and the draw pile contains the card
+            if (card != null && s.deck.Contains(card))
+            {
+                Audio.Play(Event.CardHandling);
+                card.ExhaustFX();
+                s.deck.Remove(card); //Remove card from hand
+                c.SendCardToExhaust(s, card); //Send to exhaust pile
+            }
+        }
+        else 
+        {
+            //If card is not null and hand contains the card
+            if (card != null && c.hand.Contains(card))
+            {
+                Audio.Play(Event.CardHandling);
+                card.ExhaustFX();
+                c.hand.Remove(card); //Remove card from hand
+                c.SendCardToExhaust(s, card); //Send to exhaust pile
+            }
         }
     }
 }
@@ -49,6 +67,11 @@ public class AExhaustTargetCard : CardAction
 /// 
 public class AMultiBrowseExhaustActions : CardAction
 {
+
+    public int count = 0;
+    public bool optional = false;
+    public bool fromDraw = false;
+
     public override void Begin(G g, State s, Combat c)
     {
         //Check to make sure we aren't doing anything to cards that aren't selected
@@ -60,38 +83,50 @@ public class AMultiBrowseExhaustActions : CardAction
         //Exhaust all selected cards
         foreach (var card in selectedCards)
         {
-            var action = new AExhaustTargetCard { };
+            var action = new AExhaustTargetCard { fromDraw = fromDraw };
             action.selectedCard = card;
             c.QueueImmediate(action);
         }
     }
-}
 
-
-
-public class ReanimatePickCard : CardAction
-{
-    public override void Begin(G g, State s, Combat c)
+    public override string? GetCardSelectText(State s)
     {
-        Card card = selectedCard!;
-        if (card != null)
+
+        if (fromDraw) 
         {
-            s.RemoveCardFromWhereverItIs(card.uuid);
-            s.SendCardToDeck(card, doAnimation: true, insertRandomly: true);
+            if (count == 1)
+            {
+                return "Pick a card in your draw pile to <c=cardtrait>exhaust</c>.";
+            }
+            else
+            {
+                return $"Pick {count} cards in your draw pile to <c=cardtrait>exhaust</c>.";
+            }
         }
+        if (optional)
+        {
+            if (count == 1)
+            {
+                return "Pick a card in your hand to <c=cardtrait>exhaust</c>.\n(This is optional.)";
+            }
+            else
+            {
+                return $"Pick up to {count} cards in your hand to <c=cardtrait>exhaust</c>.\n(This is optional.)";
+            }
+        }
+        else 
+        {
+            if (count == 1)
+            {
+                return "Pick a card in your hand to <c=cardtrait>exhaust</c>.";
+            }
+            else
+            {
+                return $"Pick {count} cards in your hand to <c=cardtrait>exhaust</c>.";
+            }
+        }
+
     }
-}
 
 
-public class ReanimatePickCardToDiscard : CardAction
-{
-    public override void Begin(G g, State s, Combat c)
-    {
-        Card card = selectedCard!;
-        if (card != null)
-        {
-            s.RemoveCardFromWhereverItIs(card.uuid);
-            c.SendCardToDiscard(s, card);
-        }
-    }
 }

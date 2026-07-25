@@ -30,8 +30,8 @@ public class AExhaustSelect : CardAction
         CardBrowse cardBrowse = new CardBrowse
         {
             mode = CardBrowse.Mode.Browse,
-            browseSource = Source(source),
-            browseAction = new AMultiBrowseExhaustActions { },
+            browseSource = CardBrowse.Source.Hand,
+            browseAction = new AMultiBrowseExhaustActions { count = count },
             allowCancel = false
         };
 
@@ -103,23 +103,5 @@ public class AExhaustSelect : CardAction
                 },
             ];
         }
-    }
-
-
-
-    ///
-    /// Function which is used to compress a switch statement
-    /// 
-    public static CardBrowse.Source Source(CardDestination mode)
-    {
-        return mode switch
-        {
-            CardDestination.Discard => CardBrowse.Source.DiscardPile,
-            CardDestination.Exhaust => CardBrowse.Source.ExhaustPile,
-            CardDestination.Hand => CardBrowse.Source.Hand,
-            CardDestination.Deck => CardBrowse.Source.DrawPile,
-            //CardDestination.DrawOrDiscardPile => CardBrowse.Source.DrawOrDiscardPile,
-            _ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null)
-        };
     }
 }

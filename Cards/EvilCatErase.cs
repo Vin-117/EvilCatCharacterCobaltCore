@@ -103,13 +103,9 @@ public class EvilCatErase : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ACardSelect
+                        new AExhaustDrawSelect
                         {
-                            browseSource = CardBrowse.Source.DrawPile,
-                            browseAction = new EvilCatxhaustCardBrowseAction
-                            {
-                                OnSuccess = []
-                            }
+                            count = 1
                         },
                         new ADrawCard
                         {
@@ -121,13 +117,9 @@ public class EvilCatErase : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ACardSelect
+                        new AExhaustDrawSelect
                         {
-                            browseSource = CardBrowse.Source.DrawPile,
-                            browseAction = new EvilCatxhaustCardBrowseAction
-                            {
-                                OnSuccess = []
-                            }
+                            count = 1
                         },
                         new ADrawCard
                         {
@@ -139,13 +131,9 @@ public class EvilCatErase : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ACardSelect
+                        new AExhaustDrawSelect
                         {
-                            browseSource = CardBrowse.Source.DrawPile,
-                            browseAction = new EvilCatxhaustCardBrowseAction
-                            {
-                                OnSuccess = []
-                            }
+                            count = 1
                         },
                         new ADrawCard
                         {

@@ -124,8 +124,12 @@ public class EvilCatCorrupt : Card, IRegisterable
                     {
                         new AAttack
                         {
-                            damage = GetDmg(s, 2),
+                            damage = GetDmg(s, 1),
                             piercing = true
+                        },
+                        new ADrawCard
+                        {
+                            count = 1
                         },
                         new AOptionalExhaustSelect
                         {

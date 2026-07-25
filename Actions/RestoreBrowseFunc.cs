@@ -22,16 +22,9 @@ public class ARestorePickCardToDraw : CardAction
 {
     public required int count; //User must pass number of cards that must be returned to draw pile
     public bool ToDiscard = false;
-    private CardDestination source = CardDestination.Exhaust; //Define source to select from (hand)
-    private CardDestination destination = CardDestination.Deck; //Define where to send cards (draw pile)
 
     public override Route? BeginWithRoute(G g, State s, Combat c)
     {
-
-        if (ToDiscard) 
-        {
-            destination = CardDestination.Discard;
-        }
 
         //Setup card browse action
         CardBrowse cardBrowse = new CardBrowse

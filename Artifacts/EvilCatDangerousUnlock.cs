@@ -40,12 +40,12 @@ public class EvilCatDangerousUnlock : Artifact, IRegisterable
     {
         state.GetCurrentQueue().QueueImmediate(new ACardSelect
         {
-            browseAction = new AAddImmortal { isPermanent = true },
+            browseAction = new AAddImmortalAlt { },
             browseSource = CardBrowse.Source.Deck
         });
         state.GetCurrentQueue().QueueImmediate(new ACardSelect
         {
-            browseAction = new AAddImmortal { isPermanent = true },
+            browseAction = new AAddImmortalAlt { },
             browseSource = CardBrowse.Source.Deck
         });
         state.GetCurrentQueue().QueueImmediate(new AAddCard

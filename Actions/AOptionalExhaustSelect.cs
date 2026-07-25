@@ -21,8 +21,6 @@ public class AOptionalExhaustSelect : CardAction
 {
     public required int count; //User must pass number of cards that must be exhausted
     public static Spr AOptionalExhaustSelectSpr; //Define icon var
-    public CardDestination source = CardDestination.Hand; //Define source to select from (hand)
-    public CardDestination destination = CardDestination.Exhaust; //Define where to send cards (exhaust pile)
 
     public override Route? BeginWithRoute(G g, State s, Combat c)
     {
@@ -30,8 +28,8 @@ public class AOptionalExhaustSelect : CardAction
         CardBrowse cardBrowse = new CardBrowse
         {
             mode = CardBrowse.Mode.Browse,
-            browseSource = Source(source),
-            browseAction = new AMultiBrowseExhaustActions { },
+            browseSource = CardBrowse.Source.Hand,
+            browseAction = new AMultiBrowseExhaustActions { count = count, optional = true },
             allowCancel = false
         };
 
@@ -40,12 +38,11 @@ public class AOptionalExhaustSelect : CardAction
         {
             return null;
         }
-        //count = Math.Min(count, cardBrowse.GetCardList(g).Count);
 
         //Define browse route
         var multiBrowseRoute = ModEntry.Instance.KokoroApi.MultiCardBrowse.MakeRoute(cardBrowse);
 
-        //Player MUST exhaust number of cards equal to count, where possible
+        //Player may choose to exhaust 0 cards, if they want.
         multiBrowseRoute.MaxSelected = count;
         multiBrowseRoute.MinSelected = 0;
 
