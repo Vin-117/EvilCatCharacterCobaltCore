@@ -15,7 +15,7 @@ namespace EvilCat.Actions;
 
 
 ///
-/// Function which prompts the user to select a set number of cards from their hand to discard. Discarding is not optional.
+/// Function which prompts the user to select a set number of cards from their hand to exhaust. Exhausting is not optional.
 ///
 public class AExhaustSelect : CardAction
 {

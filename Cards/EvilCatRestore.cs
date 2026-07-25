@@ -130,11 +130,9 @@ public class EvilCatRestore : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new List<CardAction>
                     {
-                        new ACardSelect
+                        new ARestorePickCardToDraw
                         {
-                            browseAction = new ReanimatePickCard{ },
-                            browseSource = CardBrowse.Source.ExhaustPile,
-                            ignoreCardType = new EvilCatRestore().Key()
+                            count = 1
                         }
                     };
                 }
@@ -142,17 +140,9 @@ public class EvilCatRestore : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new List<CardAction>
                     {
-                        new ACardSelect
+                        new ARestorePickCardToDraw
                         {
-                            browseAction = new ReanimatePickCard{ },
-                            browseSource = CardBrowse.Source.ExhaustPile,
-                            ignoreCardType = new EvilCatRestore().Key()
-                        },
-                        new ACardSelect
-                        {
-                            browseAction = new ReanimatePickCard{ },
-                            browseSource = CardBrowse.Source.ExhaustPile,
-                            ignoreCardType = new EvilCatRestore().Key()
+                            count = 2
                         }
                     };
                 }
@@ -160,11 +150,10 @@ public class EvilCatRestore : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new List<CardAction>
                     {
-                        new ACardSelect
+                        new ARestorePickCardToDraw
                         {
-                            browseAction = new ReanimatePickCardToDiscard{ },
-                            browseSource = CardBrowse.Source.ExhaustPile,
-                            ignoreCardType = new EvilCatRestore().Key()
+                            count = 1,
+                            ToDiscard = true
                         }
                     };
                 }

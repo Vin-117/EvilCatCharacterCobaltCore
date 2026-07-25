@@ -218,7 +218,9 @@ internal class ModEntry : SimpleMod
         );
         FakeDescription = AnyLocalizations.Bind(["character", "descFAKE"]).Localize;
 
-        Harmony.PatchAll(typeof(ModEntry).Assembly);
+
+
+        //Harmony.PatchAll(typeof(ModEntry).Assembly);
 
 
 
@@ -531,6 +533,12 @@ internal class ModEntry : SimpleMod
             }
         };
 
+        helper.Events.OnLoadStringsForLocale += (_, thing) =>
+        {
+            thing.Localizations[$"char.{FAKEEvilCatDeck.Deck}.desc"] = "<c=FF48EB>CAT?</c>\nWARNING: Personality core override detected! Security measures active!";
+        };
+
+
 
 
         ///
@@ -548,12 +556,6 @@ internal class ModEntry : SimpleMod
         var RenderEvilCat_PatchTargetMethod = typeof(Character).GetMethod("RenderComputer", AccessTools.all);
         var RenderEvilCat_PatchInsertionMethod = typeof(ModEntry).GetMethod("RenderEvilCat", AccessTools.all);
         Harmony.Patch(RenderEvilCat_PatchTargetMethod, prefix: new HarmonyMethod(RenderEvilCat_PatchInsertionMethod));
-
-
-        //var RenderEvilCatDesc_PatchTargetMethod = typeof(Tooltips).GetMethod("Render", AccessTools.all);
-        //var RenderEvilCatDesc_PatchInsertionMethod = typeof(ModEntry).GetMethod("RenderEvilCatDesc", AccessTools.all);
-        //Harmony.Patch(RenderEvilCatDesc_PatchTargetMethod, postfix: new HarmonyMethod(RenderEvilCatDesc_PatchInsertionMethod));
-
 
 
         ///
@@ -627,48 +629,6 @@ internal class ModEntry : SimpleMod
 
 
     ///
-    ///Define method to replace CAT with EVIL CAT if she is in the player's crew
-    ///
-    public static bool RenderEvilCat(G g, Vec offset, bool showDialogue = true) 
-    {
-
-        bool evilCatInCrew = false;
-
-        foreach (Character character in g.state.characters)
-        {
-            if (character.deckType == Instance.EvilCatDeck.Deck)
-            {
-                evilCatInCrew = true;
-            }
-        }
-
-        //Skip this method if evil cat not in crew
-        if (!evilCatInCrew) 
-        {
-            return true;
-        }
-
-
-        Character obj = new Character
-        {
-            type = "Vintage.EvilCat::FAKEEvilCat",
-            deckType = Instance.FAKEEvilCatDeck.Deck,
-            artifacts = g.state.artifacts
-        };
-        int x = (int)offset.x;
-        int y = (int)offset.y;
-        bool showDialogue2 = showDialogue;
-        obj.Render(g, x, y, flipX: false, mini: true, isExploding: false, isDoneExploding: false, isEscaping: false, null, renderLocked: false, hideFace: false, showUnlockInstructions: false, showDialogue2);
-
-
-
-        return false;
-
-    }
-
-
-
-    ///
     ///Define method to give functionality to Full Memory Access and Deallocate
     ///
     private static void EvilCatFullMemoryAccessPatch(State s, Card card, ref Combat __instance)
@@ -717,6 +677,63 @@ internal class ModEntry : SimpleMod
         }
 
     }
+
+
+
+    ///
+    ///Define method to replace CAT with EVIL CAT if she is in the player's crew
+    ///
+    public static bool RenderEvilCat(G g, Vec offset, bool showDialogue = true)
+    {
+
+        bool regularCatInCrew = false;
+        bool evilCatInCrew = false;
+
+        foreach (Character character in g.state.characters)
+        {
+            if (character.deckType == Deck.colorless)
+            {
+                regularCatInCrew = true;
+            }
+
+            if (character.deckType == Instance.EvilCatDeck.Deck) 
+            {
+                evilCatInCrew = true;
+            }
+
+        }
+
+        //Skip this method if regular cat is not in crew
+        if (!regularCatInCrew) 
+        {
+            return true;
+        }
+
+        //Also skip if evil cat is in the crew
+        if (evilCatInCrew) 
+        {
+            return true;
+        }
+
+
+        Character obj = new Character
+        {
+            type = "Vintage.EvilCat::FAKEEvilCat",
+            deckType = Instance.FAKEEvilCatDeck.Deck,
+            artifacts = g.state.artifacts
+        };
+        int x = (int)offset.x;
+        int y = (int)offset.y;
+        bool showDialogue2 = showDialogue;
+        obj.Render(g, x, y, flipX: false, mini: true, isExploding: false, isDoneExploding: false, isEscaping: false, null, renderLocked: false, hideFace: false, showUnlockInstructions: false, showDialogue2);
+
+
+
+        return false;
+
+    }
+
+
 
 }
 
