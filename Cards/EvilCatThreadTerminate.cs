@@ -117,12 +117,7 @@ public class EvilCatThreadTerminate : Card, IRegisterable
                     {
                         new AAttack
                         {
-                            damage = GetDmg(s, 1),
-                            piercing = true,
-                        },
-                        new AAttack
-                        {
-                            damage = GetDmg(s, 2),
+                            damage = GetDmg(s, 3),
                             piercing = true,
                             status = ModEntry.Instance.KokoroApi.DriveStatus.Underdrive,
                             statusAmount = 1
@@ -144,7 +139,7 @@ public class EvilCatThreadTerminate : Card, IRegisterable
                     {
                         new AAttack
                         {
-                            damage = GetDmg(s, 2),
+                            damage = GetDmg(s, 1),
                             piercing = false,
                             status = ModEntry.Instance.KokoroApi.DriveStatus.Underdrive,
                             statusAmount = 1
