@@ -67,8 +67,7 @@
               "RelativeToolTip": "nickel.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-07-25T23:06:01.087Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-25T23:06:01.087Z"
             },
             {
               "$type": "Document",
@@ -78,7 +77,7 @@
               "RelativeDocumentMoniker": "EvilCat.csproj",
               "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\EvilCat.csproj",
               "RelativeToolTip": "EvilCat.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2026-07-25T23:05:32.829Z",
               "EditorCaption": ""
@@ -93,8 +92,7 @@
               "RelativeToolTip": "ModEntry.cs",
               "ViewState": "AgIAANgAAAAAAAAAAAAwwAABAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-25T21:13:29.333Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-25T21:13:29.333Z"
             }
           ]
         }
