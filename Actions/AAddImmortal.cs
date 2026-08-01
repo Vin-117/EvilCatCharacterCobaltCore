@@ -144,7 +144,6 @@ public class AAddImmortal : CardAction
 public class AAddImmortalAlt : CardAction
 {
 
-    private bool alreadyExhaust = false;
     private bool alreadyPersistent = false;
 
     public override Route? BeginWithRoute(G g, State s, Combat c)
@@ -154,7 +153,6 @@ public class AAddImmortalAlt : CardAction
         {
 
             alreadyPersistent = ImmortalTraitExt.GetIsImmortal(card);
-            alreadyExhaust = card.GetDataWithOverrides(s).exhaust;
 
 
             //Add persistent if the card does not already have it.
@@ -163,29 +161,8 @@ public class AAddImmortalAlt : CardAction
                 ModEntry.Instance.helper.Content.Cards.SetCardTraitOverride(s, card, ModEntry.Instance.EvilCatImmortalTrait, true, true);
                 ImmortalTraitExt.SetIsImmortal(card, true);
             }
-            if (!alreadyExhaust) 
-            {
-                card.exhaustOverride = true;
-                card.exhaustOverrideIsPermanent = true;
-            }
 
-            if (!alreadyExhaust && !alreadyPersistent)
-            {
-                return new ShowCardsStrFix
-                {
-                    messageKey = "Added <c=cardtrait>persistant</c> and <c=cardtrait>exhaust</c>!",
-                    cardIds = new List<int> { card.uuid }
-                };
-            }
-            else if (!alreadyExhaust && alreadyPersistent) 
-            {
-                return new ShowCardsStrFix
-                {
-                    messageKey = "Added <c=cardtrait>exhaust</c>!",
-                    cardIds = new List<int> { card.uuid }
-                };
-            }
-            else if (alreadyExhaust && !alreadyPersistent)
+            if (!alreadyPersistent)
             {
                 return new ShowCardsStrFix
                 {
@@ -199,6 +176,6 @@ public class AAddImmortalAlt : CardAction
 
     public override string? GetCardSelectText(State s)
     {
-        return "Select a card to gain <c=cardtrait>persistant</c> and <c=cardtrait>exhaust</c>, forever";
+        return "Select a card to gain <c=cardtrait>persistant</c>, forever";
     }
 }

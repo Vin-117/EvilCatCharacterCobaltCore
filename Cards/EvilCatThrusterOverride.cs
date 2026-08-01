@@ -12,11 +12,20 @@ namespace EvilCat.Cards;
 //
 public class EvilCatThrusterOverride : Card, IRegisterable
 {
+
+    private static ISpriteEntry ThrusterOverrideArtNormal = null!;
+    private static ISpriteEntry ThrusterOverrideArtFlipped = null!;
+
+
     //
     //Begin card registration
     //
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
+
+        ThrusterOverrideArtNormal = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/EvilCatThrusterOverride.png"));
+        ThrusterOverrideArtFlipped = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/EvilCatThrusterOverrideFlipped.png"));
+
         helper.Content.Cards.RegisterCard(new CardConfiguration
         {
             //
@@ -32,12 +41,10 @@ public class EvilCatThrusterOverride : Card, IRegisterable
             },
 
 
-
             //
-            //Define card name and art file
+            //Define card name 
             //
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatThrusterOverride", "name"]).Localize,
-            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/EvilCatThrusterOverride.png")).Sprite,
         });
     }
 
@@ -55,7 +62,8 @@ public class EvilCatThrusterOverride : Card, IRegisterable
                     return new CardData
                     {
                         cost = 1,
-                        flippable = true
+                        flippable = true,
+                        art = flipped ? ThrusterOverrideArtFlipped.Sprite : ThrusterOverrideArtNormal.Sprite
                     };
                 }
             case Upgrade.A:
@@ -63,7 +71,8 @@ public class EvilCatThrusterOverride : Card, IRegisterable
                     return new CardData
                     {
                         cost = 0,
-                        flippable = true
+                        flippable = true,
+                        art = flipped ? ThrusterOverrideArtFlipped.Sprite : ThrusterOverrideArtNormal.Sprite
                     };
                 }
             case Upgrade.B:
@@ -72,7 +81,8 @@ public class EvilCatThrusterOverride : Card, IRegisterable
                     {
                         cost = 1,
                         flippable = true,
-                        retain = true
+                        retain = true,
+                        art = flipped ? ThrusterOverrideArtFlipped.Sprite : ThrusterOverrideArtNormal.Sprite
                     };
                 }
             default:

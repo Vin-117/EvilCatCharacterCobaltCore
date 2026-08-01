@@ -60,6 +60,13 @@ public class EvilCatDangerousUnlock : Artifact, IRegisterable
     {
         return new List<Tooltip>
         {
+            new GlossaryTooltip($"trait.{ModEntry.Instance.Package.Manifest.UniqueName}::ImmortalTrait")
+            {
+                Icon = ModEntry.Instance.EvilCatImmortalIcon.Sprite,
+                TitleColor = Colors.cardtrait,
+                Title = ModEntry.Instance.Localizations.Localize(["trait", "Immortal", "name"]),
+                Description = ModEntry.Instance.Localizations.Localize(["trait", "Immortal", "desc"])
+            },
             new TTCard
             {
                 card = new EvilCatSegFault()
@@ -67,7 +74,8 @@ public class EvilCatDangerousUnlock : Artifact, IRegisterable
                     upgrade = Upgrade.None,
                     temporaryOverride = false
                 }
-            }
+            },
+
         };
     }
 

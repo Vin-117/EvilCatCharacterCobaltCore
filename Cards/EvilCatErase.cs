@@ -13,7 +13,7 @@ namespace EvilCat.Cards;
 //
 //Define card unique class
 //
-public class EvilCatErase : Card, IRegisterable
+public class EvilCatErase : Card, IRegisterable, IHasCustomCardTraits
 {
     //
     //Begin card registration
@@ -44,6 +44,9 @@ public class EvilCatErase : Card, IRegisterable
         });
     }
 
+
+    public IReadOnlySet<ICardTraitEntry> GetInnateTraits(State state)
+        => new HashSet<ICardTraitEntry> { ModEntry.Instance.KokoroApi.Fleeting.Trait };
 
 
     //
@@ -133,15 +136,11 @@ public class EvilCatErase : Card, IRegisterable
                     {
                         new AExhaustDrawSelect
                         {
-                            count = 1
+                            count = 2
                         },
                         new ADrawCard
                         {
                             count = 1
-                        },
-                        new AEnergy
-                        {
-                            changeAmount = 1
                         }
                     };
                 }

@@ -13,11 +13,20 @@ namespace EvilCat.Cards;
 //
 public class EvilCatSystemRefactor : Card, IRegisterable
 {
+
+    private static ISpriteEntry SystemRefactorArtNormal = null!;
+    private static ISpriteEntry SystemRefactorArtFlipped = null!;
+
+
     //
     //Begin card registration
     //
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
+
+        SystemRefactorArtNormal = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/EvilCatSystemRefactor.png"));
+        SystemRefactorArtFlipped = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/EvilCatSystemRefactorFlipped.png"));
+
         helper.Content.Cards.RegisterCard(new CardConfiguration
         {
             //
@@ -35,10 +44,9 @@ public class EvilCatSystemRefactor : Card, IRegisterable
 
 
             //
-            //Define card name and art file
+            //Define card name
             //
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "EvilCatSystemRefactor", "name"]).Localize,
-            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/EvilCatSystemRefactor.png")).Sprite,
         });
     }
 
@@ -56,7 +64,7 @@ public class EvilCatSystemRefactor : Card, IRegisterable
                     return new CardData
                     {
                         cost = 2,
-                        flippable = false
+                        art = flipped ? SystemRefactorArtFlipped.Sprite : SystemRefactorArtNormal.Sprite
                     };
                 }
             case Upgrade.A:
@@ -64,14 +72,16 @@ public class EvilCatSystemRefactor : Card, IRegisterable
                     return new CardData
                     {
                         cost = 2,
-                        flippable = true
+                        flippable = true,
+                        art = flipped ? SystemRefactorArtFlipped.Sprite : SystemRefactorArtNormal.Sprite
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 2
+                        cost = 2,
+                        art = flipped ? SystemRefactorArtFlipped.Sprite : SystemRefactorArtNormal.Sprite
                     };
                 }
             default:

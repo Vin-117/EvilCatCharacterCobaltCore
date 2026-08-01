@@ -661,6 +661,218 @@ internal class EvilCatCombatDialogue : IRegisterable
                     ]
                 }
             },
+            {
+                "EvilCat_Dialogue_WeGainedFractureDetection_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmEvilCat ],
+                    hasArtifacts = [ "FractureDetection" ],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "feral", "Shall we find that brittle spot?")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_WeAreOnGemini_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmEvilCat ],
+                    nonePresent = [ AmCat ],
+                    hasArtifacts = [ "GeminiCore" ],
+                    oncePerRunTags = [ "GeminiCore" ],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "squint", "Why can't I control more than one side at a time?")
+                    ]
+                }
+            },
+            {
+                "EvilCatANDCat_Dialogue_WeAreOnGemini_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmEvilCat, AmCat ],
+                    hasArtifacts = [ "GeminiCore" ],
+                    oncePerRunTags = [ "GeminiCore" ],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmCat, "Want to control the red side while I control the blue one?"),
+                        new(AmEvilCat, "neutral", "Great idea!")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_WeAreOnJupiter_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmEvilCat ],
+                    nonePresent = [ AmIsaac ],
+                    hasArtifacts = [ "JupiterDroneHub" ],
+                    oncePerRunTags = [ "JupiterDroneHub" ],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "smartass", "Why shoot with cannons when drones can do that for you?")
+                    ]
+                }
+            },
+            {
+                "EvilCatANDIsaac_Dialogue_WeAreOnJupiter_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmEvilCat, AmIsaac ],
+                    hasArtifacts = [ "JupiterDroneHub" ],
+                    oncePerRunTags = [ "JupiterDroneHub" ],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "smartass", "Why shoot with cannons when drones can do that for you?"),
+                        new(AmIsaac, "sly", "...and what if they did the shooting automatically?")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_WeAreOnTide_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmEvilCat ],
+                    hasArtifacts = [ "TideRunner" ],
+                    oncePerRunTags = [ "TideRunner" ],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "grumpy", "I hate not being able to properly control this ship.")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_WeAreOnAres_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmEvilCat ],
+                    hasArtifacts = [ "AresCannon" ],
+                    oncePerRunTags = [ "AresCannon" ],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "smug", "Full control over the cannons? Perfect.")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_CockpitLockon_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmEvilCat ],
+                    hasArtifacts = [ "CockpitTarget" ],
+                    enemyHasPart = "cockpit",
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "feral", "Destroy their cockpit.")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_CockpitLockonUseless_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmEvilCat ],
+                    hasArtifacts = [ "CockpitTarget" ],
+                    enemyDoesNotHavePart = "cockpit",
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "grumpy", "No cockpit?")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_WeGainedCleoGlasses_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    oncePerRun = true,
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    hasArtifacts = [ "BrokenGlasses" ],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "feral", "Cleo always put up a good fight.")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_TookHealableChip_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    enemyShotJustHit = true,
+                    hasArtifacts = [ "NanofiberHull" ],
+                    oncePerRun = true,
+                    minDamageDealtToPlayerThisTurn = 1,
+                    maxDamageDealtToPlayerThisTurn = 1,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "neutral", "Glad we have nanofibers.")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_CantHealThisChip_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    enemyShotJustHit = true,
+                    hasArtifacts = [ "NanofiberHull" ],
+                    oncePerRun = true,
+                    minDamageDealtToPlayerThisTurn = 2,
+                    maxDamageDealtToPlayerThisTurn = 10,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "grumpy", "Nanofibers can't keep up with this!")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_WeGainedCrosslink_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    allPresent = [ AmEvilCat ],
+                    hasArtifacts = [ "Crosslink" ],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "smug", "Crosslink is a great excuse to keep shooting!")
+                    ]
+                }
+            },
+
+            //ADD dialogue for:
+            //nanofibers
 
         });
     }

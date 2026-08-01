@@ -147,10 +147,10 @@
         },
         "EvilCatErase":
         {
-            "name": "Erase",
+            "name": "Black Hole",
             "desc": "Exhaust a card in your draw pile. Draw 1.",
             "descA": "Exhaust a card in your draw pile. Draw 2.",
-            "descB": "Exhaust a card in your draw pile. Draw 1. Gain 1 <c=energy>energy</c>."
+            "descB": "Exhaust 2 cards in your draw pile. Draw 1."
         },
         "EvilCatSoftwareDaemon":
         {
@@ -158,7 +158,7 @@
         },
         "EvilCatIfElse":
         {
-            "name": ["If()","Else()"],
+            "name": "If(),       Else()",
         },
         "EvilCatMemoryProtection":
         {
@@ -182,11 +182,11 @@
         },
         "EvilCatBinaryExecution" : {
 			"name" : "BINARY EXECUTION",
-			"desc": "Upon pickup, add an <c=card>If() Else()</c> to your deck."
+			"desc": "Upon pickup, add an <c=card>If(), Else()</c> to your deck."
 		},
         "EvilCatDangerousUnlock" : {
 			"name" : "PERMISSION BYPASS",
-			"desc": "Upon pickup, choose two cards in your deck. They gain <c=cardtrait>persistent</c> and <c=cardtrait>exhaust</c>. Then, add a <c=cardtrait>non-temp</c> <c=card>SegFault</c> to your deck."
+			"desc": "Upon pickup, choose two cards in your deck to gain <c=cardtrait>persistent</c> and gain a <c=cardtrait>non-temp</c> <c=card>SegFault</c>."
 		},
         "EvilCatVoidControl":
         {
