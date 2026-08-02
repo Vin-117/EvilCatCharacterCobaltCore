@@ -129,14 +129,10 @@ public class EvilCatViralTendency : Card, IRegisterable, IHasCustomCardTraits
                             statusAmount = 1,
                             targetPlayer = true
                         },
-                        new AAddCard
+                        new AAddSegFault
                         {
-                            card = new EvilCatSegFault()
-                            {
-                            },
-                            destination = CardDestination.Hand,
-                            amount = 1,
-                        }
+                            amount = 1
+                        },
                     };
                 }
             case Upgrade.A:
@@ -149,14 +145,10 @@ public class EvilCatViralTendency : Card, IRegisterable, IHasCustomCardTraits
                             statusAmount = 1,
                             targetPlayer = true
                         },
-                        new AAddCard
+                        new AAddSegFault
                         {
-                            card = new EvilCatSegFault()
-                            {
-                            },
-                            destination = CardDestination.Hand,
-                            amount = 1,
-                        }
+                            amount = 1
+                        },
                     };
                 }
             case Upgrade.B:
@@ -173,14 +165,10 @@ public class EvilCatViralTendency : Card, IRegisterable, IHasCustomCardTraits
                         {
                             count = 1
                         },
-                        new AAddCard
+                        new AAddSegFault
                         {
-                            card = new EvilCatSegFault()
-                            {
-                            },
-                            destination = CardDestination.Hand,
-                            amount = 1,
-                        }
+                            amount = 1
+                        },
                     };
                 }
             default:

@@ -71,7 +71,7 @@ public class EvilCatAccessViolation : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 2,
+                        cost = 1,
                         exhaust = true
                     };
                 }
@@ -102,15 +102,11 @@ public class EvilCatAccessViolation : Card, IRegisterable
                             statusAmount = 1,
                             targetPlayer = true
                         },
-                        new AAddCard
+                        new AAddSegFault
                         {
-                            card = new EvilCatSegFault
-                            {
-                            },
-                            amount = 2,
-                            destination = CardDestination.Hand
-                        }
-                        
+                            amount = 2
+                        },
+
                     };
                 }
             case Upgrade.A:
@@ -123,14 +119,10 @@ public class EvilCatAccessViolation : Card, IRegisterable
                             statusAmount = 1,
                             targetPlayer = true
                         },
-                        new AAddCard
+                        new AAddSegFault
                         {
-                            card = new EvilCatSegFault
-                            {
-                            },
-                            amount = 2,
-                            destination = CardDestination.Hand
-                        }
+                            amount = 2
+                        },
                     };
                 }
             case Upgrade.B:
@@ -149,14 +141,10 @@ public class EvilCatAccessViolation : Card, IRegisterable
                             statusAmount = 2,
                             targetPlayer = true
                         },
-                        new AAddCard
+                        new AAddSegFault
                         {
-                            card = new EvilCatSegFault
-                            {
-                            },
-                            amount = 2,
-                            destination = CardDestination.Hand
-                        }
+                            amount = 2
+                        },
                     };
                 }
             default:

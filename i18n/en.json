@@ -46,6 +46,12 @@
             "desc_single": "Optionally exhaust <c=boldPink>1</c> card from your hand.",
             "desc" : "Optionally exhaust up to <c=boldPink>{{cnt}}</c> cards from your hand."
         },
+        "AAddSegFault": 
+        {
+            "title": "Permission Violation",
+            "desc_single": "Add <c=boldPink>1</c> SegFault card to your hand.",
+            "desc" : "Add <c=boldPink>{{cnt}}</c> cards to your hand."
+        },
     },
     "card": 
     {
@@ -116,7 +122,7 @@
         },
         "EvilCatHardReboot":
         {
-            "name": "Hard Reboot"
+            "name": "Stop Command"
         },
         "EvilCatInfect":
         {
@@ -128,7 +134,7 @@
         },
         "EvilCatTrojan":
         {
-            "name": "Trojan"
+            "name": "Hijack"
         },
         "EvilCatFullMemoryAccess":
         {
@@ -150,7 +156,7 @@
             "name": "Black Hole",
             "desc": "Exhaust a card in your draw pile. Draw 1.",
             "descA": "Exhaust a card in your draw pile. Draw 2.",
-            "descB": "Exhaust 2 cards in your draw pile. Draw 1."
+            "descB": "Exhaust a card in your draw pile. Draw 1. Gain 1 <c=energy>energy</c>."
         },
         "EvilCatSoftwareDaemon":
         {

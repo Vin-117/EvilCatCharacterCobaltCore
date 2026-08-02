@@ -38,7 +38,7 @@ public class EvilCatIfElse : Card, IRegisterable
             Meta = new CardMeta
             {
                 deck = ModEntry.Instance.EvilCatDeck.Deck,
-                rarity = Rarity.common,
+                rarity = Rarity.rare,
                 dontOffer = true,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },

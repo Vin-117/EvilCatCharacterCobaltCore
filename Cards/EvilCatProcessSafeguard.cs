@@ -70,7 +70,8 @@ public class EvilCatProcessSafeguard : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 0
+                        cost = 1,
+                        retain = true
                     };
                 }
             default:
@@ -188,7 +189,7 @@ public class EvilCatProcessSafeguard : Card, IRegisterable, IHasCustomCardTraits
                         {
                             targetPlayer = true,
                             status = Status.tempShield,
-                            statusAmount = 1
+                            statusAmount = 2
                         },
                         ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
                         (
@@ -198,16 +199,7 @@ public class EvilCatProcessSafeguard : Card, IRegisterable, IHasCustomCardTraits
                                 statusAmount = 2,
                                 targetPlayer = true
                             }
-                        ).AsCardAction,
-                        ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
-                        (
-                            new AStatus
-                            {
-                                status = Status.tempPayback,
-                                statusAmount = 2,
-                                targetPlayer = true
-                            }
-                        ).AsCardAction,
+                        ).AsCardAction
 
 
 

@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
+﻿using EvilCat.Actions;
 using Nanoray.PluginManager;
 using Nickel;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace EvilCat.Cards;
 
@@ -110,14 +111,10 @@ public class EvilCatThrusterOverride : Card, IRegisterable
                             dir = -3,
                             targetPlayer = false
                         },
-                        new AAddCard
+                        new AAddSegFault
                         {
-                            card = new EvilCatSegFault()
-                            {
-                            },
-                            destination = CardDestination.Hand,
-                            amount = 1,
-                        }
+                            amount = 1
+                        },
                         
                     };
                 }
@@ -130,15 +127,10 @@ public class EvilCatThrusterOverride : Card, IRegisterable
                             dir = -3,
                             targetPlayer = false
                         },
-                        new AAddCard
+                        new AAddSegFault
                         {
-                            card = new EvilCatSegFault()
-                            {
-                            },
-                            destination = CardDestination.Hand,
-                            amount = 1,
-                            dialogueSelector = ".EvilCatMeme"
-                        }
+                            amount = 1
+                        },
                     };
                 }
             case Upgrade.B:
@@ -150,14 +142,10 @@ public class EvilCatThrusterOverride : Card, IRegisterable
                             dir = -3,
                             targetPlayer = false
                         },
-                        new AAddCard
+                        new AAddSegFault
                         {
-                            card = new EvilCatSegFault()
-                            {
-                            },
-                            destination = CardDestination.Hand,
-                            amount = 1,
-                        }
+                            amount = 1
+                        },
                     };
                 }
             default:

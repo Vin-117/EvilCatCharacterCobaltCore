@@ -13,7 +13,7 @@ namespace EvilCat.Cards;
 //
 //Define card unique class
 //
-public class EvilCatErase : Card, IRegisterable, IHasCustomCardTraits
+public class EvilCatErase : Card, IRegisterable
 {
     //
     //Begin card registration
@@ -43,11 +43,6 @@ public class EvilCatErase : Card, IRegisterable, IHasCustomCardTraits
             Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/EvilCatErase.png")).Sprite,
         });
     }
-
-
-    public IReadOnlySet<ICardTraitEntry> GetInnateTraits(State state)
-        => new HashSet<ICardTraitEntry> { ModEntry.Instance.KokoroApi.Fleeting.Trait };
-
 
     //
     //Define card cost and traits for default and each upgrade path
@@ -136,11 +131,15 @@ public class EvilCatErase : Card, IRegisterable, IHasCustomCardTraits
                     {
                         new AExhaustDrawSelect
                         {
-                            count = 2
+                            count = 1
                         },
                         new ADrawCard
                         {
                             count = 1
+                        },
+                        new AEnergy
+                        {
+                            changeAmount = 1
                         }
                     };
                 }

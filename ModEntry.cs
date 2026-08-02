@@ -101,11 +101,11 @@ internal class ModEntry : SimpleMod
         typeof(EvilCatCorrupt),
         typeof(EvilCatThrusterOverride),
         typeof(EvilCatViralTendency),
-        typeof(EvilCatInstability),
         typeof(EvilCatSystemRefactor),
         typeof(EvilCatProcessSafeguard),
         typeof(EvilCatRestore),
         typeof(EvilCatAggressiveMode),
+        typeof(EvilCatHardReboot),
         typeof(EvilCatThreadTerminate)
     ];
     private static List<Type> EvilCatUncommonCardTypes = 
@@ -116,7 +116,7 @@ internal class ModEntry : SimpleMod
         typeof(EvilCatSoftwareDaemon),
         typeof(EvilCatInfect),
         typeof(EvilCatSabotage),
-        typeof(EvilCatHardReboot)
+        typeof(EvilCatInstability)
     ];
     private static List<Type> EvilCatRareCardTypes = 
     [
@@ -124,12 +124,12 @@ internal class ModEntry : SimpleMod
         typeof(EvilCatMemoryProtection),
         typeof(EvilCatMemoryMismatch),
         typeof(EvilCatDeallocate),
-        typeof(EvilCatErase)
+        typeof(EvilCatErase),
+        typeof(EvilCatIfElse)
     ];
     private static List<Type> EvilCatSpecialCardTypes = 
     [
-        typeof(EvilCatSegFault),
-        typeof(EvilCatIfElse)
+        typeof(EvilCatSegFault)
     ];
     private static List<Type> EvilCatEXECardTypes =
     [
@@ -406,6 +406,7 @@ internal class ModEntry : SimpleMod
         ///Define tooltip sprites
         ///
         AExhaustSelect.AExhaustSelectSpr = RegisterSprite(package, "assets/Actions/chooseExhaust.png").Sprite;
+        AAddSegFault.AAddSegFaultSpr = RegisterSprite(package, "assets/Actions/addSegFault.png").Sprite;
         AOptionalExhaustSelect.AOptionalExhaustSelectSpr = RegisterSprite(package, "assets/Actions/optionalExhaust.png").Sprite;
 
 

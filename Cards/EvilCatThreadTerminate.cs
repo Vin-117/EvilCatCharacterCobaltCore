@@ -100,14 +100,10 @@ public class EvilCatThreadTerminate : Card, IRegisterable
                             status = ModEntry.Instance.KokoroApi.DriveStatus.Underdrive,
                             statusAmount = 1
                         },
-                        new AAddCard
+                        new AAddSegFault
                         {
-                            card = new EvilCatSegFault()
-                            {
-                            },
-                            destination = CardDestination.Discard,
-                            amount = 1,
-                        }
+                            amount = 1
+                        },
 
                     };
                 }
@@ -122,14 +118,10 @@ public class EvilCatThreadTerminate : Card, IRegisterable
                             status = ModEntry.Instance.KokoroApi.DriveStatus.Underdrive,
                             statusAmount = 1
                         },
-                        new AAddCard
+                        new AAddSegFault
                         {
-                            card = new EvilCatSegFault()
-                            {
-                            },
-                            destination = CardDestination.Discard,
-                            amount = 1,
-                        }
+                            amount = 1
+                        },
 
                     };
                 }
@@ -139,19 +131,15 @@ public class EvilCatThreadTerminate : Card, IRegisterable
                     {
                         new AAttack
                         {
-                            damage = GetDmg(s, 1),
-                            piercing = false,
+                            damage = GetDmg(s, 3),
+                            piercing = true,
                             status = ModEntry.Instance.KokoroApi.DriveStatus.Underdrive,
                             statusAmount = 1
                         },
-                        new AAddCard
+                        new AAddSegFault
                         {
-                            card = new EvilCatSegFault()
-                            {
-                            },
-                            destination = CardDestination.Discard,
-                            amount = 1,
-                        }
+                            amount = 2
+                        },
 
                     };
                 }

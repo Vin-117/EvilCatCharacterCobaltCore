@@ -28,7 +28,7 @@ public class EvilCatInstability : Card, IRegisterable, IHasCustomCardTraits
             Meta = new CardMeta
             {
                 deck = ModEntry.Instance.EvilCatDeck.Deck,
-                rarity = Rarity.common,
+                rarity = Rarity.uncommon,
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
@@ -147,7 +147,7 @@ public class EvilCatInstability : Card, IRegisterable, IHasCustomCardTraits
                             count = 4,
                             timer = 1.5
                         },
-                        new AExhaustSelect
+                        new AOptionalExhaustSelect
                         {
                             count = 1
                         }

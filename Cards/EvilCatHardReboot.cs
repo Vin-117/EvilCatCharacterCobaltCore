@@ -12,7 +12,7 @@ namespace EvilCat.Cards;
 //
 //Define card unique class
 //
-public class EvilCatHardReboot : Card, IRegisterable, IHasCustomCardTraits
+public class EvilCatHardReboot : Card, IRegisterable
 {
     //
     //Begin card registration
@@ -28,7 +28,7 @@ public class EvilCatHardReboot : Card, IRegisterable, IHasCustomCardTraits
             Meta = new CardMeta
             {
                 deck = ModEntry.Instance.EvilCatDeck.Deck,
-                rarity = Rarity.uncommon,
+                rarity = Rarity.common,
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
@@ -56,24 +56,21 @@ public class EvilCatHardReboot : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 0,
-                        unplayable = true
+                        cost = 2
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 0,
-                        unplayable = true
+                        cost = 2,
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 0,
-                        unplayable = true
+                        cost = 1,
                     };
                 }
             default:
@@ -81,35 +78,6 @@ public class EvilCatHardReboot : Card, IRegisterable, IHasCustomCardTraits
                     return new CardData{};
                 }
         }
-    }
-
-
-
-    ///
-    /// Define additional custom card traits
-    ///
-    public IReadOnlySet<ICardTraitEntry> GetInnateTraits(State state)
-    {
-        switch (this.upgrade)
-        {
-            case Upgrade.None:
-                {
-                    return new HashSet<ICardTraitEntry> { };
-                }
-            case Upgrade.A:
-                {
-                    return new HashSet<ICardTraitEntry> { };
-                }
-            case Upgrade.B:
-                {
-                    return new HashSet<ICardTraitEntry> { };
-                }
-            default:
-                {
-                    return new HashSet<ICardTraitEntry> { };
-                }
-        }
-
     }
 
 
@@ -125,64 +93,48 @@ public class EvilCatHardReboot : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new List<CardAction>
                     {
-                        ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
-                        (
-                            new ADrawCard
-                            {
-                                count = 2
-                            }
-                        ).AsCardAction,
-                        ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
-                        (
-                            new AEnergy
-                            {
-                                changeAmount = 1
-                            }
-                        ).AsCardAction,
+                        new AAttack
+                        {
+                            damage = GetDmg(s, 0),
+                            piercing = true,
+                            stunEnemy = true
+                        },
+                        new AOptionalExhaustSelect
+                        {
+                            count = 1
+                        },
                     };
                 }
             case Upgrade.A:
                 {
                     return new List<CardAction>
                     {
-
-                        ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
-                        (
-                            new ADrawCard
-                            {
-                                count = 3
-                            }
-                        ).AsCardAction,
-                        ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
-                        (
-                            new AEnergy
-                            {
-                                changeAmount = 1
-                            }
-                        ).AsCardAction,
-
+                        new AAttack
+                        {
+                            damage = GetDmg(s, 1),
+                            piercing = true,
+                            stunEnemy = true
+                        },
+                        new AOptionalExhaustSelect
+                        {
+                            count = 2
+                        },
                     };
                 }
             case Upgrade.B:
                 {
                     return new List<CardAction>
                     {
-
-                        ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
-                        (
-                            new ADrawCard
-                            {
-                                count = 2
-                            }
-                        ).AsCardAction,
-                        ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
-                        (
-                            new AEnergy
-                            {
-                                changeAmount = 2
-                            }
-                        ).AsCardAction,
-
+                        new AAttack
+                        {
+                            damage = GetDmg(s, 0),
+                            piercing = true,
+                            stunEnemy = true
+                        },
+                        new AExhaustSelect
+                        {
+                            count = 1
+                        },
                     };
                 }
             default:
