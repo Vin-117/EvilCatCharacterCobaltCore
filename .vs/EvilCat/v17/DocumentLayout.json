@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|c:\\users\\conce\\desktop\\cobalt core mods\\mine\\evilcat\\cards\\evilcathardreboot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|solutionrelative:cards\\evilcathardreboot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|c:\\users\\conce\\desktop\\cobalt core mods\\mine\\evilcat\\actions\\aaddsegfault.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DEF9B89B-2977-6991-00E0-A4421B2EAC2F}|EvilCat.csproj|solutionrelative:actions\\aaddsegfault.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -34,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,7 +58,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "EvilCatHardReboot.cs",
+              "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\Cards\\EvilCatHardReboot.cs",
+              "RelativeDocumentMoniker": "Cards\\EvilCatHardReboot.cs",
+              "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\Cards\\EvilCatHardReboot.cs",
+              "RelativeToolTip": "Cards\\EvilCatHardReboot.cs",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAwwIMAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-03T01:15:27.185Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "AExhaustSelect.cs",
               "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\Actions\\AExhaustSelect.cs",
               "RelativeDocumentMoniker": "Actions\\AExhaustSelect.cs",
@@ -62,25 +79,24 @@
               "RelativeToolTip": "Actions\\AExhaustSelect.cs",
               "ViewState": "AgIAAEIAAAAAAAAAAAAowGUAAACEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-02T20:52:45.44Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-02T20:52:45.44Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AAddSegFault.cs",
               "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\Actions\\AAddSegFault.cs",
               "RelativeDocumentMoniker": "Actions\\AAddSegFault.cs",
               "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\Actions\\AAddSegFault.cs",
               "RelativeToolTip": "Actions\\AAddSegFault.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAA5wF0AAACBAAAAAAAAAA==",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAgwF0AAACBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-02T20:52:42.446Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "nickel.json",
               "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\nickel.json",
               "RelativeDocumentMoniker": "nickel.json",
@@ -88,25 +104,23 @@
               "RelativeToolTip": "nickel.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-08-02T20:37:57.029Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-02T20:37:57.029Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EvilCat",
+              "DocumentIndex": 4,
+              "Title": "EvilCat.csproj",
               "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\EvilCat.csproj",
               "RelativeDocumentMoniker": "EvilCat.csproj",
               "ToolTip": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\EvilCat.csproj",
               "RelativeToolTip": "EvilCat.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-08-02T20:37:45.323Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-02T20:37:45.323Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ModEntry.cs",
               "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\ModEntry.cs",
               "RelativeDocumentMoniker": "ModEntry.cs",
@@ -114,12 +128,11 @@
               "RelativeToolTip": "ModEntry.cs",
               "ViewState": "AgIAAFYAAAAAAAAAAAAhwFoAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-01T02:37:42.2Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-01T02:37:42.2Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "en.json",
               "DocumentMoniker": "C:\\Users\\conce\\Desktop\\Cobalt Core Mods\\Mine\\EvilCat\\i18n\\en.json",
               "RelativeDocumentMoniker": "i18n\\en.json",
@@ -127,8 +140,7 @@
               "RelativeToolTip": "i18n\\en.json",
               "ViewState": "AgIAABkAAAAAAAAAAAAowDQAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-08-01T01:50:39.713Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-01T01:50:39.713Z"
             }
           ]
         }

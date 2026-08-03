@@ -70,7 +70,7 @@ public class EvilCatHardReboot : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1,
+                        cost = 2,
                     };
                 }
             default:
@@ -95,8 +95,7 @@ public class EvilCatHardReboot : Card, IRegisterable
                     {
                         new AAttack
                         {
-                            damage = GetDmg(s, 0),
-                            piercing = true,
+                            damage = GetDmg(s, 1),
                             stunEnemy = true
                         },
                         new AOptionalExhaustSelect
@@ -115,9 +114,15 @@ public class EvilCatHardReboot : Card, IRegisterable
                             piercing = true,
                             stunEnemy = true
                         },
+                        new AAttack
+                        {
+                            damage = GetDmg(s, 1),
+                            piercing = true,
+                            stunEnemy = true
+                        },
                         new AOptionalExhaustSelect
                         {
-                            count = 2
+                            count = 1
                         },
                     };
                 }
@@ -127,13 +132,13 @@ public class EvilCatHardReboot : Card, IRegisterable
                     {
                         new AAttack
                         {
-                            damage = GetDmg(s, 0),
-                            piercing = true,
+                            damage = GetDmg(s, 1),
+                            piercing = false,
                             stunEnemy = true
                         },
-                        new AExhaustSelect
+                        new AOptionalExhaustSelect
                         {
-                            count = 1
+                            count = 3
                         },
                     };
                 }
