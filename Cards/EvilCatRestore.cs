@@ -75,6 +75,7 @@ public class EvilCatRestore : Card, IRegisterable, IHasCustomCardTraits
                     return new CardData
                     {
                         cost = 1,
+                        exhaust = true,
                         description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "EvilCatRestore", "descB"]))
                     };
                 }

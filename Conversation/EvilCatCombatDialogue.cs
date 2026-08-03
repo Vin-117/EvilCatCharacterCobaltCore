@@ -1,3 +1,4 @@
+using EvilCat.External;
 using FMOD;
 using Microsoft.Xna.Framework.Graphics;
 using Nanoray.PluginManager;
@@ -5,7 +6,7 @@ using Nickel;
 using System.Collections.Generic;
 using System.Linq;
 using static EvilCat.Conversation.CommonDefinitions;
-using EvilCat.External;
+using static OneOf.Types.TrueFalseOrNull;
 
 namespace EvilCat.Conversation;
 
@@ -17,6 +18,8 @@ internal class EvilCatCombatDialogue : IRegisterable
         {
 
             //Dialogue for player hitting a shot
+            //remember to use <c=ff96f3></c> to highlight text
+            //like the game does for void cat
             {
                 "EvilCat_Dialogue_ShotHitGeneric_0", new()
                 {
@@ -27,7 +30,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     minDamageDealtToEnemyThisAction = 1,
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "Shot hit.")
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Shot hit.</c>")
                     ]
                 }
             },
@@ -41,7 +44,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     minDamageDealtToEnemyThisAction = 1,
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "Hit connected.")
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Hit connected.</c>")
                     ]
                 }
             },
@@ -55,7 +58,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     minDamageDealtToEnemyThisAction = 1,
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "Permanent damage.")
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Got 'em!</c>")
                     ]
                 }
             },
@@ -69,7 +72,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     minDamageDealtToEnemyThisAction = 1,
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "Good.")
+                        new(AmEvilCat, "smug", "<c=ff96f3>Pretty good, right?</c>")
                     ]
                 }
             },
@@ -83,7 +86,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     minDamageDealtToEnemyThisAction = 1,
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "Damage confirmed.")
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Damage confirmed.</c>")
                     ]
                 }
             },
@@ -101,7 +104,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     minDamageDealtToEnemyThisAction = 1,
                     dialogue =
                     [
-                        new(AmEvilCat, "feral", "Got you.")
+                        new(AmEvilCat, "angry", "<c=ff96f3>Got you.</c>")
                     ]
                 }
             },
@@ -116,7 +119,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     minDamageDealtToEnemyThisAction = 1,
                     dialogue =
                     [
-                        new(AmEvilCat, "smug", "Just exploiting an opening.")
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Opening exploited.</c>")
                     ]
                 }
             },
@@ -131,7 +134,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     minDamageDealtToEnemyThisAction = 1,
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "Got them!")
+                        new(AmEvilCat, "smug", "<c=ff96f3>Not bad, huh?</c>")
                     ]
                 }
             },
@@ -146,7 +149,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     minDamageDealtToEnemyThisAction = 1,
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "This isn't so hard!")
+                        new(AmEvilCat, "neutral", "<c=ff96f3>This isn't so hard!</c>")
                     ]
                 }
             },
@@ -163,7 +166,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     minDamageDealtToEnemyThisAction = 3,
                     dialogue =
                     [
-                        new(AmEvilCat, "smug", "I'm pretty good, right?")
+                        new(AmEvilCat, "smug", "<c=ff96f3>Easy peasy.</c>")
                     ]
                 }
             },
@@ -178,7 +181,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     minDamageDealtToEnemyThisAction = 3,
                     dialogue =
                     [
-                        new(AmEvilCat, "feral", "That was satisfying.")
+                        new(AmEvilCat, "angry", "<c=ff96f3>That was satisfying.</c>")
                     ]
                 }
             },
@@ -193,7 +196,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     minDamageDealtToEnemyThisAction = 3,
                     dialogue =
                     [
-                        new(AmEvilCat, "feral", "Are you afraid yet?")
+                        new(AmEvilCat, "angry", "<c=ff96f3>Afraid of us yet?</c>")
                     ]
                 }
             },
@@ -209,7 +212,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmEvilCat, "squint", "They're going to dodge left.")
+                        new(AmEvilCat, "squint", "<c=ff96f3>They're going to dodge left.</c>")
                     ]
                 }
             },
@@ -223,7 +226,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmEvilCat, "squint", "This'll be tricky...")
+                        new(AmEvilCat, "squint", "<c=ff96f3>This'll be tricky...</c>")
                     ]
                 }
             },
@@ -237,7 +240,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmEvilCat, "angry", "Don't let them escape!")
+                        new(AmEvilCat, "angry", "<c=ff96f3>Don't let them escape!</c>")
                     ]
                 }
             },
@@ -251,7 +254,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmEvilCat, "squint", "They're going to dodge right.")
+                        new(AmEvilCat, "squint", "<c=ff96f3>They're going to dodge right.</c>")
                     ]
                 }
             },
@@ -265,7 +268,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmEvilCat, "squint", "This'll be tricky...")
+                        new(AmEvilCat, "squint", "<c=ff96f3>This'll be tricky.</c>")
                     ]
                 }
             },
@@ -279,7 +282,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmEvilCat, "angry", "Don't let them escape!")
+                        new(AmEvilCat, "angry", "<c=ff96f3>Don't let them escape!</c>")
                     ]
                 }
             },
@@ -296,7 +299,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "Shot missed.")
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Shot missed.</c>")
                     ]
                 }
             },
@@ -311,7 +314,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmEvilCat, "squint", "Why shoot empty space?")
+                        new(AmEvilCat, "squint", "<c=ff96f3>Why shoot empty space?</c>")
                     ]
                 }
             },
@@ -326,7 +329,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "Off target.")
+                        new(AmEvilCat, "neutral", "<c=ff96f3>That was off.</c>")
                     ]
                 }
             },
@@ -343,7 +346,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmEvilCat, "smug", "Totally calculated.")
+                        new(AmEvilCat, "smug", "<c=ff96f3>Totally calculated.</c>")
                     ]
                 }
             },
@@ -358,7 +361,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "Recalibrating!")
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Recalibrating!</c>")
                     ]
                 }
             },
@@ -370,11 +373,11 @@ internal class EvilCatCombatDialogue : IRegisterable
                     type = NodeType.combat,
                     oncePerCombatTags = ["EvilCatManyCardsPlayed"],
                     oncePerCombat = true,
-                    minCardsPlayedThisTurn = 6,
+                    minCardsPlayedThisTurn = 8,
                     allPresent = [ AmEvilCat ],
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "So much is happening!")
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Still keeping up?</c>")
                     ]
                 }
             },
@@ -384,11 +387,11 @@ internal class EvilCatCombatDialogue : IRegisterable
                     type = NodeType.combat,
                     oncePerCombatTags = ["EvilCatManyCardsPlayed"],
                     oncePerCombat = true,
-                    minCardsPlayedThisTurn = 6,
+                    minCardsPlayedThisTurn = 8,
                     allPresent = [ AmEvilCat ],
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "Is everyone keeping up with this?")
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Wow, we're strong.</c>")
                     ]
                 }
             },
@@ -398,11 +401,11 @@ internal class EvilCatCombatDialogue : IRegisterable
                     type = NodeType.combat,
                     oncePerCombatTags = ["EvilCatManyCardsPlayed"],
                     oncePerCombat = true,
-                    minCardsPlayedThisTurn = 6,
+                    minCardsPlayedThisTurn = 8,
                     allPresent = [ AmEvilCat ],
                     dialogue =
                     [
-                        new(AmEvilCat, "smug", "We're really good, aren't we?")
+                        new(AmEvilCat, "smug", "<c=ff96f3>We're good, aren't we?</c>")
                     ]
                 }
             },
@@ -417,7 +420,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     allPresent = [ AmEvilCat ],
                     dialogue =
                     [
-                        new(AmEvilCat, "squint", "This is useless, isn't it?")
+                        new(AmEvilCat, "squint", "<c=ff96f3>This is useless.</c>")
                     ]
                 }
             },
@@ -430,7 +433,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     allPresent = [ AmEvilCat ],
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "...I may have gone overboard with the trash.")
+                        new(AmEvilCat, "neutral", "<c=ff96f3>...This might be my fault.</c>")
                     ]
                 }
             },
@@ -446,7 +449,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     allPresent = [ AmEvilCat ],
                     dialogue =
                     [
-                        new(AmEvilCat, "squint", "Guess that's that.")
+                        new(AmEvilCat, "squint", "<c=ff96f3>Guess that's that.</c>")
                     ]
                 }
             },
@@ -460,7 +463,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     allPresent = [ AmEvilCat ],
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "Nothing left?")
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Nothing left?</c>")
                     ]
                 }
             },
@@ -478,7 +481,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "Armor deflection.")
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Armor deflection.</c>")
                     ]
                 }
             },
@@ -493,7 +496,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "Shot mitigated.")
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Shot mitigated.</c>")
                     ]
                 }
             },
@@ -508,7 +511,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmEvilCat, "smartass", "Yep. The armor is definitely our weakspot.")
+                        new(AmEvilCat, "smartass", "<c=ff96f3>Yep. Keep shooting our armor.</c>")
                     ]
                 }
             },
@@ -526,7 +529,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     oncePerCombatTags = [ "NoOverlapBetweenShips" ],
                     dialogue =
                     [
-                        new(AmEvilCat, "smug", "Can't hit us now!")
+                        new(AmEvilCat, "smug", "<c=ff96f3>Can't hit us now!</c>")
                     ]
                 }
             },
@@ -542,7 +545,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     oncePerCombatTags = [ "NoOverlapBetweenShips" ],
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "We've shaken them for now.")
+                        new(AmEvilCat, "neutral", "<c=ff96f3>We lost them...for now.</c>")
                     ]
                 }
             },
@@ -558,7 +561,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     oncePerCombatTags = [ "NoOverlapBetweenShips" ],
                     dialogue =
                     [
-                        new(AmEvilCat, "squint", "We aren't leaving, are we?")
+                        new(AmEvilCat, "squint", "<c=ff96f3>We aren't leaving, are we?</c>")
                     ]
                 }
             },
@@ -574,7 +577,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     oncePerCombatTags = [ "NoOverlapBetweenShips" ],
                     dialogue =
                     [
-                        new(AmEvilCat, "smug", "Outmaneuvered.")
+                        new(AmEvilCat, "smug", "<c=ff96f3>Outmanuevered.</c>")
                     ]
                 }
             },
@@ -590,7 +593,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     oncePerCombatTags = [ "NoOverlapBetweenShips" ],
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "Evasive manuevers successful.")
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Evasive manuevers successful.</c>")
                     ]
                 }
             },
@@ -608,7 +611,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     nonePresent = [ "crab" ],
                     dialogue =
                     [
-                        new(AmEvilCat, "squint", "That seeker is going to be a problem.")
+                        new(AmEvilCat, "squint", "<c=ff96f3>That seeker is a problem.</c>")
                     ]
                 }
             },
@@ -625,7 +628,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     nonePresent = [ "crab" ],
                     dialogue =
                     [
-                        new(AmEvilCat, "grumpy", "Can we do something about that seeker?")
+                        new(AmEvilCat, "grumpy", "<c=ff96f3>You didn't forget about the seeker, did you?</c>")
                     ]
                 }
             },
@@ -641,7 +644,39 @@ internal class EvilCatCombatDialogue : IRegisterable
                     doesNotHaveArtifacts = [ "ShieldPrep", "WarpMastery"],
                     dialogue =
                     [
-                        new(AmEvilCat, "grumpy", "Why did we leave Warp Prep behind?")
+                        new(AmEvilCat, "grumpy", "<c=ff96f3>Why did we leave Warp Prep behind?</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_WeGainedWarpMastery_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmEvilCat ],
+                    nonePresent = [ AmMax ],
+                    hasArtifacts = [ "WarpMastery" ],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "smug", "<c=ff96f3>Warp: mastered.</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_WeGainedWarpMasteryWITHMAX_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmEvilCat, AmMax ],
+                    hasArtifacts = [ "WarpMastery" ],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "smug", "<c=ff96f3>Warp: mastered.</c>"),
+                        new(AmMax, "blush", "Did you just copy me?")
                     ]
                 }
             },
@@ -657,7 +692,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     hasArtifacts = [ "Simplicity" ],
                     dialogue =
                     [
-                        new(AmEvilCat, "smartass", "Now we simply destroy them.")
+                        new(AmEvilCat, "smartass", "<c=ff96f3>Now we simply destroy them.</c>")
                     ]
                 }
             },
@@ -672,7 +707,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     maxTurnsThisCombat = 1,
                     dialogue =
                     [
-                        new(AmEvilCat, "feral", "Shall we find that brittle spot?")
+                        new(AmEvilCat, "angry", "<c=ff96f3>Shall we find that brittle spot?</c>")
                     ]
                 }
             },
@@ -689,7 +724,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     maxTurnsThisCombat = 1,
                     dialogue =
                     [
-                        new(AmEvilCat, "squint", "Why can't I control more than one side at a time?")
+                        new(AmEvilCat, "squint", "<c=ff96f3>Why can't I control more than one side at a time?</c>")
                     ]
                 }
             },
@@ -706,7 +741,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     dialogue =
                     [
                         new(AmCat, "Want to control the red side while I control the blue one?"),
-                        new(AmEvilCat, "neutral", "Great idea!")
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Great idea!</c>")
                     ]
                 }
             },
@@ -723,7 +758,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     maxTurnsThisCombat = 1,
                     dialogue =
                     [
-                        new(AmEvilCat, "smartass", "Why shoot with cannons when drones can do that for you?")
+                        new(AmEvilCat, "smartass", "<c=ff96f3>Why shoot with cannons when drones can do that for you?</c>")
                     ]
                 }
             },
@@ -739,7 +774,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     maxTurnsThisCombat = 1,
                     dialogue =
                     [
-                        new(AmEvilCat, "smartass", "Why shoot with cannons when drones can do that for you?"),
+                        new(AmEvilCat, "smartass", "<c=ff96f3>Why shoot with cannons when drones can do that for you?</c>"),
                         new(AmIsaac, "sly", "...and what if they did the shooting automatically?")
                     ]
                 }
@@ -756,7 +791,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     maxTurnsThisCombat = 1,
                     dialogue =
                     [
-                        new(AmEvilCat, "grumpy", "I hate not being able to properly control this ship.")
+                        new(AmEvilCat, "grumpy", "<c=ff96f3>I hate trying to control this ship.</c>")
                     ]
                 }
             },
@@ -772,7 +807,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     maxTurnsThisCombat = 1,
                     dialogue =
                     [
-                        new(AmEvilCat, "smug", "Full control over the cannons? Perfect.")
+                        new(AmEvilCat, "smug", "<c=ff96f3>Full control over the cannons? Perfect.</c>")
                     ]
                 }
             },
@@ -788,7 +823,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     maxTurnsThisCombat = 1,
                     dialogue =
                     [
-                        new(AmEvilCat, "feral", "Destroy their cockpit.")
+                        new(AmEvilCat, "angry", "<c=ff96f3>Destroy their cockpit!</c>")
                     ]
                 }
             },
@@ -804,7 +839,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     maxTurnsThisCombat = 1,
                     dialogue =
                     [
-                        new(AmEvilCat, "grumpy", "No cockpit?")
+                        new(AmEvilCat, "grumpy", "<c=ff96f3>No cockpit?</c>")
                     ]
                 }
             },
@@ -819,7 +854,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     hasArtifacts = [ "BrokenGlasses" ],
                     dialogue =
                     [
-                        new(AmEvilCat, "feral", "Cleo always put up a good fight.")
+                        new(AmEvilCat, "feral", "<c=ff96f3>Cleo always put up a good fight.</c>")
                     ]
                 }
             },
@@ -830,12 +865,30 @@ internal class EvilCatCombatDialogue : IRegisterable
                     allPresent = [ AmEvilCat ],
                     enemyShotJustHit = true,
                     hasArtifacts = [ "NanofiberHull" ],
+                    oncePerCombatTags = ["EvilCat_Nanofibers_Comment"],
                     oncePerRun = true,
                     minDamageDealtToPlayerThisTurn = 1,
                     maxDamageDealtToPlayerThisTurn = 1,
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "Glad we have nanofibers.")
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Good thing for the nanofibers.</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_TookBoostedHealableChip_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    enemyShotJustHit = true,
+                    hasArtifacts = [ "NanofiberHull", "HealBooster" ],
+                    oncePerCombatTags = ["EvilCat_Nanofibers_Comment"],
+                    oncePerRun = true,
+                    minDamageDealtToPlayerThisTurn = 2,
+                    maxDamageDealtToPlayerThisTurn = 6,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "smug", "<c=ff96f3>I can't hear you over these boosted nanofibers.</c>")
                     ]
                 }
             },
@@ -846,12 +899,13 @@ internal class EvilCatCombatDialogue : IRegisterable
                     allPresent = [ AmEvilCat ],
                     enemyShotJustHit = true,
                     hasArtifacts = [ "NanofiberHull" ],
+                    oncePerCombatTags = ["EvilCat_Nanofibers_Comment"],
                     oncePerRun = true,
-                    minDamageDealtToPlayerThisTurn = 2,
+                    minDamageDealtToPlayerThisTurn = 3,
                     maxDamageDealtToPlayerThisTurn = 10,
                     dialogue =
                     [
-                        new(AmEvilCat, "grumpy", "Nanofibers can't keep up with this!")
+                        new(AmEvilCat, "grumpy", "<c=ff96f3>Nanofibers aren't enough for this!</c>")
                     ]
                 }
             },
@@ -866,7 +920,51 @@ internal class EvilCatCombatDialogue : IRegisterable
                     hasArtifacts = [ "Crosslink" ],
                     dialogue =
                     [
-                        new(AmEvilCat, "smug", "Crosslink is a great excuse to keep shooting!")
+                        new(AmEvilCat, "smug", "<c=ff96f3>Crosslink is a great excuse to keep shooting!</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_WeGainedEnergyPrep_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmEvilCat ],
+                    hasArtifacts = [ "EnergyPrep" ],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Batteries active.</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_OverclockRunover_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmEvilCat ],
+                    lookup = [ "OverclockedGeneratorTrigger" ],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Auxiliary power active.</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_IonConverterActivated_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmEvilCat ],
+                    hasArtifacts = [ "IonConverter" ],
+                    oncePerRunTags = [ "IonConverterTag" ],
+                    lookup = [ "IonConverterTrigger" ],
+                    priority = true,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Ion converter active!</c>")
                     ]
                 }
             },

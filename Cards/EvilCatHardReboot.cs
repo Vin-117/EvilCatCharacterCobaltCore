@@ -98,7 +98,7 @@ public class EvilCatHardReboot : Card, IRegisterable
                             damage = GetDmg(s, 1),
                             stunEnemy = true
                         },
-                        new AOptionalExhaustSelect
+                        new AExhaustSelect
                         {
                             count = 1
                         },
@@ -110,17 +110,11 @@ public class EvilCatHardReboot : Card, IRegisterable
                     {
                         new AAttack
                         {
-                            damage = GetDmg(s, 1),
+                            damage = GetDmg(s, 2),
                             piercing = true,
                             stunEnemy = true
                         },
-                        new AAttack
-                        {
-                            damage = GetDmg(s, 1),
-                            piercing = true,
-                            stunEnemy = true
-                        },
-                        new AOptionalExhaustSelect
+                        new AExhaustSelect
                         {
                             count = 1
                         },
@@ -133,12 +127,11 @@ public class EvilCatHardReboot : Card, IRegisterable
                         new AAttack
                         {
                             damage = GetDmg(s, 1),
-                            piercing = false,
                             stunEnemy = true
                         },
                         new AOptionalExhaustSelect
                         {
-                            count = 3
+                            count = 2
                         },
                     };
                 }

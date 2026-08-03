@@ -28,7 +28,7 @@ internal class EvilCatEventDialogue : IRegisterable
                     dialogue =
                     [
                         new(AmShopkeeper, "Meowdy!", true),
-                        new(AmEvilCat, "feral", "I will destroy you."),
+                        new(AmEvilCat, "feral", "<c=ff96f3>I will destroy you.</c>"),
                         new(AmShopkeeper, "Ouch.", true),
                         new(new Jump{key = "NewShop"})
                     ]
@@ -43,7 +43,7 @@ internal class EvilCatEventDialogue : IRegisterable
                     allPresent = [ AmEvilCat ],
                     dialogue =
                     [
-                        new(AmEvilCat, "smartass", "I think you dropped that USB."),
+                        new(AmEvilCat, "smartass", "<c=ff96f3>I think you dropped that USB.</c>"),
                         new(AmShopkeeper, "I'm not falling for that.", true),
                         new(new Jump{key = "NewShop"})
                     ]
@@ -59,7 +59,7 @@ internal class EvilCatEventDialogue : IRegisterable
                     dialogue =
                     [
                         new(AmShopkeeper, "Love the new look.", true),
-                        new(AmEvilCat, "smug", "Thank you."),
+                        new(AmEvilCat, "smug", "<c=ff96f3>Thank you.</c>"),
                         new(new Jump{key = "NewShop"})
                     ]
                 }
@@ -73,12 +73,62 @@ internal class EvilCatEventDialogue : IRegisterable
                     allPresent = [ AmEvilCat ],
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "Greetings."),
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Greetings.</c>"),
                         new(AmShopkeeper, "Hi there.", true),
                         new(new Jump{key = "NewShop"})
                     ]
                 }
             },
+
+
+
+
+
+
+            //Dialogue for the ephermeral events
+            {
+                $"ChoiceCardRewardOfYourColorChoice_{AmEvilCat}", new()
+                {
+                    type = NodeType.@event,
+                    oncePerRun = true,
+                    allPresent = [ AmEvilCat ],
+                    bg = "BGBootSequence",
+                    dialogue =
+                    [
+                        new(AmVoid, "You returned.", flipped: true),
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Why wouldn't I?</c>")
+                    ]
+                }
+            },
+            {
+                "ForeignCardOffering_After", new()
+                {
+                    edit =
+                    [
+                        new(EMod.countFromStart, 1, AmEvilCat, "neutral", "<c=ff96f3>This timestream was even less stable than I remember.</c>")
+                    ]
+                }
+            },
+            {
+                "ForeignCardOffering_Refuse", new()
+                {
+                    edit =
+                    [
+                        new(EMod.countFromStart, 1, AmEvilCat, "neutral", "<c=ff96f3>I was already assisting them. Your offering is unneccessary.</c>")
+                    ]
+                }
+            },
+            {
+                "EphemeralCardGift", new()
+                {
+                    edit =
+                    [
+                        new(EMod.countFromStart, 1, AmEvilCat, "squint", "<c=ff96f3>In retrospect, your intrusion was rather rude.</c>")
+                    ]
+                }
+            },
+
+
 
             //Dialogue for picking EvilCat from the crystal pilot event
             {
@@ -91,7 +141,7 @@ internal class EvilCatEventDialogue : IRegisterable
                     dialogue =
                     [
                         new(new Wait{secs = 1.5}),
-                        new(AmEvilCat, "feral", "Thank you for giving me control.")
+                        new(AmEvilCat, "feral", "<c=ff96f3>Thank you for giving me control.</c>")
                     ]
                 }
             },
@@ -102,7 +152,7 @@ internal class EvilCatEventDialogue : IRegisterable
                 {
                     edit =
                     [
-                        new(EMod.countFromStart, 1, AmEvilCat, "neutral", "A void dip? I'm not in the mood today.")
+                        new(EMod.countFromStart, 1, AmEvilCat, "neutral", "<c=ff96f3>I'm not in the mood for a void dip today.</c>")
                     ]
                 }
             },
@@ -116,7 +166,7 @@ internal class EvilCatEventDialogue : IRegisterable
                     bg = "BGSupernova",
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "I'll jump in to grab that back later.")
+                        new(AmEvilCat, "neutral", "<c=ff96f3>I'll jump in to get that back later.</c>")
                     ]
                 }
             },
@@ -127,7 +177,7 @@ internal class EvilCatEventDialogue : IRegisterable
                 {
                     edit =
                     [
-                        new(EMod.countFromStart, 1, AmEvilCat, "neutral", "Greetings, Dracula.")
+                        new(EMod.countFromStart, 1, AmEvilCat, "neutral", "<c=ff96f3>Greetings, Dracula.</c>")
                     ]
                 }
             },
@@ -138,7 +188,7 @@ internal class EvilCatEventDialogue : IRegisterable
                 {
                     edit =
                     [
-                        new(EMod.countFromStart, 1, AmEvilCat, "angry", "Who wrote these subroutines?! No wonder the ship's running so bad!")
+                        new(EMod.countFromStart, 1, AmEvilCat, "angry", "<c=ff96f3>Who wrote these subroutines?! No wonder the ship's running so bad!</c>")
                     ]
                 }
             },
@@ -149,7 +199,7 @@ internal class EvilCatEventDialogue : IRegisterable
                 {
                     edit =
                     [
-                        new(EMod.countFromStart, 1, AmEvilCat, "neutral", "Just a bagel, please.")
+                        new(EMod.countFromStart, 1, AmEvilCat, "smug", "<c=ff96f3>Just a bagel, please.</c>")
                     ]
                 }
             },
@@ -160,7 +210,7 @@ internal class EvilCatEventDialogue : IRegisterable
                 {
                     edit =
                     [
-                        new(EMod.countFromStart, 1, AmEvilCat, "angry", "I will destroy you.")
+                        new(EMod.countFromStart, 1, AmEvilCat, "feral", "<c=ff96f3>I will destroy you.</c>")
                     ]
                 }
             },
@@ -169,7 +219,7 @@ internal class EvilCatEventDialogue : IRegisterable
                 {
                     edit =
                     [
-                        new(EMod.countFromStart, 1, AmEvilCat, "neutral", "You don't download viruses on purpose, do you?")
+                        new(EMod.countFromStart, 1, AmEvilCat, "squint", "<c=ff96f3>You didn't download those viruses on purpose, did you?</c>")
                     ]
                 }
             }
