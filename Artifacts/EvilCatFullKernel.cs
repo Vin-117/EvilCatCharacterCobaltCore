@@ -53,7 +53,7 @@ public class EvilCatFullKernel : Artifact, IRegisterable
 
         var kernelartifact = (EvilCatFullKernel)artifact;
 
-        if (kernelartifact.KernelExhaustCount == 1)
+        if (kernelartifact.KernelExhaustCount == 2)
         {
             __instance.Queue
                 (new AEnergy

@@ -202,7 +202,7 @@
         "EvilCatFullKernel":
         {
             "name": "CPU SIPHON",
-            "desc": "Every <c=keyword>2nd</c> time you exhaust a card, gain 1 <c=energy>ENERGY</c>."
+            "desc": "Every <c=keyword>3rd</c> time you exhaust a card, gain 1 <c=energy>ENERGY</c>."
         },
         "EvilCatBadMemory":
         {

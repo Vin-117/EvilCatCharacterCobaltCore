@@ -50,10 +50,11 @@ public class AAddSegFault : CardAction
         s.DebugSafeIdCheck();
         if (amount > 1)
         {
+            timer = 0.6;
             amount--;
             s.GetCurrentQueue().QueueImmediate(new AAddSegFault
             {
-                amount = amount
+                amount = amount,
             });
         }
     }

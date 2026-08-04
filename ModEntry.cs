@@ -113,7 +113,7 @@ internal class ModEntry : SimpleMod
         typeof(EvilCatFork),
         typeof(EvilCatAccessViolation),
         typeof(EvilCatHotReload),
-        typeof(EvilCatSoftwareDaemon),
+        typeof(EvilCatMemoryMismatch),
         typeof(EvilCatInfect),
         typeof(EvilCatSabotage),
         typeof(EvilCatInstability)
@@ -122,7 +122,7 @@ internal class ModEntry : SimpleMod
     [
         typeof(EvilCatTrojan),
         typeof(EvilCatMemoryProtection),
-        typeof(EvilCatMemoryMismatch),
+        typeof(EvilCatSoftwareDaemon),
         typeof(EvilCatDeallocate),
         typeof(EvilCatErase),
         typeof(EvilCatIfElse)

@@ -27,7 +27,7 @@ public class EvilCatMemoryMismatch : Card, IRegisterable
             Meta = new CardMeta
             {
                 deck = ModEntry.Instance.EvilCatDeck.Deck,
-                rarity = Rarity.rare,
+                rarity = Rarity.uncommon,
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
@@ -63,7 +63,7 @@ public class EvilCatMemoryMismatch : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 0,
+                        cost = 1,
                         exhaust = true
                     };
                 }
@@ -117,7 +117,7 @@ public class EvilCatMemoryMismatch : Card, IRegisterable
                         new AStatus
                         {
                             targetPlayer = true,
-                            statusAmount = 2,
+                            statusAmount = 3,
                             status = ModEntry.Instance.EvilCatGenericDrawStatus.Status
                         },
                         new AStatus

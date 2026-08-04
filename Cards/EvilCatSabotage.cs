@@ -57,24 +57,21 @@ public class EvilCatSabotage : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1,
-                        exhaust = false
+                        cost = 2
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 1,
-                        exhaust = false
+                        cost = 2
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 1,
-                        exhaust = true
+                        cost = 1
                     };
                 }
             default:
@@ -138,13 +135,13 @@ public class EvilCatSabotage : Card, IRegisterable
                     return new List<CardAction>
                     {
 
-                        new AOptionalExhaustSelect
+                        new AExhaustSelect
                         {
-                            count = 2
+                            count = 1
                         },
                         new AStatus
                         {
-                            statusAmount = 2,
+                            statusAmount = 1,
                             targetPlayer = false,
                             status = ModEntry.Instance.KokoroApi.DriveStatus.Underdrive
                         }

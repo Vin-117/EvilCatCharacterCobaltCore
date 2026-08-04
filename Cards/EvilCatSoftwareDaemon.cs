@@ -27,7 +27,7 @@ public class EvilCatSoftwareDaemon : Card, IRegisterable
             Meta = new CardMeta
             {
                 deck = ModEntry.Instance.EvilCatDeck.Deck,
-                rarity = Rarity.uncommon,
+                rarity = Rarity.rare,
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
