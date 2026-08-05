@@ -171,7 +171,8 @@ internal class ModEntry : SimpleMod
     private static List<Type> EvilCatDialogueTypes =
     [
         typeof(EvilCatCombatDialogue),
-        typeof(EvilCatEventDialogue)
+        typeof(EvilCatEventDialogue),
+        typeof(EvilCatStoryDialogue)
     ];
 
 
