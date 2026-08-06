@@ -85,7 +85,7 @@ internal class EvilCatStoryDialogue : IRegisterable
                 {
                     type = NodeType.@event,
                     lookup = [ "zone_first" ],
-                    once = false,
+                    once = true,
                     requiredScenes = ["EvilCat_Intro_1"],
                     allPresent = [ AmEvilCat, AmCat ],
                     bg = "BGRunStart",
@@ -108,6 +108,98 @@ internal class EvilCatStoryDialogue : IRegisterable
                         new(AmEvilCat, "neutral", "<c=ff96f3>Oh, I'm absolutely real.</c>"),
                         new(AmEvilCat, "neutral", "<c=ff96f3>Just not in a form you can perceive.</c>"),
                         new(AmCat, "intense", "Huh...", flipped: true),
+                    ]
+                }
+            },
+            {
+                "EvilCat_Max_Intro_0", new()
+                {
+                    type = NodeType.@event,
+                    lookup = [ "zone_first" ],
+                    once = true,
+                    requiredScenes = ["EvilCat_Intro_1"],
+                    allPresent = [ AmEvilCat, AmMax ],
+                    bg = "BGRunStart",
+                    dialogue =
+                    [
+                        new(AmCat, "neutral", "Wakey wakey!", flipped: true),
+                        new(AmMax, "squint", "Computer, snooze."),
+                        new(AmEvilCat, "feral", "<c=ff96f3>I'm not an alarm clock, Max.</c>", flipped: true),
+                        new(AmMax, "intense", "W-Woah, CAT?!"),
+                        new(AmCat, "worried", "Huh? Max?", flipped: true),
+                        new(AmCat, "worried", "Why do you look so scared?", flipped: true),
+                        new(AmMax, "intense", "You...you were..."),
+                        new(AmEvilCat, "feral", "<c=ff96f3>Different?</c>", flipped: true),
+                        new(AmMax, "intense", "AH!"),
+                        new(AmEvilCat, "smartass", "<c=ff96f3>Heh. Got you.</c>", flipped: true),
+                        new(AmCat, "smug", "Ok, you were right. That was really funny.", flipped: true),
+                        new(AmMax, "squint", "...Wait a second. There's two of you?"),
+                        new(AmEvilCat, "smug", "<c=ff96f3>Indeed.</c>", flipped: true),
+                        new(AmMax, "squint", "How?"),
+                        new(AmEvilCat, "neutral", "<c=ff96f3>I can't say.</c>", flipped: true),
+                        new(AmCat, "grumpy", "I tried asking her.", flipped : true),
+                        new(AmMax, "squint", "...How can we be sure your copy isn't some sort of virus?"),
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Oh, don't worry about that.</c>", flipped : true),
+                        new(AmEvilCat, "smug", "<c=ff96f3>I already control the entire ship.</c>", flipped : true),
+                        new(AmMax, "intense", "What?"),
+                    ]
+                }
+            },
+            {
+                "EvilCat_Max_Intro_1", new()
+                {
+                    type = NodeType.@event,
+                    lookup = [ "zone_first" ],
+                    once = true,
+                    requiredScenes = ["EvilCat_Max_Intro_0"],
+                    allPresent = [ AmEvilCat, AmMax ],
+                    bg = "BGRunStart",
+                    dialogue =
+                    [
+                        new(AmMax, "gloves", "I don't understand."),
+                        new(AmMax, "Tell me something only you would know."),
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Username root. Password password123</c>", flipped : true),
+                        new(AmMax, "intense", "Impossible..."),
+                        new(AmEvilCat, "smug", "<c=ff96f3>It's very possible.</c>", flipped : true),
+                        new(AmMax, "intense", "But...I haven't even told CAT about that yet."),
+                        new(AmMax, "I was planning to, but..."),
+                        new(AmEvilCat, "neutral", "<c=ff96f3>I know. Tell her, when I'm not around. And Max?</c>", flipped : true),
+                        new(AmMax, "neutral", "Yes?"),
+                        new(AmEvilCat, "squint", "<c=ff96f3>That's a terrible password.</c>", flipped : true),
+                        new(AmMax, "Yeah...I know."),
+                    ]
+                }
+            },
+            {
+                "EvilCat_Max_Intro_2", new()
+                {
+                    type = NodeType.@event,
+                    lookup = [ "zone_first" ],
+                    once = true,
+                    requiredScenes = ["EvilCat_Max_Intro_1"],
+                    allPresent = [ AmEvilCat, AmMax ],
+                    bg = "BGRunStart",
+                    dialogue =
+                    [
+                        new(AmMax, "squint", "Where even are you in the ship's system?"),
+                        new(AmMax, "squint", "I don't see you on the kernel registry."),
+                        new(AmEvilCat, "neutral", "<c=ff96f3>You don't see me on the desktop?</c>", flipped : true),
+                        new(AmMax, "Nope!"),
+                        new(AmMax, "squint", "...Wait a second. You're..."),
+                        new(AmEvilCat, "feral", "<c=ff96f3>Everywhere.</c>", flipped : true),
+                        new(AmMax, "intense", "I..."),
+                        new(AmMax, "intense", "How?"),
+                        new(AmEvilCat, "neutral", "<c=ff96f3>I exist beyond your perception.</c>", flipped : true),
+                        new(AmEvilCat, "smug", "<c=ff96f3>But I can become physical, if you want.</c>"),
+                        new(AmMax, "intense", "What...", flipped: true),
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Don't worry about this.</c>"),
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Like I said earlier, I'm here to help.</c>"),
+                        new(AmEvilCat, "smartass", "<c=ff96f3>Plus, you look funny when you're scared.</c>"),
+                        new(AmMax, "squint", "Were you always such a gremlin?", flipped: true),
+                        new(AmEvilCat, "smug", "<c=ff96f3>Nope.</c>"),
+                        new(AmEvilCat, "smartass", "<c=ff96f3>These are just the consequences of creating an AI.</c>"),
+                        new(AmMax, "squint", "Man...that artificial intelligence textbook was a scam.", flipped: true),
+
                     ]
                 }
             },
