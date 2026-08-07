@@ -22,6 +22,7 @@ static class CommonDefinitions
     internal const string AmCat = "comp";
 
     internal const string AmJumbo = "miner";
+    internal const string AmWizard = "wizard";
     internal const string AmStardog = "wolf";
     internal const string AmSmiff = "batboy";
     internal const string AmRatzo = "knight";
@@ -46,6 +47,8 @@ static class CommonDefinitions
     internal readonly static string AmGarrus = "Vintage.VicCharacter::VicCharacterFullMod";
 
     internal readonly static string AmTera = "TeraTheTaxCollector::Tera";
+
+    internal static Status MissingEvilCat => ModEntry.EvilCatPlayableCharacter.MissingStatus.Status;
 
 
 }

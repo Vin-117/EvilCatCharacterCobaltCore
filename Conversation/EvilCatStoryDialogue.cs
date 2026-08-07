@@ -80,6 +80,7 @@ internal class EvilCatStoryDialogue : IRegisterable
                     ]
                 }
             },
+
             {
                 "EvilCat_Cat_Intro_0", new()
                 {
@@ -156,7 +157,7 @@ internal class EvilCatStoryDialogue : IRegisterable
                     bg = "BGRunStart",
                     dialogue =
                     [
-                        new(AmMax, "gloves", "I don't understand."),
+                        new(AmMax, "I don't understand."),
                         new(AmMax, "Tell me something only you would know."),
                         new(AmEvilCat, "neutral", "<c=ff96f3>Username root. Password password123</c>", flipped : true),
                         new(AmMax, "intense", "Impossible..."),
@@ -181,7 +182,7 @@ internal class EvilCatStoryDialogue : IRegisterable
                     bg = "BGRunStart",
                     dialogue =
                     [
-                        new(AmMax, "squint", "Where even are you in the ship's system?"),
+                        new(AmMax, "neutral", "Where even are you in the ship's system?"),
                         new(AmMax, "squint", "I don't see you on the kernel registry."),
                         new(AmEvilCat, "neutral", "<c=ff96f3>You don't see me on the desktop?</c>", flipped : true),
                         new(AmMax, "Nope!"),
@@ -202,11 +203,7 @@ internal class EvilCatStoryDialogue : IRegisterable
 
                     ]
                 }
-            },
-
-
-
-
+            }
         });
     }
 }

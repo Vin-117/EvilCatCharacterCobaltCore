@@ -968,9 +968,357 @@ internal class EvilCatCombatDialogue : IRegisterable
                     ]
                 }
             },
+            {
+                "EvilCat_Dialogue_OverheatGeneric_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    goingToOverheat = true,
+                    oncePerCombatTags = ["OverheatGeneric"],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "worried", "<c=ff96f3>Ship emergency venting active!</c>")
+                    ]
+                }
+            },
+            {
+                "WeJustGainedHeatAndDrakeIsHere_Multi_0", new()
+                {
+                    edit =
+                    [
+                        new(EMod.countFromStart, 1, AmEvilCat, "grumpy", "<c=ff96f3>That heat is burning our CPUs.</c>"),
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_TookChipDMG_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    enemyShotJustHit = true,
+                    doesNotHaveArtifacts = [ "NanofiberHull" ],
+                    oncePerCombatTags = ["EvilCatYappedAboutDMG"],
+                    minDamageDealtToPlayerThisTurn = 1,
+                    maxDamageDealtToPlayerThisTurn = 2,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Minor hull breach detected.</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_TookChipDMG_1", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    enemyShotJustHit = true,
+                    doesNotHaveArtifacts = [ "NanofiberHull" ],
+                    oncePerCombatTags = ["EvilCatYappedAboutDMG"],
+                    minDamageDealtToPlayerThisTurn = 1,
+                    maxDamageDealtToPlayerThisTurn = 2,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Fixable damage, at least.</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_TookChipDMG_2", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    enemyShotJustHit = true,
+                    doesNotHaveArtifacts = [ "NanofiberHull" ],
+                    oncePerCombatTags = ["EvilCatYappedAboutDMG"],
+                    minDamageDealtToPlayerThisTurn = 1,
+                    maxDamageDealtToPlayerThisTurn = 2,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "neutral", "<c=ff96f3>No major damage.</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_TookMajorDMG_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    enemyShotJustHit = true,
+                    doesNotHaveArtifacts = [ "NanofiberHull" ],
+                    oncePerCombatTags = ["EvilCatYappedAboutDMG"],
+                    minDamageDealtToPlayerThisTurn = 3,
+                    maxDamageDealtToPlayerThisTurn = 5,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "worried", "<c=ff96f3>Major hull breach detected!</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_TookMajorDMG_1", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    enemyShotJustHit = true,
+                    doesNotHaveArtifacts = [ "NanofiberHull" ],
+                    oncePerCombatTags = ["EvilCatYappedAboutDMG"],
+                    minDamageDealtToPlayerThisTurn = 3,
+                    maxDamageDealtToPlayerThisTurn = 5,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "angry", "<c=ff96f3>I'll make them pay for that.</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_BooksMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["booksWentMissing"],
+                    lastTurnPlayerStatuses = [Status.missingBooks],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "worried", "<c=ff96f3>Books?</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_CatMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["CatWentMissing"],
+                    lastTurnPlayerStatuses = [Status.missingCat],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "smug", "<c=ff96f3>Don't worry - I'm still here.</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_DizzyMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["dizzyWentMissing"],
+                    lastTurnPlayerStatuses = [Status.missingDizzy],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "worried", "<c=ff96f3>Where did Dizzy go?</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_DrakeMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["drakeWentMissing"],
+                    lastTurnPlayerStatuses = [Status.missingDrake],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "squint", "<c=ff96f3>Drake isn't at her station.</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_GoatMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["issacWentMissing"],
+                    lastTurnPlayerStatuses = [Status.missingIsaac],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "worried", "<c=ff96f3>Isaac's vitals just vanished!</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_MaxMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["maxWentMissing"],
+                    lastTurnPlayerStatuses = [Status.missingMax],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "worried", "<c=ff96f3>...Max?!</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_PeriMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["periWentMissing"],
+                    lastTurnPlayerStatuses = [Status.missingPeri],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "worried", "<c=ff96f3>Where did our security officer go?</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_RiggsMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["riggsWentMissing"],
+                    lastTurnPlayerStatuses = [Status.missingRiggs],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "worried", "<c=ff96f3>Where is our pilot?</c>")
+                    ]
+                }
+            },
+            {
+                "Riggs_Dialogue_EvilCatMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmRiggs ],
+                    nonePresent = [ AmWizard ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["EvilCatWentMissing"],
+                    lastTurnPlayerStatuses = [MissingEvilCat],
+                    dialogue =
+                    [
+                        new(AmRiggs, "squint", "Is our computer supposed to do that?")
+                    ]
+                }
+            },
+            {
+                "Peri_Dialogue_EvilCatMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmPeri ],
+                    nonePresent = [ AmWizard ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["EvilCatWentMissing"],
+                    lastTurnPlayerStatuses = [MissingEvilCat],
+                    dialogue =
+                    [
+                        new(AmPeri, "squint", "CAT just uploaded herself to the other ship.")
+                    ]
+                }
+            },
+            {
+                "Dizzy_Dialogue_EvilCatMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmDizzy ],
+                    nonePresent = [ AmWizard ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["EvilCatWentMissing"],
+                    lastTurnPlayerStatuses = [MissingEvilCat],
+                    dialogue =
+                    [
+                        new(AmDizzy, "intense", "Rogue AIs are pretty scary, huh?")
+                    ]
+                }
+            },
+            {
+                "Isaac_Dialogue_EvilCatMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmIsaac ],
+                    nonePresent = [ AmWizard ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["EvilCatWentMissing"],
+                    lastTurnPlayerStatuses = [MissingEvilCat],
+                    dialogue =
+                    [
+                        new(AmIsaac, "shy", "...It's normal for her to do that, right?")
+                    ]
+                }
+            },
+            {
+                "Max_Dialogue_EvilCatMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmMax ],
+                    nonePresent = [ AmWizard ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["EvilCatWentMissing"],
+                    lastTurnPlayerStatuses = [MissingEvilCat],
+                    dialogue =
+                    [
+                        new(AmMax, "intense", "I did not program her to do that.")
+                    ]
+                }
+            },
+            {
+                "Books_Dialogue_EvilCatMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmBooks ],
+                    nonePresent = [ AmWizard ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["EvilCatWentMissing"],
+                    lastTurnPlayerStatuses = [MissingEvilCat],
+                    dialogue =
+                    [
+                        new(AmBooks, "plan", "Take em out while CAT distracts them!")
+                    ]
+                }
+            },
+            {
+                "Drake_Dialogue_EvilCatMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmDrake ],
+                    nonePresent = [ AmWizard ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["EvilCatWentMissing"],
+                    lastTurnPlayerStatuses = [MissingEvilCat],
+                    dialogue =
+                    [
+                        new(AmDrake, "...You know, taking control of their ship is pretty cool.")
+                    ]
+                }
+            },
+            {
+                "Cat_Dialogue_EvilCatMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmCat ],
+                    nonePresent = [ AmWizard ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["EvilCatWentMissing"],
+                    lastTurnPlayerStatuses = [MissingEvilCat],
+                    dialogue =
+                    [
+                        new(AmCat, "intense", "...I can do that?")
+                    ]
+                }
+            },
 
-            //ADD dialogue for:
-            //nanofibers
 
         });
     }

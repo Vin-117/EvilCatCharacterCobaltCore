@@ -499,6 +499,7 @@ internal class ModEntry : SimpleMod
         RegisterAnimation(package, "smartass", "assets/Animation/Smartass/EvilCat_Smartass", 4);
         RegisterAnimation(package, "grumpy", "assets/Animation/Grumpy/EvilCat_Grumpy", 4);
         RegisterAnimation(package, "furious", "assets/Animation/Furious/EvilCat_Furious", 4);
+        RegisterAnimation(package, "worried", "assets/Animation/Worried/EvilCat_Worried", 4);
 
 
 
