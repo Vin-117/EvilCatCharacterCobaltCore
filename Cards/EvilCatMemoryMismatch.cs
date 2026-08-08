@@ -106,8 +106,9 @@ public class EvilCatMemoryMismatch : Card, IRegisterable
                         {
                             targetPlayer = true,
                             statusAmount = 1,
-                            status = ModEntry.Instance.EvilCatMemoryMismatchStatus.Status
-                        }
+                            status = ModEntry.Instance.EvilCatMemoryMismatchStatus.Status,
+                            dialogueSelector = ".EvilCatBufferOverflowComment"
+                        },
                     };
                 }
             case Upgrade.A:
@@ -124,7 +125,8 @@ public class EvilCatMemoryMismatch : Card, IRegisterable
                         {
                             targetPlayer = true,
                             statusAmount = 1,
-                            status = ModEntry.Instance.EvilCatMemoryMismatchStatus.Status
+                            status = ModEntry.Instance.EvilCatMemoryMismatchStatus.Status,
+                            dialogueSelector = ".EvilCatBufferOverflowComment"
                         }
                     };
                 }
@@ -142,7 +144,8 @@ public class EvilCatMemoryMismatch : Card, IRegisterable
                         {
                             targetPlayer = true,
                             statusAmount = 1,
-                            status = ModEntry.Instance.EvilCatMemoryMismatchStatus.Status
+                            status = ModEntry.Instance.EvilCatMemoryMismatchStatus.Status,
+                            dialogueSelector = ".EvilCatBufferOverflowComment"
                         }
                     };
                 }

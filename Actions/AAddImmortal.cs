@@ -166,7 +166,7 @@ public class AAddImmortalAlt : CardAction
             {
                 return new ShowCardsStrFix
                 {
-                    messageKey = "Added <c=cardtrait>persistant</c>!",
+                    messageKey = "Added <c=cardtrait>persistent</c>!",
                     cardIds = new List<int> { card.uuid }
                 };
             }
@@ -176,6 +176,6 @@ public class AAddImmortalAlt : CardAction
 
     public override string? GetCardSelectText(State s)
     {
-        return "Select a card to gain <c=cardtrait>persistant</c>, forever";
+        return "Select a card to gain <c=cardtrait>persistent</c>, forever.";
     }
 }

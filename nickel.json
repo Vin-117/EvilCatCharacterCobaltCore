@@ -1,8 +1,8 @@
 {
   "UniqueName": "Vintage.EvilCat",
-  "Version": "0.9.9",
+  "Version": "1.0.0",
   "Author": "Vintage",
-  "Description": "A mod which adds Cat in her Void Form as a playable character to Cobalt Core.",
+  "Description": "A mod which adds Cat in her void form as a playable character to Cobalt Core.",
   "RequiredApiVersion": "1.5.7",
   "EntryPointAssembly": "EvilCat.dll",
   "LoadPhase": "AfterDbInit",
@@ -11,5 +11,8 @@
       "UniqueName": "Shockah.Kokoro",
       "Version": "1.12.1"
     }
-  ]
+  ],
+  "UpdateChecks": {
+		"NexusMods": { "ID": 90 }
+	}
 }

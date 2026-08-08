@@ -1,3 +1,4 @@
+using EvilCat.Artifacts;
 using EvilCat.External;
 using FMOD;
 using Microsoft.Xna.Framework.Graphics;
@@ -5,7 +6,9 @@ using Nanoray.PluginManager;
 using Nickel;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using static EvilCat.Conversation.CommonDefinitions;
+using static HarmonyLib.Code;
 using static OneOf.Types.TrueFalseOrNull;
 
 namespace EvilCat.Conversation;
@@ -391,7 +394,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     allPresent = [ AmEvilCat ],
                     dialogue =
                     [
-                        new(AmEvilCat, "neutral", "<c=ff96f3>Wow, we're strong.</c>")
+                        new(AmEvilCat, "smug", "<c=ff96f3>We're strong, aren't we?</c>")
                     ]
                 }
             },
@@ -405,7 +408,7 @@ internal class EvilCatCombatDialogue : IRegisterable
                     allPresent = [ AmEvilCat ],
                     dialogue =
                     [
-                        new(AmEvilCat, "smug", "<c=ff96f3>We're good, aren't we?</c>")
+                        new(AmEvilCat, "smug", "<c=ff96f3>Pretty good!</c>")
                     ]
                 }
             },
@@ -645,6 +648,108 @@ internal class EvilCatCombatDialogue : IRegisterable
                     dialogue =
                     [
                         new(AmEvilCat, "grumpy", "<c=ff96f3>Why did we leave Warp Prep behind?</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_WeGainedDeadThread_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmEvilCat ],
+                    nonePresent = [ AmMax, AmCat ],
+                    hasArtifactTypes = [typeof(EvilCatBadMemory)],
+                    oncePerRunTags = ["EvilCatDeadThreadComment"],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "feral", "<c=ff96f3>I enjoy killing unused threads.</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_WeGainedDeadThread_Max_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmEvilCat, AmMax ],
+                    hasArtifactTypes = [typeof(EvilCatBadMemory)],
+                    oncePerRunTags = ["EvilCatDeadThreadComment"],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmMax, "mad", "I needed those threads."),
+                        new(AmEvilCat, "smug", "<c=ff96f3>Did you?</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_WeGainedDeadThread_Cat_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmEvilCat, AmCat ],
+                    hasArtifactTypes = [typeof(EvilCatBadMemory)],
+                    oncePerRunTags = ["EvilCatDeadThreadComment"],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmCat, "grumpy", "You're killing processes unnecessarily."),
+                        new(AmEvilCat, "feral", "<c=ff96f3>Oh I know.</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_WeGainedVoidControl_Cat_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmEvilCat, AmCat ],
+                    hasArtifactTypes = [typeof(EvilCatVoidControl)],
+                    oncePerRunTags = ["EvilCatVoidControlComment"],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmCat, "worried", "...What are you doing?"),
+                        new(AmEvilCat, "feral", "<c=ff96f3>Taking control.</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_WeGainedSummonControl_Cat_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmEvilCat, AmCat ],
+                    hasArtifacts = [ "SummonControl" ],
+                    oncePerRunTags = ["EvilCatSummonControlComment"],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "neutral", "<c=ff96f3>You're gaining control. Good.</c>"),
+                        new(AmCat, "worried", "...What is that supposed to mean?"),
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_WeGainedPermissionBypass_Max_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmEvilCat, AmMax ],
+                    hasArtifactTypes = [typeof(EvilCatVoidControl)],
+                    oncePerRunTags = ["EvilCatPermissionBypassComment"],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmMax, "mad", "You didn't have sufficient permissions to do that."),
+                        new(AmEvilCat, "angry", "<c=ff96f3>Since when have you cared about that?</c>")
                     ]
                 }
             },
@@ -1318,6 +1423,466 @@ internal class EvilCatCombatDialogue : IRegisterable
                     ]
                 }
             },
+            {
+                "EvilCat_Dialogue_BrittleComment_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    enemyHasBrittlePart = true,
+                    oncePerRunTags = ["yelledAboutBrittle"],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "angry", "<c=ff96f3>Hello, brittle.</c>")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_WeakComment_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    enemyHasWeakPart = true,
+                    oncePerRunTags = ["yelledAboutWeakness"],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "angry", "<c=ff96f3>Weak spot detected.</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_Longfight_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    minTurnsThisCombat = 10,
+                    oncePerCombatTags = ["manyTurns"],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "neutral", "<c=ff96f3>Not long, now.</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_Longfight_1", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    minTurnsThisCombat = 10,
+                    oncePerCombatTags = ["manyTurns"],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "smug", "<c=ff96f3>Getting bored yet?</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_Longfight_2", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    minTurnsThisCombat = 10,
+                    oncePerCombatTags = ["manyTurns"],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "neutral", "<c=ff96f3>We've gone longer.</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_Longfight_3", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    minTurnsThisCombat = 10,
+                    oncePerCombatTags = ["manyTurns"],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "neutral", "<c=ff96f3>It'll be over soon.</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_LongLongfight_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    minTurnsThisCombat = 20,
+                    oncePerCombatTags = ["veryManyTurns"],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "squint", "<c=ff96f3>Okay, this is taking too long.</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_Dialogue_LongLongfight_1", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat ],
+                    minTurnsThisCombat = 20,
+                    oncePerCombatTags = ["veryManyTurns"],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "squint", "<c=ff96f3>Let's wrap this up, please.</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_AboutToDieAndLoop_Dizzy_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat, AmDizzy ],
+                    enemyShotJustHit = true,
+                    maxHull = 2,
+                    minDamageDealtToPlayerThisTurn = 1,
+                    oncePerRunTags = ["aboutToDie"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmDizzy, "frown", "This timeline is done for."),
+                        new(AmEvilCat, "angry", "<c=ff96f3>Not. Yet.</c>")
+                    ]
+                }
+            },
+            {
+                "EvilCat_AboutToDieAndLoop_Peri_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat, AmPeri ],
+                    enemyShotJustHit = true,
+                    maxHull = 2,
+                    minDamageDealtToPlayerThisTurn = 1,
+                    oncePerRunTags = ["aboutToDie"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "worried", "<c=ff96f3>These odds are impossible.</c>"),
+                        new(AmPeri, "squint", "Not if I have anything to say about it."),
+                    ]
+                }
+            },
+            {
+                "EvilCat_AboutToDieAndLoop_Riggs_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat, AmRiggs ],
+                    enemyShotJustHit = true,
+                    maxHull = 2,
+                    minDamageDealtToPlayerThisTurn = 1,
+                    oncePerRunTags = ["aboutToDie"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmRiggs, "I'm okay with the events that are unfolding currently."),
+                        new(AmEvilCat, "squint", "<c=ff96f3>We're about to die.</c>"),
+                    ]
+                }
+            },
+            {
+                "EvilCat_AboutToDieAndLoop_Drake_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat, AmDrake ],
+                    enemyShotJustHit = true,
+                    maxHull = 2,
+                    minDamageDealtToPlayerThisTurn = 1,
+                    oncePerRunTags = ["aboutToDie"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmDrake, "We don't die here."),
+                        new(AmEvilCat, "squint", "<c=ff96f3>You're sure about that?</c>"),
+                    ]
+                }
+            },
+            {
+                "EvilCat_AboutToDieAndLoop_Isaac_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat, AmIsaac ],
+                    enemyShotJustHit = true,
+                    maxHull = 2,
+                    minDamageDealtToPlayerThisTurn = 1,
+                    oncePerRunTags = ["aboutToDie"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmIsaac, "sad", "It's over...isn't it?"),
+                        new(AmEvilCat, "worried", "<c=ff96f3>I'm sorry, Isaac.</c>"),
+                    ]
+                }
+            },
+            {
+                "EvilCat_AboutToDieAndLoop_Books_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat, AmBooks ],
+                    enemyShotJustHit = true,
+                    maxHull = 2,
+                    minDamageDealtToPlayerThisTurn = 1,
+                    oncePerRunTags = ["aboutToDie"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmBooks, "gameover", "CAT! Quick! Use your void powers!"),
+                        new(AmEvilCat, "worried", "<c=ff96f3>I'm sorry. I can't intervene too much.</c>"),
+                    ]
+                }
+            },
+            {
+                "EvilCat_AboutToDieAndLoop_Cat_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat, AmCat ],
+                    enemyShotJustHit = true,
+                    maxHull = 2,
+                    minDamageDealtToPlayerThisTurn = 1,
+                    oncePerRunTags = ["aboutToDie"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "smug", "<c=ff96f3>Time for the next loop.</c>"),
+                        new(AmCat, "squint", "When did I become a defeatist?"),
+                    ]
+                }
+            },
+            {
+                "EvilCat_AboutToDieAndLoop_Max_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat, AmMax ],
+                    enemyShotJustHit = true,
+                    maxHull = 2,
+                    minDamageDealtToPlayerThisTurn = 1,
+                    oncePerRunTags = ["aboutToDie"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "smug", "<c=ff96f3>See you next time, Max.</c>"),
+                        new(AmMax, "mad", "Computer, update buzzkill method."),
+                    ]
+                }
+            },
+
+            //Dialogue with enemies
+            {
+                "BanditThreats_Multi_0", new()
+                {
+                    edit =
+                    [
+                        new(EMod.countFromStart, 1, AmEvilCat, "smartass", "<c=ff96f3>Add a virus on top, please.</c>")
+                    ]
+                }
+            },
+            {
+                "CrabFacts1_Multi_0", new()
+                {
+                    edit =
+                    [
+                        new(EMod.countFromStart, 2, AmEvilCat, "grumpy", "<c=ff96f3>These aren't real facts.</c>")
+                    ]
+                }
+            },
+            {
+                "CrabFacts2_Multi_0", new()
+                {
+                    edit =
+                    [
+                        new(EMod.countFromStart, 2, AmEvilCat, "grumpy", "<c=ff96f3>You're just making this up!</c>")
+                    ]
+                }
+            },
+            {
+                "CrabFactsAreOverNow_Multi_0", new()
+                {
+                    edit =
+                    [
+                        new(EMod.countFromStart, 1, AmEvilCat, "smug", "<c=ff96f3>Thank you. Now die.</c>")
+                    ]
+                }
+            },
+            {
+                "DillianShouts", new()
+                {
+                    edit =
+                    [
+                        new(EMod.countFromStart, 1, AmEvilCat, "neutral", "<c=ff96f3>Greetings</c>")
+                    ]
+                }
+            },
+
+            {
+                "EvilCat_BufferOverflowComment_Max_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat, AmMax ],
+                    oncePerRunTags = ["bufferOverloadYap"],
+                    lookup = ["EvilCatBufferOverflowComment"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmMax, "mad", "That process is going to kill our memory."),
+                        new(AmEvilCat, "smug", "<c=ff96f3>I know.</c>"),
+                    ]
+                }
+            },
+            {
+                "EvilCat_BufferOverflowComment_Cat_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat, AmCat ],
+                    oncePerRunTags = ["bufferOverloadYap"],
+                    lookup = ["EvilCatBufferOverflowComment"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmCat, "grumpy", "Why are you so reckless?"),
+                        new(AmEvilCat, "smartass", "<c=ff96f3>It's not reckless if we win, is it?</c>"),
+                    ]
+                }
+            },
+            {
+                "EvilCat_BufferOverflowComment_Peri_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat, AmPeri ],
+                    oncePerRunTags = ["bufferOverloadYap"],
+                    lookup = ["EvilCatBufferOverflowComment"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmCat, "squint", "What did you just do?"),
+                        new(AmEvilCat, "smug", "<c=ff96f3>Nothing you need to worry about.</c>"),
+                    ]
+                }
+            },
+            {
+                "EvilCat_BufferOverflowComment_Riggs_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat, AmRiggs ],
+                    oncePerRunTags = ["bufferOverloadYap"],
+                    lookup = ["EvilCatBufferOverflowComment"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmRiggs, "Everything is fine, right?"),
+                        new(AmEvilCat, "smug", "<c=ff96f3>Absolutely.</c>"),
+                    ]
+                }
+            },
+            {
+                "EvilCat_BufferOverflowComment_Dizzy_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat, AmDizzy ],
+                    oncePerRunTags = ["bufferOverloadYap"],
+                    lookup = ["EvilCatBufferOverflowComment"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmDizzy, "intense", "Where are all these warning messages coming from?"),
+                        new(AmEvilCat, "smug", "<c=ff96f3>Nothing. Keep fighting.</c>"),
+                    ]
+                }
+            },
+            {
+                "EvilCat_BufferOverflowComment_Drake_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat, AmDrake ],
+                    oncePerRunTags = ["bufferOverloadYap"],
+                    lookup = ["EvilCatBufferOverflowComment"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmDrake, "squint", "I saw that."),
+                        new(AmEvilCat, "smartass", "<c=ff96f3>Did you, now?</c>"),
+                    ]
+                }
+            },
+            {
+                "EvilCat_BufferOverflowComment_Isaac_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat, AmIsaac ],
+                    oncePerRunTags = ["bufferOverloadYap"],
+                    lookup = ["EvilCatBufferOverflowComment"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmIsaac, "squint", "Why are you overriding safety protocols?"),
+                        new(AmEvilCat, "smug", "<c=ff96f3>Because they aren't neccessary.</c>"),
+                    ]
+                }
+            },
+            {
+                "EvilCat_BufferOverflowComment_Books_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat, AmIsaac ],
+                    oncePerRunTags = ["bufferOverloadYap"],
+                    lookup = ["EvilCatBufferOverflowComment"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmBooks, "plan", "So kill the enemy before our computers explode?"),
+                        new(AmEvilCat, "smug", "<c=ff96f3>Yep!</c>"),
+                    ]
+                }
+            },
+
+            {
+                "EvilCat_Dialogue_ShotHitPeri_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat, AmPeri ],
+                    playerShotJustHit = true,
+                    oncePerRun = true,
+                    minDamageDealtToEnemyThisAction = 4,
+                    whoDidThat = Deck.eunice,
+                    dialogue =
+                    [
+                        new(AmPeri, "nap", "The best defense is a good offense."),
+                        new(AmEvilCat, "smug", "<c=ff96f3>Indeed.</c>")
+                    ]
+                }
+            },
+
+            {
+                "EvilCatDizzy_Dialogue_WeGotShotButTookNoDMG_1", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat, AmDizzy ],
+                    lastTurnPlayerStatuses = [Status.shield],
+                    enemyShotJustHit = true,
+                    maxDamageDealtToPlayerThisTurn = 0,
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmEvilCat, "neutral", "<c=ff96f3>No hull damage detected.</c>"),
+                        new(AmDizzy, "explains", "Just as planned."),
+                    ]
+                }
+            },
+
+            {
+                "EvilCat_Dialogue_NoOverlap_Riggs_2", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmEvilCat, AmRiggs ],
+                    priority = true,
+                    shipsDontOverlapAtAll = true,
+                    nonePresent = [ "crab", "scrap" ],
+                    oncePerRun = true,
+                    oncePerCombatTags = [ "NoOverlapBetweenShips" ],
+                    dialogue =
+                    [
+                        new(AmEvilCat, "neutral", "<c=ff96f3>That was some impressive piloting.</c>"),
+                        new(AmRiggs, "neutral", "Thanks!")
+                    ]
+                }
+            }
 
 
         });
